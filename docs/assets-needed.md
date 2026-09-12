@@ -16,13 +16,15 @@ union and `images` is a `Record<SlotId, string | null>`, so a missing key is a b
 the `/models-in-the-wild/` Pages base path, and a file in `public/` would keep a root-absolute URL
 and 404 on the deployed site.
 
-Naming convention is `<slot-id>.png`. Nothing enforces it; it just makes the registry readable.
-`.webp`, `.jpg`, `.avif` and `.svg` all work through the same pipeline.
+Naming convention is `<slot-id>.<ext>`. Nothing enforces it; it just makes the registry readable.
+`.webp`, `.png`, `.jpg`, `.avif` and `.svg` all work through the same pipeline. The nine in the
+repo are `.webp` — see *Why these are WebP* below — so a replacement dropped in as `.png` needs the
+extension changed in the `images.ts` import too, or it will not be picked up.
 
 Dropping the file in is **not** sufficient. Each image needs two lines in `images.ts`:
 
 ```ts
-import atlasOverview from "../assets/images/atlas-overview.png";
+import atlasOverview from "../assets/images/atlas-overview.webp";
 // ...
   "atlas-overview": atlasOverview,
 ```
@@ -49,26 +51,41 @@ Measured in the browser at a 1920x1080 viewport, comparing each file's natural r
 box the layout gives it. `cover` crops the difference; the column says how much and off which
 edge. Nothing here is broken — it is the list to work from if a slot is ever re-shot.
 
-| Slot | Supplied | Ratio | Slot ratio | Cropped |
+| Slot | In the repo | Ratio | Slot ratio | Cropped |
 | --- | --- | --- | --- | --- |
-| `art-family-docs` | 3160 x 1874 | 1.69 | 1.43 | 15% off the sides |
-| `art-cv-atlas` | 2998 x 1958 | 1.53 | 1.43 | 7% off the sides |
-| `art-radar` | 3160 x 1872 | 1.69 | 1.43 | 15% off the sides |
-| `art-deutsch` | 2420 x 1670 | 1.45 | 1.43 | 1% — effectively exact |
-| `art-scorequant` | 3248 x 1960 | 1.66 | 1.43 | 14% off the sides |
-| `atlas-overview` | 2390 x 1960 | 1.22 | 0.88 | **27% off the sides** |
-| `atlas-narrative` | 2390 x 1960 | 1.22 | 1.04 | 15% off the sides |
-| `radar-digest` | 1850 x 1960 | 0.94 | 1.04 | 9% off top and bottom |
-| `deutsch-app` | 2090 x 1758 | 1.19 | 1.04 | 12% off the sides |
+| `art-family-docs` | 1000 x 594 | 1.69 | 1.43 | 15% off the sides |
+| `art-cv-atlas` | 1000 x 654 | 1.53 | 1.43 | 7% off the sides |
+| `art-radar` | 1000 x 593 | 1.69 | 1.43 | 15% off the sides |
+| `art-deutsch` | 1000 x 691 | 1.45 | 1.43 | 1% — effectively exact |
+| `art-scorequant` | 1000 x 604 | 1.66 | 1.43 | 14% off the sides |
+| `atlas-overview` | 1900 x 1559 | 1.22 | 0.88 | **27% off the sides** |
+| `atlas-narrative` | 1900 x 1559 | 1.22 | 1.04 | 15% off the sides |
+| `radar-digest` | 1794 x 1900 | 0.94 | 1.04 | 9% off top and bottom |
+| `deutsch-app` | 1900 x 1599 | 1.19 | 1.04 | 12% off the sides |
 
 `atlas-overview` is the one that costs something: slide 12's right half is portrait, the shot is
 landscape, and the quarter that goes is the right-hand detail panel, which gets cut mid-sentence.
 A re-shoot in a tall window, or switching that slot to a portrait region of the same page, is the
 fix.
 
-Every file is also 2-3x larger than it renders — the montage cards display at 315 x 220 canvas
-pixels off 3000-pixel originals — which is why `dist/` is 13 MB. Downscaling to roughly 2x the
-rendered size would cut that to about 2 MB with no visible difference.
+### Why these are WebP
+
+The originals were 2-3x larger than anything renders them — the montage cards display at 315 x 220
+canvas pixels and arrived as 3000-pixel captures — and `dist/` came to 13 MB, which is a slow
+first paint on conference wifi. They are stored downscaled to roughly 2x their rendered size and
+encoded as **lossless** WebP: 2.3 MB for all nine against 12 MB of PNG, with the pixels
+bit-identical at that size. Lossy would have been smaller again and was not worth the risk of
+artefacts on small text in a deck whose argument is that the screenshots are legible evidence.
+
+The full-resolution PNG originals are in git, in commit `3619e83`, if a slot ever needs re-cropping
+rather than re-shooting.
+
+To add another, or redo one of these:
+
+```bash
+# landscape; use -resize 0 1900 for a portrait shot, and 1000 for a slide-2 montage card
+cwebp -lossless -z 9 -resize 1900 0 shot.png -o deck/src/assets/images/<slot-id>.webp
+```
 
 ### Aspect ratio matters more than resolution
 

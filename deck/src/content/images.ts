@@ -19,15 +19,15 @@
  * as a tree instead.
  */
 
-import artCvAtlas from "../assets/images/art-cv-atlas.png";
-import artDeutsch from "../assets/images/art-deutsch.png";
-import artFamilyDocs from "../assets/images/art-family-docs.png";
-import artRadar from "../assets/images/art-radar.png";
-import artScorequant from "../assets/images/art-scorequant.png";
-import atlasNarrative from "../assets/images/atlas-narrative.png";
-import atlasOverview from "../assets/images/atlas-overview.png";
-import deutschApp from "../assets/images/deutsch-app.png";
-import radarDigest from "../assets/images/radar-digest.png";
+import artCvAtlas from "../assets/images/art-cv-atlas.webp";
+import artDeutsch from "../assets/images/art-deutsch.webp";
+import artFamilyDocs from "../assets/images/art-family-docs.webp";
+import artRadar from "../assets/images/art-radar.webp";
+import artScorequant from "../assets/images/art-scorequant.webp";
+import atlasNarrative from "../assets/images/atlas-narrative.webp";
+import atlasOverview from "../assets/images/atlas-overview.webp";
+import deutschApp from "../assets/images/deutsch-app.webp";
+import radarDigest from "../assets/images/radar-digest.webp";
 
 export type SlotId =
   | "art-cv-atlas"
