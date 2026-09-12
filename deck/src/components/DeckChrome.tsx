@@ -95,7 +95,8 @@ export default function DeckChrome({ deck }: { deck: RevealApi | null }) {
             {label}
           </button>
           <span className="chrome__count">
-            {index + 1} / {total}
+            <span className="chrome__num">{index + 1}</span>
+            <span className="chrome__total">/ {total}</span>
           </span>
         </div>
       </div>

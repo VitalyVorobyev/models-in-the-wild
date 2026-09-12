@@ -71,9 +71,12 @@
  * Reveal sizes its own progress bar.
  */
 :root {
-  --chrome-h: clamp(28px, 3.2vmin, 44px);
+  --chrome-h: clamp(34px, 4vmin, 56px);
   --chrome-rail: clamp(2px, 0.4vmin, 5px);
   --chrome-text: clamp(10px, 1.25vmin, 16px);
+  /* The slide number is read by the audience from the back of the room, to ask
+     "can you go back to 14?". It is deliberately ~2x the rest of the chrome. */
+  --chrome-num: clamp(20px, 2.6vmin, 34px);
   --chrome-gap: clamp(12px, 2vmin, 32px);
   --map-text: clamp(12px, 1.6vmin, 22px);
   --map-dot: clamp(7px, 0.9vmin, 12px);

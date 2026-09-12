@@ -714,7 +714,25 @@
 }
 
 .chrome__count {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45em;
   font-variant-numeric: tabular-nums;
+}
+
+/* The one thing in the chrome the audience has to read, not the presenter:
+   it is how someone says "go back to 14" during questions. Hence the size, the
+   weight, and full ink rather than the muted colour of the rest of the bar. */
+.chrome__num {
+  font-size: var(--chrome-num);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.chrome__total {
+  opacity: 0.75;
 }
 
 /* The chrome sits over three different slide surfaces and has to read on all
@@ -735,6 +753,10 @@
   color: var(--dark-fg);
 }
 
+.chrome--dark .chrome__num {
+  color: var(--dark-fg);
+}
+
 .chrome--accent .chrome__rail {
   background: color-mix(in srgb, var(--accent-fg) 25%, transparent);
 }
@@ -748,6 +770,10 @@
 }
 
 .chrome--accent .chrome__section:hover {
+  color: var(--accent-fg);
+}
+
+.chrome--accent .chrome__num {
   color: var(--accent-fg);
 }
 
