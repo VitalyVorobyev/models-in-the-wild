@@ -1,8 +1,10 @@
 /*
  * Vitavision — "The Technical Journal"
  *
- * Type/spacing scale is transcribed verbatim from the design handoff
- * (design_handoff_frontier_models_deck/Frontier Models in the Wild.dc.html).
+ * Type/spacing scale is transcribed verbatim from the design handoff, which lived
+ * at design_handoff_frontier_models_deck/ until it was removed as superseded. It is
+ * still in history:
+ *   git show f4e1d0d:'design_handoff_frontier_models_deck/README.md'
  * The font stacks come from the design system itself, vitavision/src/index.css,
  * not from a guess — the handoff referenced them but shipped no definitions.
  */

@@ -44,6 +44,7 @@ via `.github/workflows/deploy.yml`.
 
 ## Design reference
 
-`design_handoff_frontier_models_deck/` holds the Claude Design export the current deck was
-built from. It is a reference, not source: keep it for comparison, do not edit it, and never
-open its three generated `.js` files.
+The deck was ported from a Claude Design export that lived at
+`design_handoff_frontier_models_deck/`. It was removed once the deck outgrew it; recover it
+from history with `git show f4e1d0d --stat` if a value ever needs checking. The live contract
+is `deck/src/styles/tokens.css` for the scale and palette, `components.css` for the layouts.

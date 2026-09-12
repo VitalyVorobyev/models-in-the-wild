@@ -149,14 +149,15 @@ The base path is applied by `build:pages`, not by `vite.config.ts`, so local `de
 
 ## The design handoff
 
-`design_handoff_frontier_models_deck/` is the Claude Design export the current deck was built
-from. It is a **reference**, not source, and it is superseded by the working deck:
+The deck was ported from a Claude Design export that lived at
+`design_handoff_frontier_models_deck/`. It was **removed** once the deck superseded it — v0.3
+is 31 slides against its 22, on a different project order, with components and navigation it
+never had. It stays in history: `git show f4e1d0d --stat` lists it, and
+`git show f4e1d0d:'design_handoff_frontier_models_deck/README.md'` is its token and layout spec.
 
-- Do not edit it, and never read `deck-stage.js` (136 KB), `support.js` (69 KB) or
-  `image-slot.js` (65 KB) — generated preview runtime, not code.
-- Its `.dc.html` references a `_ds/vitavision-*` bundle that is not in the repo, so the logo and
-  the font families do not resolve when previewing it in a browser. That is expected; the deck
-  itself has them. The authoritative font and colour values live in
-  `/Users/vitalyvorobyev/vitavision/src/index.css`, which is a separate project — copy values
-  from it, never depend on it.
+- `deck/src/styles/tokens.css` is now the only contract for the type scale, spacing and
+  palette. The export's numbers were transcribed into it verbatim; do not reintroduce a second
+  copy of them.
+- The authoritative font and colour values live in `/Users/vitalyvorobyev/vitavision/src/index.css`,
+  which is a separate project — copy values from it, never depend on it.
 - `VitavisionLogo.tsx` is ported from that same design system, minus its framer-motion animation.
