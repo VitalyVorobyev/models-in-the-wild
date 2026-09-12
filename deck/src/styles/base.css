@@ -1,0 +1,84 @@
+/*
+ * Reveal.js integration.
+ *
+ * The handoff's runtime absolutely positioned every <section> onto a fixed
+ * 1920x1080 canvas, so none of the sections declare their own size. Reveal has
+ * to supply that here, or every `space-between` / `flex: 1` / `align-items:
+ * stretch` layout in the deck collapses to content height.
+ */
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: var(--dark);
+}
+
+/* Reveal sizes its canvas from the offsetHeight of its container, so every
+   ancestor needs a real height — #root included, or the deck renders at
+   Reveal's 0.2 minimum scale. */
+#root,
+.reveal {
+  width: 100%;
+  height: 100%;
+}
+
+/* Slides own their padding and background; Reveal must not add its own. */
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal .slides section {
+  height: 100%;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal p,
+.reveal pre {
+  margin: 0;
+}
+
+/* Reveal's themes uppercase headings; the deck never wants that. Scoped to
+   headings only — widening this to `p` would silently beat the uppercase mono
+   labels that the kickers and table headers rely on. */
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  text-transform: none;
+}
+
+/* The handoff runtime injected these; some headings depend on the balance. */
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  text-wrap: balance;
+}
+
+.reveal p,
+.reveal li,
+.reveal blockquote,
+.reveal figcaption {
+  text-wrap: pretty;
+}
+
+.reveal a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.reveal a:hover {
+  color: var(--ink);
+}
+
+/* Reveal's progress bar and controls, toned down to the paper palette. */
+.reveal .progress {
+  color: var(--accent);
+  height: 4px;
+}
+
+.reveal .controls {
+  color: var(--muted);
+}

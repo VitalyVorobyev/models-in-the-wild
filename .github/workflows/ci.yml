@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    working-directory: deck
+
+jobs:
+  deck:
+    name: deck-${{ matrix.cmd.name }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        cmd:
+          - { name: "lint", run: "bun run lint" }
+          - { name: "typecheck", run: "bun run typecheck" }
+          - { name: "build", run: "bun run build" }
+    steps:
+      - uses: actions/checkout@v7
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+      - name: ${{ matrix.cmd.name }}
+        run: ${{ matrix.cmd.run }}
