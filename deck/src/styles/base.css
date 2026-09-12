@@ -83,9 +83,13 @@ body.reveal-viewport {
 
 /* Reveal's own progress bar is switched off in App.tsx; DeckChrome draws the
    rail. The controls stay, lifted clear of the chrome bar. */
+/* Reveal appends .controls inside .reveal, which spans the viewport, so they
+   have to be pushed in by the letterbox as well or they land on top of the
+   chrome bar the moment the window stops being 16:9. */
 .reveal .controls {
   color: var(--muted);
-  bottom: calc(var(--chrome-h) + 8px);
+  right: calc(var(--canvas-right) + var(--chrome-gap));
+  bottom: calc(var(--canvas-bottom) + var(--chrome-h) + var(--chrome-rail) + 8px);
 }
 
 /*

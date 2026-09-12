@@ -137,6 +137,12 @@ Load-bearing details, each of which broke the deck during the port:
   would mean hand-syncing colour literals out of `tokens.css`.
 - **`body.reveal-viewport` must be repainted.** Reveal's own `background-color: #fff` on it
   outranks `html, body`, and the white shows in overview mode and in letterboxed windows.
+- **Chrome follows the canvas, not the viewport.** Any window that is not exactly 16:9 letterboxes
+  the canvas, and anything pinned to the viewport edge lands on the dark backdrop instead of the
+  slide — where the paper theme's near-black ink is invisible. `DeckChrome` publishes the canvas
+  rect as `--canvas-left/-right/-bottom` on every Reveal `resize`; `.chrome` and Reveal's own
+  `.controls` are both positioned from those. Test any new chrome at a non-16:9 window, because at
+  1920x1080 the canvas fills the screen and the bug cannot appear.
 
 Adding an image is a one-line edit in `content/images.ts`; slides already reference the slots by
 id and render a dashed placeholder until a file appears. Put art in `src/assets/images/` rather

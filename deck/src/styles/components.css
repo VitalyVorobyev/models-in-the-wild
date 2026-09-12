@@ -652,9 +652,13 @@
  */
 .chrome {
   position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  /* Pinned to the canvas, not the viewport: the bar is themed from the active
+     slide, so it has to sit on that slide. In any window that is not 16:9 the
+     canvas is letterboxed and the viewport bottom is the dark backdrop, where
+     the paper theme's ink is invisible. */
+  right: var(--canvas-right);
+  bottom: var(--canvas-bottom);
+  left: var(--canvas-left);
   z-index: 40;
   display: flex;
   flex-direction: column;

@@ -78,6 +78,11 @@
      "can you go back to 14?". It is deliberately ~2x the rest of the chrome. */
   --chrome-num: clamp(20px, 2.6vmin, 34px);
   --chrome-gap: clamp(12px, 2vmin, 32px);
+  /* Where the scaled canvas sits in the viewport. Overwritten from DeckChrome
+     on every Reveal resize; 0 is the correct answer for an exact 16:9 window. */
+  --canvas-left: 0px;
+  --canvas-right: 0px;
+  --canvas-bottom: 0px;
   --map-text: clamp(12px, 1.6vmin, 22px);
   --map-dot: clamp(7px, 0.9vmin, 12px);
 }
