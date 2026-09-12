@@ -14,7 +14,7 @@ export default function RigidVsFlexible() {
   return (
     <Slide
       label="Rigid vs Flexible"
-      notes="Keep intent, invariants and evidence strict. Give agents freedom in implementation and exploration. Stronger models should reduce micromanagement, not increase it."
+      notes="Keep intent, invariants and evidence strict. Give agents freedom in implementation and exploration. Stronger models should reduce micromanagement, not increase it. The phrase at the bottom comes back in the last project: freedom to explore, obligation to verify."
     >
       <SlideHeader kicker="Control where it matters" title="Rigid vs Flexible" />
 
@@ -37,6 +37,10 @@ export default function RigidVsFlexible() {
           </Fragment>
         ))}
       </HairlineTable>
+
+      <p className="note" style={{ marginTop: "72px", maxWidth: "1300px" }}>
+        Freedom to explore. Obligation to verify.
+      </p>
     </Slide>
   );
 }

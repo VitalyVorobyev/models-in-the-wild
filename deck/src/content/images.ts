@@ -13,6 +13,10 @@
  * Imported assets (rather than files in public/) matter here: Vite rewrites
  * their URLs for the /models-in-the-wild/ base path automatically, so the deck
  * keeps working both locally and on GitHub Pages.
+ *
+ * There is deliberately no slot for the Family Documents Organizer beyond the
+ * montage card: the data is sensitive, and slide 9 shows the archive's shape
+ * as a tree instead.
  */
 
 export type SlotId =
@@ -22,7 +26,9 @@ export type SlotId =
   | "art-radar"
   | "art-scorequant"
   | "atlas-overview"
-  | "atlas-narrative";
+  | "atlas-narrative"
+  | "radar-digest"
+  | "deutsch-app";
 
 export const images: Record<SlotId, string | null> = {
   "art-cv-atlas": null,
@@ -32,4 +38,6 @@ export const images: Record<SlotId, string | null> = {
   "art-scorequant": null,
   "atlas-overview": null,
   "atlas-narrative": null,
+  "radar-digest": null,
+  "deutsch-app": null,
 };

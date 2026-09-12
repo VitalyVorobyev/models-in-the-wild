@@ -57,3 +57,22 @@
 
   --radius: 4px;
 }
+
+/*
+ * Deck chrome — SCREEN pixels, not canvas pixels.
+ *
+ * Everything above is measured against the fixed 1920x1080 stage and is scaled
+ * by Reveal's transform. The chrome bar and the section map live outside that
+ * transform, so a 24px token from the scale above renders at roughly twice its
+ * apparent in-slide size on a 1920-wide display and stays stubbornly large as
+ * the window shrinks. These are sized in vmin-based clamps instead, the way
+ * Reveal sizes its own progress bar.
+ */
+:root {
+  --chrome-h: clamp(28px, 3.2vmin, 44px);
+  --chrome-rail: clamp(2px, 0.4vmin, 5px);
+  --chrome-text: clamp(10px, 1.25vmin, 16px);
+  --chrome-gap: clamp(12px, 2vmin, 32px);
+  --map-text: clamp(12px, 1.6vmin, 22px);
+  --map-dot: clamp(7px, 0.9vmin, 12px);
+}

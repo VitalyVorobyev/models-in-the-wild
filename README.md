@@ -11,9 +11,10 @@ across departments, and build solutions — not only how fast we write software.
 1. Read `CLAUDE.md`.
 2. Read `docs/talk-brief.md` and `docs/narrative.md`.
 3. Use `docs/slide-map.md` as the current deck contract.
-4. CV Atlas is specified in `docs/projects/cv-atlas.md`.
-5. Do **not** invent the remaining project stories. Leave placeholders until they are
-   discussed with Vitaly.
+4. The five projects are specified in `docs/projects/`, one file each, with an evidence table
+   and a "do not claim" list. The deck may not say more than those files support.
+5. Every number on a slide comes from `deck/src/content/evidence.ts`, with the command that
+   measured it. Re-measure; do not edit a figure by hand.
 
 ## Running the deck
 
