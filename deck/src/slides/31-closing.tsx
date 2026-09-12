@@ -9,7 +9,8 @@ const REPO = `models-in-the-wild/
 │   ├── talk-brief.md
 │   ├── narrative.md
 │   ├── slide-map.md
-│   └── projects/
+│   ├── session-handoff-2026-09-12.md
+│   └── projects/            five stories
 ├── skills/
 │   └── deck-authoring/
 └── deck/`;
@@ -20,7 +21,7 @@ export default function Closing() {
       label="Closing"
       theme="dark"
       align="center"
-      notes="This deck was built the same way: conversation → docs/ → CLAUDE.md → skills/ → agent → this artifact → your critique."
+      notes="This deck was built the same way: voice conversation → a Markdown handoff → docs/ → CLAUDE.md → a skill → an agent that checked the five repositories before writing a number → this artifact → your critique."
     >
       <Split
         align="center"
@@ -32,8 +33,8 @@ export default function Closing() {
               This deck followed the same workflow.
             </h2>
             <p className="note" style={{ color: "var(--dark-muted)" }}>
-              Conversation, a Markdown starter bundle, agent instructions, a skill, an agent — and
-              now your critique.
+              Conversation, a Markdown starter bundle, agent instructions, a skill, an agent that
+              measured before it wrote — and now your critique.
             </p>
           </div>
         }

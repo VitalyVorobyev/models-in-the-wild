@@ -60,17 +60,26 @@ Docs are the contract; the deck renders them. Work upstream first.
 
 ```
 docs/talk-brief.md      audience, 60-min format, core thesis, the five projects + their URLs
-docs/narrative.md       workflow spine, rigid-vs-flexible framing, escalation ladder
-docs/projects/*.md      one file per project — the raw material a slide may use
+docs/narrative.md       the claim, workflow spine, rigid-vs-flexible, five capabilities, ending
+docs/projects/*.md      one file per project — the raw material a slide may use, with evidence
         ↓
-docs/slide-map.md       the deck contract: the 22-slide sequence, currently v0.2
+docs/slide-map.md       the deck contract: the 31-slide sequence, currently v0.3
         ↓
 deck/src/slides/        one file per slide, in that order
 ```
 
-- `docs/projects/cv-atlas.md` is the only project written up. `project-template.md` is the shape
-  for the other four and is explicitly **not** to be filled from guesswork.
-- Slides 12–19 are placeholders for projects 2–5. That is policy, not a TODO list.
+- All five projects are written up under `docs/projects/`, in deck order (Family Documents
+  Organizer, CV Atlas, CV Tech Radar, Deutsch-Atlas, ScoreQuant). Each carries an **Evidence**
+  table (repo paths and commands) and a **Do not claim** list; the deck must not say more than
+  those files support. `project-template.md` is the shape for any future write-up.
+- `docs/session-handoff-2026-09-12.md` is the narrative input the v0.3 stories came from. It is
+  a record, not a contract — where it and `docs/projects/*.md` differ, the project file wins,
+  because it was checked against the repository.
+- Every number shown on a slide lives in `deck/src/content/evidence.ts` with the command or
+  path it was measured by and the date. Re-measure; never edit a value by hand.
+- `docs/assets-needed.md` specifies the nine image slots — file names, aspect ratios, what each
+  shot must show, and the redaction rule for the Family Documents card. All nine are filled as of
+  2026-09-12; the doc records the measured crop each one takes from `object-fit: cover`.
 - Changing slide order or count means editing `docs/slide-map.md` and `deck/src/slides/index.ts`
   in the same change. They must agree.
 
@@ -84,14 +93,26 @@ deck/src/
 │   ├── tokens.css    the Vitavision type scale, spacing and palette
 │   ├── base.css      Reveal integration and resets
 │   └── components.css the layout archetypes
-├── components/       Slide, SectionOpener, SlideHeader, Split, Grid, HairlineTable,
-│                     ImageSlot, TeachesUs, Tree, ExternalLink, VitavisionLogo, Notes
+├── components/       Slide, SectionOpener, Implication, SlideHeader, Split, Grid,
+│                     HairlineTable, ImageSlot, Tree, ExternalLink, VitavisionLogo, Notes,
+│                     DeckChrome, SectionMap
 ├── content/
 │   ├── projects.ts   the five projects — names, URLs, one-liners, capabilities
+│   ├── evidence.ts   every figure a slide shows, with its source command and date
 │   └── images.ts     slot id → imported asset; the only file to touch when adding art
-├── slides/           01-title.tsx … 22-closing.tsx, plus index.ts (the ordered sequence)
+├── slides/           01-title.tsx … 31-closing.tsx, plus index.ts (sections + the sequence)
 └── assets/images/    screenshots and photos
 ```
+
+`slides/index.ts` exports `sections` — the seven blocks of the talk — and **derives** `slides`,
+`sectionOfSlide` and `sectionStart` from it. Add a slide to a section; never maintain a parallel
+flat list. `DeckChrome` and `SectionMap` read that registry, so a new slide appears in the footer
+label and on the `M` map with no further edit.
+
+Navigation the deck provides beyond arrow keys: `M` opens the named section map, `Esc` opens
+Reveal's own thumbnail overview, `S` opens the speaker view, `G` jumps to a slide number,
+alt-click zooms. Slides 5, 17, 26 and 29 are fragmented — the first beat is always visible and
+each click adds the next.
 
 Load-bearing details, each of which broke the deck during the port:
 
@@ -105,6 +126,23 @@ Load-bearing details, each of which broke the deck during the port:
 - **Never widen a `text-transform` reset to `p`** — it beats the uppercase mono kickers.
 - Reveal 6 removed `dist/` from its exports map: import `reveal.js/reveal.css`, not
   `reveal.js/dist/reveal.css`.
+- **Chrome is measured in screen pixels, the slides in canvas pixels.** `DeckChrome` and
+  `SectionMap` live outside Reveal's 1920×1080 transform, so a token from the type scale renders
+  at about twice its apparent in-slide size. Use the `--chrome-*` / `--map-*` clamps instead.
+- **Reveal's `has-dark-background` hook is inert in this deck.** `getContrastClass()` reads
+  `data-background-color` off the `<section>`, else the computed background of the generated
+  `.slide-background` div; this deck paints its background on the inner `.slide`, so neither
+  resolves. `Slide` therefore emits `data-theme`, which is what the chrome reads. Do not switch
+  to `data-background-color` — Reveal parses it itself and cannot resolve a CSS variable, so it
+  would mean hand-syncing colour literals out of `tokens.css`.
+- **`body.reveal-viewport` must be repainted.** Reveal's own `background-color: #fff` on it
+  outranks `html, body`, and the white shows in overview mode and in letterboxed windows.
+- **Chrome follows the canvas, not the viewport.** Any window that is not exactly 16:9 letterboxes
+  the canvas, and anything pinned to the viewport edge lands on the dark backdrop instead of the
+  slide — where the paper theme's near-black ink is invisible. `DeckChrome` publishes the canvas
+  rect as `--canvas-left/-right/-bottom` on every Reveal `resize`; `.chrome` and Reveal's own
+  `.controls` are both positioned from those. Test any new chrome at a non-16:9 window, because at
+  1920x1080 the canvas fills the screen and the bug cannot appear.
 
 Adding an image is a one-line edit in `content/images.ts`; slides already reference the slots by
 id and render a dashed placeholder until a file appears. Put art in `src/assets/images/` rather
@@ -118,14 +156,15 @@ The base path is applied by `build:pages`, not by `vite.config.ts`, so local `de
 
 ## The design handoff
 
-`design_handoff_frontier_models_deck/` is the Claude Design export the current deck was built
-from. It is a **reference**, not source, and it is superseded by the working deck:
+The deck was ported from a Claude Design export that lived at
+`design_handoff_frontier_models_deck/`. It was **removed** once the deck superseded it — v0.3
+is 31 slides against its 22, on a different project order, with components and navigation it
+never had. It stays in history: `git show f4e1d0d --stat` lists it, and
+`git show f4e1d0d:'design_handoff_frontier_models_deck/README.md'` is its token and layout spec.
 
-- Do not edit it, and never read `deck-stage.js` (136 KB), `support.js` (69 KB) or
-  `image-slot.js` (65 KB) — generated preview runtime, not code.
-- Its `.dc.html` references a `_ds/vitavision-*` bundle that is not in the repo, so the logo and
-  the font families do not resolve when previewing it in a browser. That is expected; the deck
-  itself has them. The authoritative font and colour values live in
-  `/Users/vitalyvorobyev/vitavision/src/index.css`, which is a separate project — copy values
-  from it, never depend on it.
+- `deck/src/styles/tokens.css` is now the only contract for the type scale, spacing and
+  palette. The export's numbers were transcribed into it verbatim; do not reintroduce a second
+  copy of them.
+- The authoritative font and colour values live in `/Users/vitalyvorobyev/vitavision/src/index.css`,
+  which is a separate project — copy values from it, never depend on it.
 - `VitavisionLogo.tsx` is ported from that same design system, minus its framer-motion animation.

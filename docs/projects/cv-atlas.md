@@ -1,4 +1,8 @@
-# Project 1 — CV Atlas
+# Project 02 — CV Atlas
+
+Capability shown: **Understand** — accumulate knowledge, relationships and narratives.
+
+Public site: https://vitavision.dev/atlas
 
 ## Why it started
 
@@ -38,6 +42,31 @@ https://vitavision.dev/atlas/narratives/foundation-models-for-vision
 Use the demo to show the transition:
 
 **primary papers → structured knowledge → relationships → narrative**
+
+## Atlas vs Radar
+
+The next project, CV Tech Radar, looks similar from a distance and is the opposite in kind:
+
+| | CV Atlas | CV Tech Radar |
+| --- | --- | --- |
+| Input | papers Vitaly chooses to read | everything arXiv `cs.CV` publishes today |
+| Time | grows for years | resets every morning |
+| Output | connected pages and narratives | a ranked digest, most of it Ignore |
+| Question | what do we know, and how does it connect? | what arrived that deserves attention? |
+| Agent's job | maintain relationships | judge a deterministic shortlist |
+
+Accumulated knowledge versus continuous information-flow filtering. The deck states this
+contrast on its own slide, right after the Atlas section.
+
+## Evidence (measured 2026-09-12, in the `vitavision` repository)
+
+| Fact | Source |
+| --- | --- |
+| 52 algorithm pages, 35 concept pages, 50 model pages | `ls content/{algorithms,concepts,models} \| wc -l` |
+| 145 indexed papers, 115 paper notes in the private vault | `docs/papers/index.yaml`, `ls docs/atlas-vault/papers` |
+| About 500 author pages built | `ls dist/authors \| wc -l` |
+| Narrative `foundation-models-for-vision`, dated 2026-08-23 | `content/narratives/foundation-models-for-vision.md` |
+| Skills: `paper-ingest`, `algo-page`, `deep-model-page`, `concept-page`, `tech-writer`, `authorial-technical-editor` | `.claude/skills/` |
 
 ## Company implication
 

@@ -33,8 +33,18 @@ export default function Slide({
   // Reveal controls the <section> (it sets `display` on the active slide and
   // would override the shell's flex column). Layout therefore lives on an inner
   // element that Reveal never touches.
+  //
+  // `data-theme` is how DeckChrome knows whether to draw itself light or dark.
+  // Reveal's own has-dark-background/has-light-background classes cannot be used
+  // for this: getContrastClass() reads data-background-color off the <section>,
+  // or else the computed background of the generated .slide-background div, and
+  // this deck paints its background on the inner .slide instead — so neither
+  // source resolves and Reveal sets no contrast class at all. Declaring the
+  // theme as a string beats declaring data-background-color, which Reveal parses
+  // itself and cannot resolve a CSS variable through; that would mean copying
+  // three colour literals out of tokens.css and keeping them in sync by hand.
   return (
-    <section data-label={label}>
+    <section data-label={label} data-theme={theme}>
       <div className={classes}>{children}</div>
       <Notes>{notes}</Notes>
     </section>

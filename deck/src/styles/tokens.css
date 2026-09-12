@@ -1,8 +1,10 @@
 /*
  * Vitavision — "The Technical Journal"
  *
- * Type/spacing scale is transcribed verbatim from the design handoff
- * (design_handoff_frontier_models_deck/Frontier Models in the Wild.dc.html).
+ * Type/spacing scale is transcribed verbatim from the design handoff, which lived
+ * at design_handoff_frontier_models_deck/ until it was removed as superseded. It is
+ * still in history:
+ *   git show f4e1d0d:'design_handoff_frontier_models_deck/README.md'
  * The font stacks come from the design system itself, vitavision/src/index.css,
  * not from a guess — the handoff referenced them but shipped no definitions.
  */
@@ -56,4 +58,31 @@
   --brand: hsl(191 75% 55%);
 
   --radius: 4px;
+}
+
+/*
+ * Deck chrome — SCREEN pixels, not canvas pixels.
+ *
+ * Everything above is measured against the fixed 1920x1080 stage and is scaled
+ * by Reveal's transform. The chrome bar and the section map live outside that
+ * transform, so a 24px token from the scale above renders at roughly twice its
+ * apparent in-slide size on a 1920-wide display and stays stubbornly large as
+ * the window shrinks. These are sized in vmin-based clamps instead, the way
+ * Reveal sizes its own progress bar.
+ */
+:root {
+  --chrome-h: clamp(34px, 4vmin, 56px);
+  --chrome-rail: clamp(2px, 0.4vmin, 5px);
+  --chrome-text: clamp(10px, 1.25vmin, 16px);
+  /* The slide number is read by the audience from the back of the room, to ask
+     "can you go back to 14?". It is deliberately ~2x the rest of the chrome. */
+  --chrome-num: clamp(20px, 2.6vmin, 34px);
+  --chrome-gap: clamp(12px, 2vmin, 32px);
+  /* Where the scaled canvas sits in the viewport. Overwritten from DeckChrome
+     on every Reveal resize; 0 is the correct answer for an exact 16:9 window. */
+  --canvas-left: 0px;
+  --canvas-right: 0px;
+  --canvas-bottom: 0px;
+  --map-text: clamp(12px, 1.6vmin, 22px);
+  --map-dot: clamp(7px, 0.9vmin, 12px);
 }

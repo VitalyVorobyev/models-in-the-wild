@@ -17,13 +17,21 @@ export default function TheWorkflow() {
   return (
     <Slide
       label="The Workflow"
-      notes="Conversation and voice shape the problem before implementation. The repository is the durable memory; chats are transient."
+      notes="One click: 01–04 are up, 05–08 follow. Conversation and voice shape the problem before implementation. The repository is the durable memory; chats are transient."
     >
       <SlideHeader kicker="Workflow spine" title="The Workflow" />
 
+      {/* Fragmented by row, not by card: eight separate reveals would turn one
+          beat of the talk into eight clicks. The first row is not a fragment, so
+          the slide never renders empty; the second row shares one
+          data-fragment-index, which is how Reveal reveals a group at once. */}
       <Grid cols={4} style={{ marginTop: "80px" }}>
-        {STEPS.map(([number, label, note]) => (
-          <div className="card card--step" key={number}>
+        {STEPS.map(([number, label, note], index) => (
+          <div
+            className={`card card--step${index >= 4 ? " fragment" : ""}`}
+            data-fragment-index={index >= 4 ? 0 : undefined}
+            key={number}
+          >
             <span className="card__num">{number}</span>
             <span className="card__name">{label}</span>
             <span className="card__step-note">{note}</span>

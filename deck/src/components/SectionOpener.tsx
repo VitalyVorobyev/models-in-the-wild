@@ -9,13 +9,13 @@ interface SectionOpenerProps {
   subtitle: string;
   /** Cyan project URL in the bottom band. */
   link?: { href: string; label: string };
-  /** Dashed chip marking a project whose story is not yet written. */
-  placeholder?: string;
+  /** Dashed chip in the bottom band — used to state access ("local only"). */
+  note?: string;
 }
 
 /**
- * The dark project openers (slides 7, 12, 14, 16, 18). The bottom band covers
- * all three handoff variants: link only, chip only, or both across the width.
+ * The dark project openers (slides 8, 11, 16, 20, 24). The bottom band covers
+ * all three variants: link only, chip only, or both across the width.
  * Slide 1 is deliberately not built from this — it carries the logo and a
  * different footer, and forcing it in here would cost more than it saves.
  */
@@ -26,7 +26,7 @@ export default function SectionOpener({
   title,
   subtitle,
   link,
-  placeholder,
+  note,
 }: SectionOpenerProps) {
   return (
     <Slide label={label} notes={notes} theme="dark" align="between">
@@ -39,19 +39,19 @@ export default function SectionOpener({
         </p>
       </div>
 
-      {link && placeholder ? (
+      {link && note ? (
         <div className="opener__foot">
           <ExternalLink href={link.href} className="mono-link">
             {link.label} ↗
           </ExternalLink>
-          <span className="chip">{placeholder}</span>
+          <span className="chip">{note}</span>
         </div>
       ) : link ? (
         <ExternalLink href={link.href} className="mono-link">
           {link.label} ↗
         </ExternalLink>
-      ) : placeholder ? (
-        <span className="chip chip--start">{placeholder}</span>
+      ) : note ? (
+        <span className="chip chip--start">{note}</span>
       ) : null}
     </Slide>
   );

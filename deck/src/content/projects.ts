@@ -1,16 +1,17 @@
 import type { SlotId } from "./images";
 
 /*
- * The five projects. Slides 2, 7/12/14/16/18 and 20 all draw from this list, so
- * a URL or a one-liner is corrected in exactly one place.
+ * The five projects, in deck order. Slides 2, the five openers and slide 28 all
+ * draw from this list, so a URL or a one-liner is corrected in exactly one place.
  *
- * `story: "written"` means the project has a doc under docs/projects/ and real
- * slides. `"placeholder"` means it does not — per CLAUDE.md, those stay
- * placeholders until discussed with Vitaly. Do not fill them from guesswork.
+ * The order is the capability ladder from docs/narrative.md — Organize,
+ * Understand, Filter, Create & operate, Discover — which is also an escalation
+ * in scale. Each project has a write-up under docs/projects/; nothing here is
+ * invented.
  *
  * Note that `link.label` and `montageLabel` deliberately differ: the montage
  * cards on slide 2 are narrow and use shortened URLs, while the full-bleed
- * openers spell the host out. That is the handoff's choice, not an oversight.
+ * openers spell the host out.
  */
 
 export interface Project {
@@ -18,83 +19,85 @@ export interface Project {
   name: string;
   /** One line under the name on slide 2. */
   oneLiner: string;
-  /** Capability this project demonstrates, slide 20. */
+  /** The capability this project demonstrates, one or two words — slide 28. */
   capability: string;
+  /** What the agent actually does for that capability — slide 28. */
+  capabilityNote: string;
   /** Subtitle on the project's dark opener. */
   subtitle: string;
   /** Opener link; null where there is nothing public to show. */
   link: { href: string; label: string } | null;
+  /** Dashed chip on the opener, only where access needs stating. */
+  note?: string;
   montageSlot: SlotId;
   /** Bottom line of the slide-2 card — a short URL, or a plain note. */
   montageLabel: string;
-  story: "written" | "placeholder";
 }
 
 export const projects: Project[] = [
   {
     number: "01",
+    name: "Family Documents Organizer",
+    oneLiner: "One family's paperwork, organized",
+    capability: "Organize",
+    capabilityNote: "Turn a small messy corpus into a useful structure",
+    subtitle: "A bespoke register for one family's paperwork. Structured files plus an agent.",
+    link: null,
+    note: "local only · sensitive data · not public",
+    montageSlot: "art-family-docs",
+    montageLabel: "local only",
+  },
+  {
+    number: "02",
     name: "CV Atlas",
     oneLiner: "Living knowledge from primary papers",
-    capability: "Personal knowledge system",
+    capability: "Understand",
+    capabilityNote: "Accumulate knowledge, relationships and narratives",
     subtitle: "A personal knowledge system, maintained from primary papers.",
     link: { href: "https://vitavision.dev/atlas", label: "vitavision.dev/atlas" },
     montageSlot: "art-cv-atlas",
     montageLabel: "vitavision.dev/atlas",
-    story: "written",
-  },
-  {
-    number: "02",
-    name: "Family Documents Organizer",
-    oneLiner: "Private, local-only information system",
-    capability: "Private information tool",
-    subtitle: "A private information tool. Local only, sensitive data.",
-    link: null,
-    montageSlot: "art-family-docs",
-    montageLabel: "local only",
-    story: "placeholder",
   },
   {
     number: "03",
-    name: "Deutsch-Atlas",
-    oneLiner: "Large structured learning system",
-    capability: "Large structured learning / product system",
-    subtitle: "A large, structured learning and product system.",
-    link: { href: "https://deutsch.vitavision.dev", label: "deutsch.vitavision.dev" },
-    montageSlot: "art-deutsch",
-    montageLabel: "deutsch.vitavision.dev",
-    story: "placeholder",
-  },
-  {
-    number: "04",
     name: "CV Tech Radar",
-    oneLiner: "Ongoing technical intelligence",
-    capability: "Ongoing technical intelligence workflow",
-    subtitle: "An ongoing technical intelligence workflow.",
+    oneLiner: "A daily filter on the computer-vision firehose",
+    capability: "Filter",
+    capabilityNote: "Handle a continuous high-volume information stream",
+    subtitle: "A daily filter on the computer-vision firehose.",
     link: {
       href: "https://vitalyvorobyev.github.io/cv-tech-radar/",
       label: "vitalyvorobyev.github.io/cv-tech-radar",
     },
     montageSlot: "art-radar",
     montageLabel: "github.io/cv-tech-radar",
-    story: "placeholder",
+  },
+  {
+    number: "04",
+    name: "Deutsch-Atlas",
+    oneLiner: "A German course and its production system",
+    capability: "Create & operate",
+    capabilityNote: "Build and maintain a large evidence-grounded content system",
+    subtitle: "A German course I actually use — and the production system behind it.",
+    link: { href: "https://deutsch.vitavision.dev", label: "deutsch.vitavision.dev" },
+    montageSlot: "art-deutsch",
+    montageLabel: "deutsch.vitavision.dev",
   },
   {
     number: "05",
     name: "ScoreQuant",
-    oneLiner: "Mathematical research + engineering library",
-    capability: "Mathematical research + engineering library",
-    subtitle: "Mathematical research and an engineering library.",
+    oneLiner: "From a library request to research",
+    capability: "Discover",
+    capabilityNote: "Explore new technical and mathematical territory",
+    subtitle: "A favour for a former colleague that became a research programme.",
     link: {
       href: "https://github.com/VitalyVorobyev/scorequant",
       label: "github.com/VitalyVorobyev/scorequant",
     },
     montageSlot: "art-scorequant",
     montageLabel: "github.com/…/scorequant",
-    story: "placeholder",
   },
 ];
-
-export const PLACEHOLDER_CHIP = "PLACEHOLDER · story to be developed with Vitaly";
 
 /** Look a project up by its `01`–`05` number, so slides never index blindly. */
 export function project(number: string): Project {

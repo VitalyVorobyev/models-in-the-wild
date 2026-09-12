@@ -11,9 +11,10 @@ across departments, and build solutions — not only how fast we write software.
 1. Read `CLAUDE.md`.
 2. Read `docs/talk-brief.md` and `docs/narrative.md`.
 3. Use `docs/slide-map.md` as the current deck contract.
-4. CV Atlas is specified in `docs/projects/cv-atlas.md`.
-5. Do **not** invent the remaining project stories. Leave placeholders until they are
-   discussed with Vitaly.
+4. The five projects are specified in `docs/projects/`, one file each, with an evidence table
+   and a "do not claim" list. The deck may not say more than those files support.
+5. Every number on a slide comes from `deck/src/content/evidence.ts`, with the command that
+   measured it. Re-measure; do not edit a figure by hand.
 
 ## Running the deck
 
@@ -43,6 +44,7 @@ via `.github/workflows/deploy.yml`.
 
 ## Design reference
 
-`design_handoff_frontier_models_deck/` holds the Claude Design export the current deck was
-built from. It is a reference, not source: keep it for comparison, do not edit it, and never
-open its three generated `.js` files.
+The deck was ported from a Claude Design export that lived at
+`design_handoff_frontier_models_deck/`. It was removed once the deck outgrew it; recover it
+from history with `git show f4e1d0d --stat` if a value ever needs checking. The live contract
+is `deck/src/styles/tokens.css` for the scale and palette, `components.css` for the layouts.

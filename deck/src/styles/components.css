@@ -40,7 +40,7 @@
   justify-content: center;
 }
 
-/* ─── Header: kicker + title (10 light slides) ────────────────── */
+/* ─── Header: kicker + title (most light slides) ──────────────── */
 
 .kicker {
   font-family: var(--font-mono);
@@ -84,7 +84,7 @@
   text-wrap: pretty;
 }
 
-/* ─── Section opener (1, 7, 12, 14, 16, 18) ───────────────────── */
+/* ─── Section opener (1, 8, 11, 16, 20, 24) ───────────────────── */
 
 .opener__head {
   display: flex;
@@ -147,7 +147,7 @@
   align-self: flex-start;
 }
 
-/* ─── Card grids (2, 4, 13/15/17/19, 21) ──────────────────────── */
+/* ─── Card grids (2, 5, 21, 26) ───────────────────────────────── */
 
 .grid {
   display: grid;
@@ -221,7 +221,7 @@
   color: var(--muted);
 }
 
-/* ─── Hairline tables (6, 20) ─────────────────────────────────── */
+/* ─── Hairline tables (7, 18, 25, 28) ─────────────────────────── */
 
 .table {
   display: grid;
@@ -235,7 +235,7 @@
   border-bottom: 1px solid var(--hairline);
 }
 
-/* ─── Split layouts (5, 8, 10, 21, 22) ────────────────────────── */
+/* ─── Split layouts (6, 9, 12, 14, 17, 22, 31) ────────────────── */
 
 .split {
   display: grid;
@@ -311,7 +311,7 @@
   border-radius: var(--radius);
 }
 
-/* ─── Primary button (10) ─────────────────────────────────────── */
+/* ─── Primary button (14, 17, 22) ─────────────────────────────── */
 
 .button {
   display: inline-flex;
@@ -369,8 +369,8 @@
   font-weight: 600;
 }
 
-/* Table cell padding differs between the two tables; slide 6 also carries a
-   single vertical divider. */
+/* Table cell padding differs between the tables; slides 7 and 18 also carry
+   a single vertical divider. */
 .table__cell--left {
   padding: 28px 32px 28px 0;
 }
@@ -399,7 +399,8 @@
 
 /* ─── One-off slides ──────────────────────────────────────────── */
 
-/* Slides 3 and 11 set an oversized serif line; 22 a slightly smaller one. */
+/* Slides 3, 4, 30 and the implication beats set an oversized serif line;
+   slide 31 a slightly smaller one. */
 .statement {
   font-family: var(--font-serif);
   font-weight: 500;
@@ -413,7 +414,7 @@
   font-size: var(--type-closing);
 }
 
-/* Slide 9: five pipeline cards separated by arrows. */
+/* Slide 13: five pipeline cards separated by arrows. */
 .pipeline {
   display: flex;
   align-items: stretch;
@@ -465,7 +466,7 @@
   color: var(--muted);
 }
 
-/* Slide 10: the trace from narrative back to primary sources. */
+/* Slides 14 and 22: the trace the live demo follows. */
 .trace {
   display: flex;
   flex-direction: column;
@@ -481,7 +482,7 @@
   color: var(--ink);
 }
 
-/* Slide 21: chip grid of company-scale applications. */
+/* Slide 30: the muted line above the take-home question. */
 .chip-card {
   background: var(--surface);
   border: 1px solid var(--hairline);
@@ -517,7 +518,8 @@
   width: auto;
 }
 
-/* Slide 4's workflow steps sit tighter than the montage cards. */
+/* Slide 5's workflow steps sit tighter than the montage cards; slides 21
+   and 26 reuse the same card. */
 .card--step {
   gap: 12px;
   padding: 28px 32px;
@@ -527,4 +529,398 @@
   font-size: var(--type-mono);
   line-height: 1.35;
   color: var(--muted);
+}
+
+/* ─── Added in v0.3 ───────────────────────────────────────────── */
+
+/* The implication beats (10, 15, 19, 23, 27): the Today / Possible now band. */
+.implication__band {
+  margin-top: 0;
+  font-size: var(--type-small);
+  line-height: 1.4;
+  color: var(--accent-muted);
+}
+
+.implication__label {
+  display: block;
+  margin-bottom: 12px;
+  color: inherit;
+}
+
+/* Slide 17: the daily funnel, read top-down; the digest is the payoff. */
+.funnel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: var(--gap-title);
+}
+
+.funnel__step {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 32px;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  padding: 20px 28px;
+}
+
+.funnel__step--out {
+  background: var(--dark);
+  border-color: var(--dark);
+}
+
+.funnel__label {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: var(--type-small);
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.funnel__step--out .funnel__label {
+  color: var(--dark-fg);
+}
+
+.funnel__count {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono);
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.funnel__step--out .funnel__count {
+  color: var(--dark-muted);
+}
+
+/* Slides 9, 17, 21, 26: one mono line of measured figures under the content. */
+.evidence-line {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono);
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin-top: 32px;
+}
+
+/* Slide 18: the header row of the Atlas-vs-Radar table. */
+.table__cell--head {
+  padding: 0 0 20px;
+}
+
+.table__cell--head + .table__cell--head {
+  padding-left: 32px;
+  border-left: 1px solid var(--hairline);
+}
+
+/* Slide 29: the ladder — six rows stepping right, the last one in ink. */
+.ladder {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: var(--gap-title);
+}
+
+.ladder__row {
+  display: flex;
+  align-items: baseline;
+  gap: 28px;
+  padding-left: calc(var(--step, 0) * 120px);
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: var(--type-subtitle);
+  line-height: 1.2;
+  color: var(--muted);
+}
+
+.ladder__num {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono);
+  letter-spacing: 0.06em;
+}
+
+.ladder__row--last {
+  color: var(--ink);
+}
+
+/* ─── Deck chrome (persistent, outside the 1920x1080 canvas) ───────────────── */
+
+/*
+ * Sized in --chrome-* tokens, which are screen pixels. See the note in
+ * tokens.css: the in-slide type scale is canvas pixels and renders about twice
+ * too large out here.
+ */
+.chrome {
+  position: fixed;
+  /* Pinned to the canvas, not the viewport: the bar is themed from the active
+     slide, so it has to sit on that slide. In any window that is not 16:9 the
+     canvas is letterboxed and the viewport bottom is the dark backdrop, where
+     the paper theme's ink is invisible. */
+  right: var(--canvas-right);
+  bottom: var(--canvas-bottom);
+  left: var(--canvas-left);
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-mono);
+  font-size: var(--chrome-text);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* The title slide carries its own footer band; chrome on top of it is noise. */
+.chrome--hidden {
+  opacity: 0;
+}
+
+.chrome__rail {
+  width: 100%;
+  height: var(--chrome-rail);
+  background: color-mix(in srgb, var(--muted) 25%, transparent);
+}
+
+.chrome__rail-fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--accent);
+  transform-origin: 0 0;
+  transition: transform 0.4s cubic-bezier(0.26, 0.86, 0.44, 0.985);
+}
+
+.chrome__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--chrome-gap);
+  height: var(--chrome-h);
+  padding: 0 var(--chrome-gap);
+  color: var(--muted);
+}
+
+.chrome__section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: inherit;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.chrome__section:hover {
+  color: var(--ink);
+}
+
+.chrome__count {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* The one thing in the chrome the audience has to read, not the presenter:
+   it is how someone says "go back to 14" during questions. Hence the size, the
+   weight, and full ink rather than the muted colour of the rest of the bar. */
+.chrome__num {
+  font-size: var(--chrome-num);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.chrome__total {
+  opacity: 0.75;
+}
+
+/* The chrome sits over three different slide surfaces and has to read on all
+   three. `theme` comes from data-theme on the active <section>. */
+.chrome--dark .chrome__rail {
+  background: color-mix(in srgb, var(--dark-muted) 30%, transparent);
+}
+
+.chrome--dark .chrome__rail-fill {
+  background: var(--brand);
+}
+
+.chrome--dark .chrome__row {
+  color: var(--dark-muted);
+}
+
+.chrome--dark .chrome__section:hover {
+  color: var(--dark-fg);
+}
+
+.chrome--dark .chrome__num {
+  color: var(--dark-fg);
+}
+
+.chrome--accent .chrome__rail {
+  background: color-mix(in srgb, var(--accent-fg) 25%, transparent);
+}
+
+.chrome--accent .chrome__rail-fill {
+  background: var(--accent-fg);
+}
+
+.chrome--accent .chrome__row {
+  color: color-mix(in srgb, var(--accent-fg) 75%, transparent);
+}
+
+.chrome--accent .chrome__section:hover {
+  color: var(--accent-fg);
+}
+
+.chrome--accent .chrome__num {
+  color: var(--accent-fg);
+}
+
+/* ─── Section map overlay (M) ──────────────────────────────────────────────── */
+
+.map {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map__scrim {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  background: color-mix(in srgb, var(--dark) 80%, transparent);
+  cursor: pointer;
+}
+
+.map__panel {
+  position: relative;
+  width: min(760px, 86vw);
+  max-height: 86vh;
+  overflow-y: auto;
+  padding: calc(var(--chrome-gap) * 1.5);
+  border: 1px solid var(--dark-border);
+  border-radius: var(--radius);
+  background: var(--dark-surface);
+  color: var(--dark-fg);
+  font-family: var(--font-mono);
+  font-size: var(--map-text);
+}
+
+.map__panel:focus {
+  outline: none;
+}
+
+.map__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 0.75em;
+  border-bottom: 1px solid var(--dark-border);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.map__title {
+  color: var(--dark-fg);
+}
+
+.map__hint {
+  color: var(--dark-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.map__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.map__row {
+  padding: 0.6em 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--dark-border) 50%, transparent);
+}
+
+.map__row:last-child {
+  border-bottom: 0;
+}
+
+.map__label {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9em;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  text-align: left;
+  color: var(--dark-muted);
+  cursor: pointer;
+}
+
+.map__row--active .map__label,
+.map__row--highlight .map__label,
+.map__label:hover {
+  color: var(--dark-fg);
+}
+
+.map__number {
+  color: var(--brand);
+  font-variant-numeric: tabular-nums;
+}
+
+.map__number--none {
+  color: var(--dark-border);
+}
+
+.map__name {
+  flex: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.map__range {
+  color: var(--dark-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.map__dots {
+  display: flex;
+  gap: 0.5em;
+  margin-top: 0.55em;
+  padding-left: 2.4em;
+}
+
+.map__dot {
+  width: var(--map-dot);
+  height: var(--map-dot);
+  padding: 0;
+  border: 1px solid var(--dark-muted);
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+}
+
+.map__dot--past {
+  background: var(--dark-muted);
+}
+
+.map__dot--here {
+  border-color: var(--brand);
+  background: var(--brand);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 30%, transparent);
+}
+
+.map__dot:hover {
+  border-color: var(--brand);
 }

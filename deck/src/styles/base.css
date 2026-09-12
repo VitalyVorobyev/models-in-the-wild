@@ -13,6 +13,14 @@ body {
   background: var(--dark);
 }
 
+/* Reveal puts .reveal-viewport on <body>, and its `background-color: #fff`
+   outranks the rule above. Without this the backdrop around the scaled canvas
+   is white — which shows in overview mode and whenever the window letterboxes
+   the 16:9 stage. */
+body.reveal-viewport {
+  background: var(--dark);
+}
+
 /* Reveal sizes its canvas from the offsetHeight of its container, so every
    ancestor needs a real height — #root included, or the deck renders at
    Reveal's 0.2 minimum scale. */
@@ -73,12 +81,30 @@ body {
   color: var(--ink);
 }
 
-/* Reveal's progress bar and controls, toned down to the paper palette. */
-.reveal .progress {
-  color: var(--accent);
-  height: 4px;
-}
-
+/* Reveal's own progress bar is switched off in App.tsx; DeckChrome draws the
+   rail. The controls stay, lifted clear of the chrome bar. */
+/* Reveal appends .controls inside .reveal, which spans the viewport, so they
+   have to be pushed in by the letterbox as well or they land on top of the
+   chrome bar the moment the window stops being 16:9. */
 .reveal .controls {
   color: var(--muted);
+  right: calc(var(--canvas-right) + var(--chrome-gap));
+  bottom: calc(var(--canvas-bottom) + var(--chrome-h) + var(--chrome-rail) + 8px);
+}
+
+/*
+ * Overview mode (Esc) is left enabled alongside the section map, so it is worth
+ * having it look like part of this deck.
+ *
+ * Reveal marks the current slide with `outline: 10px solid var(--r-link-color)`,
+ * and --r-link-color is defined only in Reveal's theme CSS, which main.tsx
+ * deliberately does not import. Untreated, the present slide is indistinguishable
+ * from its neighbours.
+ */
+.reveal.overview .slides section.present {
+  outline-color: var(--brand);
+}
+
+.reveal.overview .slides section:hover {
+  outline-color: var(--dark-border);
 }

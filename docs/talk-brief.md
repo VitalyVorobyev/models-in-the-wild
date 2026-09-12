@@ -9,17 +9,19 @@
 
 ## Core thesis
 
-**Frontier models are not just coding accelerators. Used with persistent context, evidence and agency, they can become a new working medium for R&D and cross-department problem solving.**
+**Frontier models are not just coding accelerators. Used with persistent context, evidence and
+agency, they change the class and scale of problems one engineer or a small team can attack —
+and can become a new working medium for R&D and cross-department problem solving.**
 
 The projects should make this believable rather than merely state it.
 
-## Five projects
+## Five projects, in deck order
 
-1. CV Atlas — https://vitavision.dev/atlas
-2. Family Documents Organizer — local-only, sensitive data
-3. Deutsch-Atlas — https://deutsch.vitavision.dev
-4. CV Tech Radar — https://vitalyvorobyev.github.io/cv-tech-radar/
-5. ScoreQuant — https://github.com/VitalyVorobyev/scorequant
+1. Family Documents Organizer — local-only, sensitive data (Organize)
+2. CV Atlas — https://vitavision.dev/atlas (Understand)
+3. CV Tech Radar — https://vitalyvorobyev.github.io/cv-tech-radar/ (Filter)
+4. Deutsch-Atlas — https://deutsch.vitavision.dev (Create & operate)
+5. ScoreQuant — https://github.com/VitalyVorobyev/scorequant (Discover)
 
 Repositories:
 - https://github.com/VitalyVorobyev/cv-tech-radar
@@ -29,7 +31,8 @@ Repositories:
 ## Desired audience shift
 
 From:
-> “How can AI help us write software faster?”
+> "How can AI help us write software faster?"
 
 Toward:
-> “Which parts of our R&D, communication, knowledge flow and decision making can be redesigned now that capable agents can work inside a persistent project context?”
+> "What useful thing do we currently not even attempt because it would take too much time,
+> coordination or specialized implementation?"
