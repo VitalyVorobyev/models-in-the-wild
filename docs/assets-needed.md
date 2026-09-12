@@ -4,6 +4,9 @@ The nine image slots the deck declares, what belongs in each, and how to add one
 builds and deploys with every slot empty — `ImageSlot` renders a dashed placeholder — so nothing
 here blocks a release. It blocks the talk being good.
 
+**All nine slots are filled** as of 2026-09-12; see *What was delivered* below for the measured
+crop on each, which is the only thing still worth improving.
+
 Slot ids are defined in `deck/src/content/images.ts` and are type-checked: `SlotId` is a closed
 union and `images` is a `Record<SlotId, string | null>`, so a missing key is a build error.
 
@@ -39,6 +42,33 @@ No slide file ever changes — slides reference slots by id.
 | `atlas-narrative.png` | `atlas-narrative` | 14, right pane | 1.04:1 **near-square** | 1870 × 1790 |
 | `radar-digest.png` | `radar-digest` | 17, right pane | 1.04:1 **near-square** | 1870 × 1790 |
 | `deutsch-app.png` | `deutsch-app` | 22, right pane | 1.04:1 **near-square** | 1870 × 1790 |
+
+### What was delivered
+
+Measured in the browser at a 1920x1080 viewport, comparing each file's natural ratio against the
+box the layout gives it. `cover` crops the difference; the column says how much and off which
+edge. Nothing here is broken — it is the list to work from if a slot is ever re-shot.
+
+| Slot | Supplied | Ratio | Slot ratio | Cropped |
+| --- | --- | --- | --- | --- |
+| `art-family-docs` | 3160 x 1874 | 1.69 | 1.43 | 15% off the sides |
+| `art-cv-atlas` | 2998 x 1958 | 1.53 | 1.43 | 7% off the sides |
+| `art-radar` | 3160 x 1872 | 1.69 | 1.43 | 15% off the sides |
+| `art-deutsch` | 2420 x 1670 | 1.45 | 1.43 | 1% — effectively exact |
+| `art-scorequant` | 3248 x 1960 | 1.66 | 1.43 | 14% off the sides |
+| `atlas-overview` | 2390 x 1960 | 1.22 | 0.88 | **27% off the sides** |
+| `atlas-narrative` | 2390 x 1960 | 1.22 | 1.04 | 15% off the sides |
+| `radar-digest` | 1850 x 1960 | 0.94 | 1.04 | 9% off top and bottom |
+| `deutsch-app` | 2090 x 1758 | 1.19 | 1.04 | 12% off the sides |
+
+`atlas-overview` is the one that costs something: slide 12's right half is portrait, the shot is
+landscape, and the quarter that goes is the right-hand detail panel, which gets cut mid-sentence.
+A re-shoot in a tall window, or switching that slot to a portrait region of the same page, is the
+fix.
+
+Every file is also 2-3x larger than it renders — the montage cards display at 315 x 220 canvas
+pixels off 3000-pixel originals — which is why `dist/` is 13 MB. Downscaling to roughly 2x the
+rendered size would cut that to about 2 MB with no visible difference.
 
 ### Aspect ratio matters more than resolution
 

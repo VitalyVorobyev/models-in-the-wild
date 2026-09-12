@@ -77,8 +77,9 @@ deck/src/slides/        one file per slide, in that order
   because it was checked against the repository.
 - Every number shown on a slide lives in `deck/src/content/evidence.ts` with the command or
   path it was measured by and the date. Re-measure; never edit a value by hand.
-- `docs/assets-needed.md` specifies the nine empty image slots — file names, aspect ratios, what
-  each shot must show, and the redaction rule for the Family Documents card.
+- `docs/assets-needed.md` specifies the nine image slots — file names, aspect ratios, what each
+  shot must show, and the redaction rule for the Family Documents card. All nine are filled as of
+  2026-09-12; the doc records the measured crop each one takes from `object-fit: cover`.
 - Changing slide order or count means editing `docs/slide-map.md` and `deck/src/slides/index.ts`
   in the same change. They must agree.
 
