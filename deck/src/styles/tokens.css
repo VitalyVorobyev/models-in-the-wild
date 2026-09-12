@@ -1,0 +1,59 @@
+/*
+ * Vitavision — "The Technical Journal"
+ *
+ * Type/spacing scale is transcribed verbatim from the design handoff
+ * (design_handoff_frontier_models_deck/Frontier Models in the Wild.dc.html).
+ * The font stacks come from the design system itself, vitavision/src/index.css,
+ * not from a guess — the handoff referenced them but shipped no definitions.
+ */
+:root {
+  /* Type scale */
+  --type-display: 112px;
+  --type-question: 96px; /* slides 3 and 11 hard-code this in the handoff */
+  --type-closing: 80px; /* slide 22 */
+  --type-title: 64px;
+  --type-subtitle: 44px;
+  --type-body: 34px;
+  --type-small: 28px;
+  --type-mono: 24px;
+
+  /* Slide padding and rhythm */
+  --pad-top: 96px;
+  --pad-bottom: 88px;
+  --pad-x: 120px;
+  --gap-title: 48px;
+  --gap-item: 28px;
+
+  /* Families */
+  --font-sans: Inter, system-ui, sans-serif;
+  --font-serif: "Source Serif 4 Variable", Georgia, serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+
+  /* Light surfaces */
+  --paper: hsl(210 40% 98%);
+  --surface: hsl(0 0% 100%);
+  --fg: hsl(215 25% 27%);
+  --ink: hsl(215 30% 12%);
+  --muted: hsl(215 16% 47%);
+  --hairline: hsl(214 32% 91%);
+  --hairline-strong: hsl(214 32% 80%);
+  --link: hsl(215 70% 38%);
+
+  /* Accent (slide 11, primary button) */
+  --accent: hsl(215 19% 35%);
+  --accent-fg: hsl(210 40% 98%);
+  --accent-muted: hsl(214 32% 85%);
+
+  /* Dark surfaces */
+  --dark: hsl(222 47% 11%);
+  --dark-surface: hsl(217 33% 17%);
+  --dark-fg: hsl(210 40% 96%);
+  --dark-muted: hsl(215 20% 65%);
+  --dark-border: hsl(215 25% 27%);
+  --dark-dashed: hsl(215 25% 35%);
+
+  /* Brand — URLs on dark slides only */
+  --brand: hsl(191 75% 55%);
+
+  --radius: 4px;
+}

@@ -1,0 +1,64 @@
+# Publish the deck to GitHub Pages.
+#
+# Pages is already configured on this repository with "GitHub Actions" as the
+# build source, so no manual setup is needed. The site lands at
+# https://vitalyvorobyev.github.io/models-in-the-wild/ — which is why the build
+# uses `build:pages` (it passes --base=/models-in-the-wild/) rather than `build`.
+
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Publication is an authorized action, not a merge side effect: the write
+# permissions are scoped to the deploy job rather than granted workflow-wide.
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build the deck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+        working-directory: deck
+
+      - name: Build with the Pages base path
+        run: bun run build:pages
+        working-directory: deck
+
+      # Vite emits hashed assets under /assets; without this marker Jekyll would
+      # be free to reinterpret the tree.
+      - name: Mark the artifact as static
+        run: touch deck/dist/.nojekyll
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: deck/dist
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: github-pages
+      cancel-in-progress: false
+    steps:
+      - uses: actions/configure-pages@v6
+      - id: deployment
+        uses: actions/deploy-pages@v5
