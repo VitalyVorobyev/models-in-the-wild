@@ -18,7 +18,8 @@ export default function ConstrainIntent() {
         title="Constrain the intent, not the implementation"
       />
       <p className="lead lead--tight">
-        Fix the decisions that matter. Give the model room to bring its own expertise.
+        Fix the decisions that matter. Leave room for the model to propose approaches you did not
+        specify..
       </p>
       <div className="bounds">
         <div className="bounds__panel">

@@ -37,8 +37,8 @@ const rows: Row[] = [
   {
     path: "tests/",
     depth: 1,
-    term: "Tests and artifacts",
-    rest: "what was checked and what was measured",
+    term: "Tests",
+    rest: "what was checked and measured",
   },
   { path: "src/", depth: 1, quiet: true },
 ];
@@ -47,7 +47,7 @@ export default function TheMemory() {
   return (
     <Slide
       label="The repository is the memory"
-      notes="Two minutes. A chat ends; the next session starts from zero. Everything the agent needs to know about intent, decisions and evidence therefore lives in files it reads first. Walk the four layers: the agent doc is short — how the project is organized, where the docs are, and a few rules such as be critical and ground conclusions in evidence; docs are the knowledge base — problem, design, roadmap, decisions that must not be silently reversed; skills are procedures written once and reused; tests and artifacts record what was checked and measured. This shape recurs in all five projects — an agent doc and docs in every one, skills in three, tests in four — with no project named on the slide."
+      notes="Two minutes. A chat ends; the next session starts from zero. Everything the agent needs to know about intent, decisions and evidence therefore lives in files it reads first. Walk the four layers: the agent doc is short — how the project is organized, where the docs are, and a few rules such as be critical and ground conclusions in evidence; docs are the knowledge base — problem, design, roadmap, decisions that must not be silently reversed; skills are procedures written once and reused; tests record what was checked and measured. This shape recurs in all five projects — an agent doc and docs in every one, skills in three, tests in four — with no project named on the slide."
     >
       <SlideHeader kicker="Persistent context" title="The repository is the memory" />
       <div className="anatomy">

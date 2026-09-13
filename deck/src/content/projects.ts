@@ -58,7 +58,8 @@ export const projects: Project[] = [
     oneLiner: "Living knowledge from primary papers",
     capability: "Understand",
     capabilityNote: "Accumulate knowledge, relationships and narratives",
-    implication: "From documents we store to knowledge we can navigate.",
+    implication:
+      "Technical knowledge can be maintained as a connected system, not accumulated as isolated documents.",
     subtitle: "A personal knowledge system, maintained from primary papers.",
     link: { href: "https://vitavision.dev/atlas", label: "vitavision.dev/atlas" },
     montageSlot: "art-cv-atlas",
@@ -70,7 +71,8 @@ export const projects: Project[] = [
     oneLiner: "A daily filter on the computer-vision firehose",
     capability: "Filter",
     capabilityNote: "Handle a continuous high-volume information stream",
-    implication: "Filtering is a routine. Routines can run on their own. People keep the decision.",
+    implication:
+      "A large information stream can be filtered automatically every day. A person still decides what matters.",
     subtitle:
       "A daily filter on the computer-vision firehose. The Atlas accumulates; the Radar filters.",
     link: {

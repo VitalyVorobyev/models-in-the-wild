@@ -24,7 +24,7 @@ scale. State the claim. Then explain the enabler and the method:
   many times, and every pass revises the files. **Measurable success criteria are written into
   the durable context before the agent starts and are what the evidence stage checks.**
 - **The repository is the memory.** Agent instructions (how to work, what to challenge), docs
-  (problem, design, roadmap, decisions), skills (reusable procedures), tests and artifacts
+  (problem, design, roadmap, decisions), skills (reusable procedures), tests
   (evidence that outlives the chat). Shown project-agnostically: every one of the five projects
   has an agent doc and `docs/`; three have skills; four have tests.
 - **Constrain the intent, not the implementation.** Fix only the decisions that matter — intent,
@@ -50,7 +50,9 @@ evidence.
 
 Each project opens on one dark slide (name, subtitle, link, hero visual — no standalone title
 card), shows its mechanism with real evidence, and closes with a one-sentence company
-implication on an accent slide. The synthesis does not recap the five: slide 28 states what they share and what becomes possible (explore, learn, create).
+implication on an accent slide. The synthesis does not recap the five: slide 28 states what they share (four working
+principles) and what it changes (the range of problems worth attempting is wider, with three
+examples from the talk).
 
 Project mechanisms, as the deck shows them (carried over from the v0.5 editorial pass, which
 checked each against the repository):
@@ -72,9 +74,11 @@ information-flow filtering.
 
 ## Ending
 
-The conclusion (what the five projects share; what becomes possible: explore, learn and
-create at the same time) → the take-home question → closing: this deck was built the same
-way.
+The conclusion (what the five projects share: define intent and evidence, keep context in
+files, let the agent explore and verify what matters, build the tool the problem needs; what
+it changes: the range of problems worth attempting is wider — a tiny tool, a stream nobody
+could read every day, a research problem we would not have attempted ourselves) → the
+take-home question → closing: this deck was built the same way.
 
 > Do not ask only: "How can an LLM make my current work faster?"
 > Ask: **"What useful thing do we currently not even attempt because it would take too much

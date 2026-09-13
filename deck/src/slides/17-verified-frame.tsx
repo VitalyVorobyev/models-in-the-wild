@@ -23,7 +23,9 @@ export default function VerifiedFrame() {
           <div className="verified__side">
             <div className="verified__side-text">
               <strong>Learning research</strong>
-              <span>proven for adults: retrieval practice, spacing, feedback</span>
+              <span>
+                Evidence-backed learning principles: retrieval practice, spacing, feedback
+              </span>
             </div>
           </div>
           <div className="verified__inner">
