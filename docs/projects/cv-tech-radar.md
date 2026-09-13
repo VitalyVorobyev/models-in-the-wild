@@ -91,8 +91,8 @@ faster.
 The 2026-07-28 batch comment in `config/negative_topics.yaml` records one full tuning round:
 misses mined from the 25–27 July queues, twelve candidate phrases counted over the decided
 corpus (1,200 Ignore / 269 kept), eight accepted as penalties, four rejected with the reason.
-Transcribed into `deck/src/content/evidence.ts` as `radarTuning` on 2026-09-13. Decisions
-re-measured the same day: 2,346 total, 8 Use, 1,800 Ignore.
+Recorded here for reference on 2026-09-13; the deck does not show it (implementation
+detail). Decisions re-measured the same day: 2,346 total, 8 Use, 1,800 Ignore.
 
 ## Editorial evidence update
 

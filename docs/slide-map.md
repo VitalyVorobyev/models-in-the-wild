@@ -50,13 +50,14 @@ every implication slide is "Implication NN", not "Company implication".
 | # | Slide | File | Theme |
 |---|---|---|---|
 | 13 | **CV Tech Radar** — opener with the cumulative board as hero; "the Atlas accumulates, the Radar filters" in the subtitle | `13-radar.tsx` | dark |
-| 14 | **The daily funnel** — one dated run (2026-08-27) narrowing on four clicks, the digest excerpt beside it, cumulative counts re-measured | `14-radar-funnel.tsx` | paper |
-| 15 | **The filter is tuned from its own decisions** — one real tuning round: three steps, twelve candidate phrases with their Ignore/kept hit counts and verdicts, transcribed from the config comment | `15-radar-tuning.tsx` | paper |
-| 16 | **Implication 03** — any stream people skim or ignore can be filtered daily, with a reason attached | `16-implication-03.tsx` | accent |
+| 14 | **An automatic daily routine** — three zones: automatic every morning (fetch, narrow, propose), one digest (the real 2026-08-27 excerpt), a person reads and decides; two clicks | `14-radar-routine.tsx` | paper |
+| 15 | **Implication 03** — recurring routines can run on their own; people keep the decision | `15-implication-03.tsx` | accent |
 
-Decisions: the v0.5 "a decision changes the filter" slide explained nothing; the mechanism
-that is actually interesting is the phrase-mining round recorded in `negative_topics.yaml`,
-so that is the slide. No improvement percentage is claimed anywhere.
+Decisions: the message of this section is the routine — automatic, a daily digest, a human
+final call — not the filtering mechanics. A first v0.6 funnel slide with cumulative decision
+counts and a tuning-round slide (phrase mining from `negative_topics.yaml`) were built and
+cut as implementation detail; the tuning round is recorded in `docs/projects/cv-tech-radar.md`
+for reference. The implication is framed around automated routines, not filtering.
 
 ## Remaining sections — v0.5 stand-ins until rebuilt
 
@@ -66,7 +67,7 @@ so that is the slide. No improvement percentage is claimed anywhere.
 | 05 ScoreQuant | opener+timeline · problem · optimization · verification · counterexample · implication | `v05-18` … `v05-22` |
 | Synthesis | five capabilities · department map · the question · closing | `v05-23`, `v05-24` |
 
-Target: 32 slides. Timing target (rehearsal, not measured): opening 8 · family 4 · atlas 7 ·
+Target: 31 slides. Timing target (rehearsal, not measured): opening 8 · family 4 · atlas 7 ·
 radar 6 · deutsch 10 · scorequant 11 · synthesis 5 = 51 min + 10 discussion.
 
 ## History
