@@ -13,8 +13,8 @@ export default function TheQuestion() {
           Not only: how can a model make my current work faster?
         </span>
         <h2 className="statement question__ask">
-          What useful thing do we not even attempt, because it would take too much time,
-          coordination or specialised implementation?
+          What useful thing do we not even attempt because it would take too much time, coordination
+          or specialist effort?
         </h2>
       </div>
     </Slide>

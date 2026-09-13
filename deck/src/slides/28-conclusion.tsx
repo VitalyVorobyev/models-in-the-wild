@@ -1,48 +1,41 @@
 import Slide from "../components/Slide";
 import SlideHeader from "../components/SlideHeader";
+import { project } from "../content/projects";
 
 const principles = [
   {
-    head: "The frame is rigid, the implementation is flexible",
-    body: "Intent, standards and evidence are written first; the agent works inside them and is free about the rest.",
+    head: "Define intent and evidence, not every implementation detail.",
+    body: "Fix the goal, the constraints, the standards and the acceptance criteria. Let the agent explore the implementation.",
   },
   {
-    head: "Every step leaves a file",
-    body: "Instructions, findings, audits, provenance: a person reads files, not chat, and the repository is the memory.",
+    head: "Keep context and decisions in files, not in chat.",
+    body: "The repository carries knowledge, decisions, procedures and evidence from one session to the next.",
   },
   {
-    head: "Verification grows with capability",
-    body: "The stronger the model, the more the checking matters: tests, coverage, independent audits, machine-checked proofs.",
+    head: "Let the agent explore; verify what matters.",
+    body: "A more capable model justifies more ambitious exploration, not less verification.",
   },
   {
-    head: "Small custom software is cheap; the workflow is the asset",
-    body: "Tools are built for one task and rebuilt when the task changes. What is kept is the way of working.",
+    head: "Build the tool the problem needs, even if it is small or temporary.",
+    body: "Cheap custom software changes which problems are worth solving. The workflow outlives any one tool.",
   },
 ];
 
-const openings = [
-  {
-    verb: "Explore",
-    body: "Territory where we lack the expertise: a method from another field, a formal proof, a literature we have not read.",
-  },
-  {
-    verb: "Learn",
-    body: "A body of documents we could not keep up with becomes an atlas we navigate; a stream too wide to read is filtered every morning.",
-  },
-  {
-    verb: "Create",
-    body: "Content and tooling systems built and kept coherent inside a verified frame, by a team of two, in daily use.",
-  },
+/* Three problems from the talk that were not worth starting before. */
+const examples = [
+  { line: "A tiny tool that was never worth building.", project: project("01") },
+  { line: "A stream of information nobody could read every day.", project: project("03") },
+  { line: "A research problem we would not have attempted ourselves.", project: project("05") },
 ];
 
-/** The conclusion: not five tools, one way of working, and a wider idea of what is possible. */
+/** The conclusion: what the five projects share, and the wider set of problems it makes worth attempting. */
 export default function Conclusion() {
   return (
     <Slide
-      label="Explore, learn and create at the same time"
-      notes="Two minutes. The five projects were the evidence; this is the conclusion. Left, what they have in common, and these are the principles I would carry into any of our work: a rigid frame and a flexible implementation; every step leaves a file; verification grows with the model's capability; the software is disposable and the workflow is the durable asset. Right, what becomes possible: the same person can explore, learn and create at the same time, in territory where they are not the expert. That is the change in what we can attempt, and the next slide is the question it leaves."
+      label="Five projects, one way of working"
+      notes="Two minutes. The five projects were the evidence; this is what they have in common and what it changes. Left, the working method, and I would carry these four into any of our projects: fix the intent and the evidence and leave the implementation open; keep context and decisions in files, so the repository, not the chat, is the memory; let the agent explore, and put the effort into verifying what matters, more of it as the models get stronger; and build the small tool the problem needs, because the workflow outlives the tool. Right, the consequence. The cost and the risk of starting unfamiliar or previously uneconomic work has fallen, so more problems become realistic candidates: a tiny tool that was never worth building, a stream nobody could read every day, a research problem we would not have attempted ourselves. That is the change in what we can attempt. The next slide is the question it leaves."
     >
-      <SlideHeader kicker="Synthesis" title="Explore, learn and create at the same time" />
+      <SlideHeader kicker="Synthesis" title="Five projects, one way of working" />
       <div className="conclude">
         <div className="conclude__col">
           <span className="conclude__label">What the five projects share</span>
@@ -55,21 +48,21 @@ export default function Conclusion() {
             ))}
           </ol>
         </div>
-        <div className="conclude__col conclude__col--open">
-          <span className="conclude__label">What becomes possible</span>
-          <div className="conclude__openings">
-            {openings.map((o) => (
-              <div key={o.verb} className="conclude__opening">
-                <strong>{o.verb}</strong>
-                <span>{o.body}</span>
-              </div>
+        <div className="conclude__col conclude__col--wide">
+          <span className="conclude__label">What this changes</span>
+          <h3 className="conclude__claim">The range of problems worth attempting is wider.</h3>
+          <ul className="conclude__examples">
+            {examples.map((e) => (
+              <li key={e.project.number} className="conclude__example">
+                <span className="conclude__example-line">{e.line}</span>
+                <span className="conclude__example-ref">
+                  {e.project.number} · {e.project.name}
+                </span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
-      <p className="conclude__rule">
-        Not five tools: one way of working, and a wider idea of what we can attempt.
-      </p>
     </Slide>
   );
 }

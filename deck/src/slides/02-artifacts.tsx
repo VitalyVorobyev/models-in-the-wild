@@ -14,7 +14,7 @@ export default function Artifacts() {
       label="Five artifacts"
       notes="One minute. Artifacts first, no definitions. All five exist and are working; not all are finished — ScoreQuant's manuscript is a draft. The cards rise left to right because the projects are ordered by scale, and that order is the arc of the talk. Do not explain the projects here; each gets its own section."
     >
-      <SlideHeader kicker="Artifacts first" title="Five artifacts" />
+      <SlideHeader kicker="" title="Five weekend projects" />
       <ol className="montage">
         {projects.map((p, i) => (
           <li

@@ -121,13 +121,18 @@ loop-of-stations slide was replaced by the pipeline Vitaly described. Re-measure
 
 | # | Slide | File | Theme |
 |---|---|---|---|
-| 28 | **Explore, learn and create at the same time** — left, what the five projects share (four principles); right, what becomes possible (explore, learn, create); the rule "Not five tools: one way of working, and a wider idea of what we can attempt" | `28-conclusion.tsx` | paper |
+| 28 | **Five projects, one way of working** — left, subordinate, the four working principles the projects share (intent and evidence, not implementation detail; context and decisions in files; let the agent explore, verify what matters; build the tool the problem needs); right, the claim "The range of problems worth attempting is wider." with three examples from the talk (a tiny tool, 01; a stream nobody could read every day, 03; a research problem we would not have attempted ourselves, 05) | `28-conclusion.tsx` | paper |
 | 29 | **The question** — "Not only: how can a model make my current work faster?" then the take-home question, alone on a dark page | `29-the-question.tsx` | dark |
 | 30 | **Closing** — "This deck was built the same way.", the four-step method, the repository and the deployed deck | `30-closing.tsx` | dark |
 
 Decisions: the five-capabilities recap and the capability-by-department matrix were both
 cut (2026-09-13): the conclusion is about a new way of thinking about what is possible, not
-about the five projects' content. The implication sentences live in `content/projects.ts`
+about the five projects' content. The "Explore / Learn / Create" right column was cut the
+same day as too abstract after five concrete sections; slide 28 now states one conclusion,
+backed by three examples the audience has just seen, and hands directly to the question on
+slide 29. The point is that the cost and risk of starting unfamiliar or previously uneconomic
+work has fallen, not that expertise is obsolete: "missing expertise" framing stays off
+this slide. The implication sentences live in `content/projects.ts`
 so the five accent slides read one source. `DepartmentMap`, `Diagram` and the `v05-*`
 stand-ins are deleted.
 

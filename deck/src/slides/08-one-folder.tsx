@@ -60,9 +60,7 @@ export default function OneFolder() {
           <span className="journey__path">01_ready_pdfs/&lt;category&gt;/</span>
         </li>
       </ol>
-      <p className="journey__rule">
-        No embeddings. No RAG. No search backend. Structured files plus an agent.
-      </p>
+      <p className="journey__rule">The category structure is enough to find what I need.</p>
       <p className="evidence-line">
         {evidence.familyDocs.records.value} records · {evidence.familyDocs.categories.value}{" "}
         categories · measured {evidence.familyDocs.records.measured}

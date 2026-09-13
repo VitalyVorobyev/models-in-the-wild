@@ -3718,11 +3718,13 @@
 
 /* ─── v0.6 Synthesis section ─────────────────────────────────── */
 
-/* Slide 28: the conclusion, principles left and openings right. */
+/* Slide 28: the conclusion. Four principles left, subordinate; one claim
+   and three examples from the talk right, the claim being the heaviest
+   element on the page after the title. */
 .conclude {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  column-gap: 96px;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  column-gap: 110px;
   margin-top: 40px;
 }
 
@@ -3730,6 +3732,11 @@
   display: flex;
   flex-direction: column;
   gap: 22px;
+}
+
+.conclude__col--wide {
+  border-left: 6px solid var(--accent);
+  padding-left: 40px;
 }
 
 .conclude__label {
@@ -3754,7 +3761,7 @@
   display: grid;
   grid-template-columns: 44px minmax(0, 1fr);
   column-gap: 12px;
-  padding: 18px 0;
+  padding: 16px 0;
   border-top: 1px solid var(--hairline-strong);
 }
 
@@ -3763,7 +3770,7 @@
   font-family: var(--font-mono);
   font-size: 18px;
   letter-spacing: 0.1em;
-  padding-top: 8px;
+  padding-top: 6px;
   color: var(--accent);
 }
 
@@ -3771,56 +3778,62 @@
   display: block;
   font-family: var(--font-serif);
   font-weight: 500;
-  font-size: 28px;
+  font-size: 26px;
   line-height: 1.15;
   color: var(--ink);
+  text-wrap: pretty;
 }
 
 .conclude__principles span {
   display: block;
   grid-column: 2;
   margin-top: 6px;
-  font-size: 20px;
+  font-size: 19px;
   line-height: 1.4;
   color: var(--muted);
 }
 
-.conclude__openings {
+.conclude__claim {
+  margin: 0;
+  max-width: 820px;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.conclude__examples {
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
   display: flex;
   flex-direction: column;
+  gap: 30px;
 }
 
-.conclude__opening {
-  display: grid;
-  grid-template-columns: 200px minmax(0, 1fr);
-  column-gap: 24px;
-  align-items: start;
-  padding: 26px 0;
-  border-top: 1px solid var(--hairline-strong);
+.conclude__example {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-.conclude__opening strong {
+.conclude__example-line {
   font-family: var(--font-serif);
   font-weight: 500;
-  font-size: 44px;
-  line-height: 1;
+  font-size: 30px;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.conclude__example-ref {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--accent);
-}
-
-.conclude__opening span {
-  font-size: 22px;
-  line-height: 1.4;
-  color: var(--ink);
-  padding-top: 8px;
-}
-
-.slide .conclude__rule {
-  margin-top: 40px;
-  font-family: var(--font-serif);
-  font-weight: 500;
-  font-size: var(--type-body);
-  line-height: 1.25;
-  color: var(--ink);
 }
 
 /* Slide 29: the question, alone on a dark page. */

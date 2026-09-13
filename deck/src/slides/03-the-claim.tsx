@@ -11,7 +11,7 @@ export default function TheClaim() {
       <div className="kicker kicker--accent">The claim</div>
 
       <h2 className="statement" style={{ color: "var(--accent-fg)", maxWidth: "1600px" }}>
-        Not faster coding. A larger class of problems one engineer or a small team can attack.
+        Not just faster coding. A larger class of problems one engineer or a small team can attack.
       </h2>
 
       <p
