@@ -20,11 +20,13 @@ import S18 from "./18-redaktion";
 import S19 from "./19-tonwerk";
 import S20 from "./20-implication-04";
 import S21 from "./21-scorequant";
-import S22 from "./22-the-problem";
-import S23 from "./23-synthetic-run";
-import S24 from "./24-favour-to-research";
-import S25 from "./25-research-loop";
-import S26 from "./26-implication-05";
+import S22 from "./22-the-model";
+import S23 from "./23-why-bin";
+import S24 from "./24-synthetic-run";
+import S25 from "./25-what-was-proved";
+import S26 from "./26-favour-to-research";
+import S27 from "./27-research-pipeline";
+import S28 from "./28-implication-05";
 // v0.5 slides, kept under their old numbers until each section is redone.
 import V23 from "./v05-23-departments";
 import V24 from "./v05-24-question";
@@ -42,7 +44,12 @@ export const sections: DeckSection[] = [
   { id: "cv-atlas", number: "02", title: "CV Atlas", slides: [S10, S11, S12] },
   { id: "cv-tech-radar", number: "03", title: "CV Tech Radar", slides: [S13, S14, S15] },
   { id: "deutsch-atlas", number: "04", title: "Deutsch-Atlas", slides: [S16, S17, S18, S19, S20] },
-  { id: "scorequant", number: "05", title: "ScoreQuant", slides: [S21, S22, S23, S24, S25, S26] },
+  {
+    id: "scorequant",
+    number: "05",
+    title: "ScoreQuant",
+    slides: [S21, S22, S23, S24, S25, S26, S27, S28],
+  },
   { id: "synthesis", number: null, title: "Synthesis", slides: [V23, V24] },
 ];
 

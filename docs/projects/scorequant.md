@@ -86,7 +86,9 @@ just implementation of known solutions.
 | 82 numerical-evidence rows | `grep -E "^\| N-" agenticresearch/NUMERICAL_EVIDENCE.md \| wc -l` |
 | 19 literature audits | `agenticresearch/LITERATURE/audits/` |
 | 21 audit reports (re-measured 2026-09-13; 20 on 2026-09-12) | `agenticresearch/AUDITS/` |
-| Lean 4 v4.33.1 + Mathlib workspace, 20 modules | `agenticresearch/formal/` |
+| Lean 4 v4.33.1 + Mathlib workspace, 21 modules (re-measured 2026-09-13; 20 on 2026-09-12) | `agenticresearch/formal/` |
+| Exchange theorem: `D-EXCHANGE-TERMINATES`, `project_proved`, Lean `ScoreQuantFormal.d_exchange_terminates` | `agenticresearch/claims/D-EXCHANGE-TERMINATES.json`, `KNOWN_RESULTS/04-d-optimality.md` §D8 |
+| Main result: `D-EXCHANGE-IMPLIES-VORONOI` (Lean `ScoreQuantFormal.exchange_voronoi`, audited) and `D-GLOBAL-GEOMETRIC-REALIZABILITY`, both `project_proved`; converse `D-VORONOI-NOT-EXCHANGE` is a `counterexample` | `agenticresearch/claims/*.json`, `KNOWN_RESULTS/04-d-optimality.md` §D5, §D7 |
 | Manuscript v10, 10 Sep 2026, owner review pending | `agenticresearch/manuscripts/README.md` |
 | Traceable theorem example: `D-EXCHANGE-IMPLIES-VORONOI`, `project_proved`, audited 26 Aug 2026 | `agenticresearch/claims/D-EXCHANGE-IMPLIES-VORONOI.json`, `AUDITS/AUDIT-D-EXCHANGE-VORONOI-001.md` |
 | Library v0.2.0, alpha | `pyproject.toml` |
@@ -95,13 +97,15 @@ just implementation of known solutions.
 ## Do not claim
 
 - "Claude proved a theorem and ChatGPT confirmed it." Agreement between models is not
-  evidence; the slide says so in as many words.
+  evidence; the slide shows the second opinion as a turning point, not as a verdict.
 - "Lean-verified library": Lean checks the stated mathematics, not the implementation, and
   the effort is parked as partial.
 - "Published paper": a draft, owner review pending, publication blocked.
 - "Reviewer agent": there are no agent definition files. There is an independent-audit
   protocol (prompts, worktree discipline, fresh-context sessions) with 20 reports.
-- "Novel result": the repository's own rule is that a search gap is not novelty.
+- "Novel result": the repository's own rule is that a search gap is not novelty. Slide 25
+  says "what was proved", with the conditions (distinct scores, K nonempty cells, nonsingular
+  I, zero tolerance) in the notes; the Voronoi result is stated for the finite sample.
 - The project started on 2026-08-23 under the name FisherBin.
 
 ## Editorial evidence update

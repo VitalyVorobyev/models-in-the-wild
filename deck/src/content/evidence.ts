@@ -67,6 +67,16 @@ export const evidence = {
     readingTexts: figure("85", "deutsch-textbook: ls content/reading/*/*.yaml | wc -l"),
     listeningScenes: figure("40", "deutsch-textbook: ls content/listening/*/*.yaml | wc -l"),
     cast: figure("12", "deutsch-textbook: data/listening-characters.yaml"),
+    exercises: figure(
+      "2,311",
+      "deutsch-textbook: grep -hcE '^  - id:' content/exercises/*/*.yaml, summed",
+      "2026-09-13",
+    ),
+    exerciseSets: figure(
+      "438",
+      "deutsch-textbook: ls content/exercises/*/*.yaml | wc -l",
+      "2026-09-13",
+    ),
     wortliste: figure(
       "673 · 1,449 · 3,416",
       "deutsch-textbook: bun scripts/coverage.ts A1|A2|B1 → 673/673, 1449/1449, 3416/3416; tripwired by tests/published-claims.test.ts",
@@ -96,6 +106,21 @@ export const evidence = {
     ),
     audits: figure("21", "scorequant: ls agenticresearch/AUDITS | wc -l", "2026-09-13"),
     libraryVersion: figure("v0.2.0 (alpha)", "scorequant: pyproject.toml"),
+    leanModules: figure(
+      "21",
+      "scorequant: ls agenticresearch/formal/ScoreQuantFormal/*.lean | wc -l",
+      "2026-09-13",
+    ),
+    exchangeTheorem: figure(
+      "D-EXCHANGE-TERMINATES",
+      "scorequant: agenticresearch/claims/D-EXCHANGE-TERMINATES.json → status project_proved, formal_proof ScoreQuantFormal.d_exchange_terminates; KNOWN_RESULTS/04-d-optimality.md §D8",
+      "2026-09-13",
+    ),
+    mainTheorem: figure(
+      "D-EXCHANGE-IMPLIES-VORONOI · D-GLOBAL-GEOMETRIC-REALIZABILITY",
+      "scorequant: agenticresearch/claims/D-EXCHANGE-IMPLIES-VORONOI.json → project_proved, formal_proof ScoreQuantFormal.exchange_voronoi, verified_by AUDIT-D-EXCHANGE-VORONOI; D-GLOBAL-GEOMETRIC-REALIZABILITY.json → project_proved; converse D-VORONOI-NOT-EXCHANGE → counterexample; KNOWN_RESULTS/04-d-optimality.md §D5, §D7",
+      "2026-09-13",
+    ),
     manuscript: figure(
       "draft v10, owner review pending",
       "scorequant: agenticresearch/manuscripts/README.md",

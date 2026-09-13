@@ -2431,8 +2431,8 @@
 
 .verified__counts {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 28px;
 }
 
 .verified__count {
@@ -2444,7 +2444,7 @@
 .verified__count strong {
   font-family: var(--font-serif);
   font-weight: 500;
-  font-size: 76px;
+  font-size: 66px;
   line-height: 1;
   color: var(--ink);
   letter-spacing: -0.01em;
@@ -2791,7 +2791,7 @@
 
 /* ─── v0.6 ScoreQuant section ──────────────────────────────────── */
 
-/* Slide 22: the problem in three pictures of the same sample. */
+/* Slides 22 and 23: the setting and the problem, three pictures each of one sample. */
 .problem {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2903,6 +2903,241 @@
     linear-gradient(-45deg, transparent 42%, var(--ink) 42%, var(--ink) 58%, transparent 58%);
 }
 
+.pfig__seed--accent {
+  background: linear-gradient(45deg, transparent 42%, var(--accent) 42%, var(--accent) 58%, transparent 58%),
+    linear-gradient(-45deg, transparent 42%, var(--accent) 42%, var(--accent) 58%, transparent 58%);
+}
+
+.pfig__pull--faint {
+  height: 1px;
+  background: var(--hairline-strong);
+  opacity: 0.55;
+}
+
+.pfig__pull--faint::after {
+  right: -2px;
+  top: -3px;
+  border-width: 4px;
+  border-left-width: 6px;
+}
+
+.pfig__pull--accent {
+  height: 3px;
+  background: var(--accent);
+}
+
+.pfig__pull--accent::after {
+  border-left-color: var(--accent);
+  right: -4px;
+  top: -5px;
+  border-width: 6px;
+  border-left-width: 9px;
+}
+
+.pfig__dot--ring {
+  width: 22px;
+  height: 22px;
+  margin: -11px 0 0 -11px;
+  background: transparent;
+  border: 3px solid var(--accent);
+  opacity: 1;
+}
+
+.pfig__contour {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border: 1.5px solid var(--hairline-strong);
+  border-radius: 50%;
+}
+
+.pfig__line {
+  position: absolute;
+  background: var(--hairline-strong);
+}
+
+.pfig__line--h {
+  left: 0;
+  right: 0;
+  height: 1.5px;
+}
+
+.pfig__line--v {
+  top: 0;
+  bottom: 0;
+  width: 1.5px;
+}
+
+.pfig__axis {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.pfig__axis--x {
+  left: 14px;
+  bottom: 8px;
+}
+
+.pfig__axis--y {
+  left: 14px;
+  top: 8px;
+}
+
+.pfig__formula--top {
+  right: auto;
+  bottom: auto;
+  left: 14px;
+  top: 40px;
+}
+
+.pfig__tag {
+  position: absolute;
+  font-size: 19px;
+  color: var(--ink);
+}
+
+.pfig__tag--accent {
+  color: var(--accent);
+}
+
+.pfig__ellipse {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-24deg);
+  border-radius: 50%;
+}
+
+.pfig__ellipse--full {
+  width: 40%;
+  height: 32%;
+  border: 2.5px solid var(--ink);
+}
+
+.pfig__ellipse--bins {
+  width: 64%;
+  height: 52%;
+  border: 2.5px dashed var(--accent);
+}
+
+/* Slide 23, panel 1: a template fit, two components and the observed counts. */
+.pfig__bars {
+  position: absolute;
+  inset: 44px 40px 46px;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  border-bottom: 1.5px solid var(--hairline-strong);
+}
+
+.pfig__bar {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.pfig__bar-bg {
+  background: color-mix(in srgb, var(--ink) 22%, transparent);
+}
+
+.pfig__bar-sig {
+  background: color-mix(in srgb, var(--accent) 70%, transparent);
+}
+
+.pfig__obs {
+  position: absolute;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  margin: 0 0 -6px -6px;
+  border-radius: 50%;
+  background: var(--ink);
+}
+
+.pfig__legend {
+  position: absolute;
+  left: 14px;
+  bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.pfig__swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-left: 10px;
+}
+
+.pfig__swatch:first-child {
+  margin-left: 0;
+}
+
+.pfig__swatch--bg {
+  background: color-mix(in srgb, var(--ink) 22%, transparent);
+}
+
+.pfig__swatch--sig {
+  background: color-mix(in srgb, var(--accent) 70%, transparent);
+}
+
+.pfig__swatch--obs {
+  border-radius: 50%;
+  background: var(--ink);
+}
+
+/* Slide 23, panel 2: the same sample binned two ways, side by side. */
+.pfig--split {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  align-content: center;
+  padding: 0 20px 40px;
+}
+
+.pfig__half-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pfig__half {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--hairline-strong);
+  overflow: hidden;
+}
+
+.pfig__half .pfig__dot {
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+}
+
+.pfig__half .pfig__seed {
+  width: 12px;
+  height: 12px;
+  margin: -6px 0 0 -6px;
+}
+
+.pfig__caption {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
 /* Six hues, one per cell; the pale cell fills use the same hue. */
 [data-c="0"] { --cell: hsl(215 70% 45%); }
 [data-c="1"] { --cell: hsl(28 80% 46%); }
@@ -2930,7 +3165,7 @@
   color: var(--ink);
 }
 
-/* Slide 23: the run — cells and slider left, the measured curves right. */
+/* Slide 24: the run — cells and slider left, the measured curves right. */
 .run {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
@@ -3010,7 +3245,7 @@
   color: var(--ink);
 }
 
-/* Slide 24: the fork — a trunk of three, a branch of three below it. */
+/* Slide 26: the fork — a trunk of three, a branch of three below it. */
 .fork {
   position: relative;
   display: grid;
@@ -3087,108 +3322,41 @@
   color: var(--muted);
 }
 
-/* Slide 25: six stations on one track, clockwise, a return along the left. */
-.loop {
-  position: relative;
+/* Slide 25: the two results, one picture each. */
+.proved {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-template-rows: 1fr 1fr;
-  column-gap: 48px;
-  height: 520px;
-  margin-top: 48px;
-  padding: 0 40px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 72px;
+  margin-top: 40px;
 }
 
-.loop__track {
-  position: absolute;
-  top: 10px;
-  bottom: 10px;
-  left: 0;
-  right: 0;
-  border: 8px solid var(--hairline-strong);
-  border-radius: 200px;
-}
-
-.loop__arrow {
-  position: absolute;
-  left: 50%;
-  border: 11px solid transparent;
-  transform: translateX(-50%);
-}
-
-.loop__arrow--top {
-  top: 3px;
-  border-left: 16px solid var(--hairline-strong);
-  border-right: 0;
-}
-
-.loop__arrow--bottom {
-  bottom: 3px;
-  border-right: 16px solid var(--hairline-strong);
-  border-left: 0;
-}
-
-.loop__return {
-  position: absolute;
-  left: -36px;
-  top: 50%;
-  transform: translate(-50%, -50%) rotate(-90deg);
-  white-space: nowrap;
-  padding: 4px 14px;
-  background: var(--paper);
-  font-family: var(--font-mono);
-  font-size: 18px;
-  letter-spacing: 0.06em;
-  color: var(--muted);
-}
-
-.loop__station {
-  position: relative;
+.proved__col {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding-top: 40px;
 }
 
-.loop__station::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 2px;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: var(--dark);
-  border: 5px solid var(--paper);
-  box-sizing: content-box;
+.proved__col .pfig {
+  aspect-ratio: 2 / 1;
 }
 
-.loop__station--bottom {
-  justify-content: flex-end;
-  padding-top: 0;
-  padding-bottom: 40px;
-}
-
-.loop__station--bottom::before {
-  top: auto;
-  bottom: 2px;
-}
-
-.loop__station strong {
+.proved__col strong {
+  margin-top: 26px;
   font-family: var(--font-serif);
   font-weight: 500;
-  font-size: 32px;
-  line-height: 1.1;
+  font-size: 34px;
+  line-height: 1.15;
   color: var(--ink);
 }
 
-.loop__station span {
-  font-size: 21px;
-  line-height: 1.35;
+.slide .proved__col p {
+  margin-top: 12px;
+  font-size: 23px;
+  line-height: 1.4;
   color: var(--muted);
 }
 
-.loop__station em {
+.proved__col em {
+  margin-top: 16px;
   font-family: var(--font-mono);
   font-style: normal;
   font-size: 18px;
@@ -3196,8 +3364,166 @@
   color: var(--ink);
 }
 
-.slide .loop__rule {
+.slide .proved__rule {
   margin-top: 36px;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: var(--type-body);
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+/* Slide 27: registry → packet (write, execute, audit) → Lean → library and manuscript. */
+.pipe {
+  position: relative;
+  display: grid;
+  grid-template-columns: 330px minmax(0, 1fr) 300px 330px;
+  column-gap: 44px;
+  align-items: start;
+  margin-top: 76px;
+}
+
+.pipe__rail {
+  position: absolute;
+  top: -36px;
+  left: 0;
+  right: 0;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--hairline-strong);
+}
+
+.pipe__stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pipe__stage::before,
+.pipe__out::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -50px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--dark);
+  border: 5px solid var(--paper);
+  box-sizing: content-box;
+  transform: translateX(-5px);
+}
+
+.pipe__kicker {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.pipe__stage > strong,
+.pipe__step strong,
+.pipe__out strong {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.pipe__stage > span:not(.pipe__kicker),
+.pipe__step span {
+  font-size: 21px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.pipe__stage em,
+.pipe__out em {
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+
+.pipe__packet {
+  padding: 24px 28px 28px;
+  border: 1px solid var(--hairline-strong);
+  background: var(--surface);
+}
+
+.pipe__steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.pipe__step {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pipe__return {
+  position: absolute;
+  left: -230px;
+  right: 40px;
+  bottom: -54px;
+  height: 54px;
+  border: 6px solid var(--hairline-strong);
+  border-top: 0;
+  border-radius: 0 0 30px 30px;
+}
+
+.pipe__return::before {
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: -18px;
+  border: 11px solid transparent;
+  border-bottom: 16px solid var(--hairline-strong);
+  border-top: 0;
+}
+
+.pipe__return-label {
+  position: absolute;
+  left: 50%;
+  bottom: -70px;
+  transform: translateX(-50%);
+  padding: 4px 14px;
+  background: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 18px;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  color: var(--muted);
+}
+
+.pipe__outputs {
+  gap: 36px;
+}
+
+.pipe__outputs::before {
+  display: none;
+}
+
+.pipe__out {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pipe__out + .pipe__out::before {
+  display: none;
+}
+
+.slide .pipe__rule {
+  margin-top: 120px;
   font-family: var(--font-serif);
   font-weight: 500;
   font-size: var(--type-body);

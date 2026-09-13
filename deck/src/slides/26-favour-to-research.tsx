@@ -6,7 +6,7 @@ export default function FavourToResearch() {
   return (
     <Slide
       label="From a favour to a research programme"
-      notes="Ninety seconds, one click. This is my account; the repository does not record the conversation. A colleague described the procedure; the request was modest, a publishable library, and that branch was delivered: Python, tests, documentation. Click: during the theory work the model proposed a candidate theorem and a proof. I asked a second model to break it; it found no immediate flaw. That is not evidence of anything, two models agreeing proves nothing. What it did was change the ambition: if the checking can be made real, the research loop itself can run inside the workflow. The next slide is that loop."
+      notes="Ninety seconds, one click. This is my account; the repository does not record the conversation. A colleague described the procedure; the request was modest, a publishable library, and that branch was delivered: Python, tests, documentation. Click: during the theory work the model proposed a candidate theorem and a proof. I asked a second model to break it; it found no immediate flaw. That settles nothing by itself; what it did was change the ambition: if the checking can be made real, the research loop itself can run inside the workflow. The next slide is how that loop runs."
     >
       <SlideHeader
         kicker="ScoreQuant · how it escalated"
@@ -49,7 +49,7 @@ export default function FavourToResearch() {
           style={{ gridColumn: 3, gridRow: 2 }}
         >
           <strong>A second opinion</strong>
-          <span>a second model, asked to break it, found no flaw. Which proves nothing.</span>
+          <span>a second model, asked to break it, found no flaw</span>
         </div>
         <div
           className="fork__node fragment"
