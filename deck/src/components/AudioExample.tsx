@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
 import audio from "../assets/audio/market-stall.mp3";
+
+/** The market-stall excerpt. Stops and rewinds when its slide is left. */
 export default function AudioExample() {
   const ref = useRef<HTMLAudioElement>(null);
   useEffect(() => {
@@ -19,35 +21,16 @@ export default function AudioExample() {
     };
   }, []);
   return (
-    <div className="audio-example">
-      <audio
-        ref={ref}
-        controls
-        preload="metadata"
-        aria-label="Market-stall listening scene excerpt"
-      >
-        <source src={audio} type="audio/mpeg" />
-        <track kind="captions" />
-        Your browser does not support audio.
-      </audio>
-      <details>
-        <summary>Scene transcript · excerpt starts at the beginning</summary>
-        <p>
-          Verkäuferin: Guten Morgen! Was darf es sein?
-          <br />
-          Kunde: Ich möchte ein Kilo Äpfel und zwei Kilo Kartoffeln.
-          <br />
-          Verkäuferin: Gern. Die Äpfel kosten drei Euro, die Kartoffeln zwei Euro fünfzig.
-          <br />
-          Kunde: Haben Sie auch Tomaten?
-          <br />
-          Verkäuferin: Ja, aber nur noch wenige. Ein Pfund kostet zwei Euro.
-          <br />
-          Kunde: Dann nehme ich ein Pfund Tomaten. Das ist alles.
-          <br />
-          Verkäuferin: Zusammen sind das sieben Euro fünfzig.
-        </p>
-      </details>
-    </div>
+    <audio
+      ref={ref}
+      className="audio-example"
+      controls
+      preload="metadata"
+      aria-label="Market-stall listening scene excerpt"
+    >
+      <source src={audio} type="audio/mpeg" />
+      <track kind="captions" />
+      Your browser does not support audio.
+    </audio>
   );
 }

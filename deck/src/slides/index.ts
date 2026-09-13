@@ -14,11 +14,12 @@ import S12 from "./12-implication-02";
 import S13 from "./13-radar";
 import S14 from "./14-radar-routine";
 import S15 from "./15-implication-03";
+import S16 from "./16-deutsch";
+import S17 from "./17-verified-frame";
+import S18 from "./18-redaktion";
+import S19 from "./19-tonwerk";
+import S20 from "./20-implication-04";
 // v0.5 slides, kept under their old numbers until each section is redone.
-import V14 from "./v05-14-deutsch-ecosystem";
-import V15 from "./v05-15-redaktion";
-import V16 from "./v05-16-tonwerk";
-import V17 from "./v05-17-learner";
 import V18 from "./v05-18-score-space";
 import V19 from "./v05-19-optimization";
 import V20 from "./v05-20-research-timeline";
@@ -39,7 +40,7 @@ export const sections: DeckSection[] = [
   { id: "family-docs", number: "01", title: "Family Documents Organizer", slides: [S7, S8, S9] },
   { id: "cv-atlas", number: "02", title: "CV Atlas", slides: [S10, S11, S12] },
   { id: "cv-tech-radar", number: "03", title: "CV Tech Radar", slides: [S13, S14, S15] },
-  { id: "deutsch-atlas", number: "04", title: "Deutsch-Atlas", slides: [V14, V15, V16, V17] },
+  { id: "deutsch-atlas", number: "04", title: "Deutsch-Atlas", slides: [S16, S17, S18, S19, S20] },
   { id: "scorequant", number: "05", title: "ScoreQuant", slides: [V18, V19, V20, V21, V22] },
   { id: "synthesis", number: null, title: "Synthesis", slides: [V23, V24] },
 ];

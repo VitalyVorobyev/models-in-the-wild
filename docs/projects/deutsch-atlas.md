@@ -92,6 +92,10 @@ engineering, product education, sales training and internal documentation.
 | Cloudflare Worker + D1 + R2 sync | `wrangler.toml`, `worker/`, `docs/architecture/cloud-sync.md` |
 | Independently authored explanation halves | `docs/adrs/0001-bilingual-explanation-halves.md` |
 | 284 commits, 2026-07-09 → 2026-09-03 | `git rev-list --count HEAD`, `git log` |
+| Market-stall scene approved 2026-08-02 against a seven-item checklist (accent, context, intelligibility, naturalness, pace, questions, speakers); no voice cloning, no reference audio | `data/audio-provenance/a1/ls-essen-einkaufen-01.json` |
+
+Re-measured 2026-09-13 for v0.6 (`bun scripts/coverage.ts A1|A2|B1`, `bun scripts/structures.ts
+A1|A2|B1`, the `ls`/`grep` counts above): unchanged.
 
 ## Do not claim
 

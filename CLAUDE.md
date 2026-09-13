@@ -63,7 +63,7 @@ docs/talk-brief.md      audience, 60-min format, core thesis, the five projects 
 docs/narrative.md       the claim, workflow spine, rigid-vs-flexible, five capabilities, ending
 docs/projects/*.md      one file per project — the raw material a slide may use, with evidence
         ↓
-docs/slide-map.md       the deck contract, currently v0.6 in progress (target 33 slides)
+docs/slide-map.md       the deck contract, currently v0.6 in progress (target 30 slides)
         ↓
 deck/src/slides/        one file per slide, in that order
 ```
@@ -110,8 +110,8 @@ label and on the `M` map with no further edit.
 
 Navigation the deck provides beyond arrow keys: `M` opens the named section map, `Esc` opens
 Reveal's own thumbnail overview, `S` opens the speaker view, `G` jumps to a slide number,
-alt-click zooms. Fragmented slides: 4 (the return arc) and the v0.5 radar funnel — the first
-beat is always visible and each click adds the next.
+alt-click zooms. Fragmented slides: 4 (the return arc), 14 (digest, then the person) and 17 (corpus, tools,
+product) — the first beat is always visible and each click adds the next.
 
 Load-bearing details, each of which broke the deck during the port:
 

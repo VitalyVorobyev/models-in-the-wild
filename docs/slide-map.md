@@ -57,22 +57,42 @@ Decisions: the message of this section is the routine — automatic, a daily dig
 final call — not the filtering mechanics. A first v0.6 funnel slide with cumulative decision
 counts and a tuning-round slide (phrase mining from `negative_topics.yaml`) were built and
 cut as implementation detail; the tuning round is recorded in `docs/projects/cv-tech-radar.md`
-for reference. The implication is framed around automated routines, not filtering.
+for reference. The implication reads "Filtering is a routine. Routines can run on their own.
+People keep the decision." so that it still answers the section's capability, Filter. The
+opener credits the ThoughtWorks Technology Radar as the borrowed idea (`origin` in
+`projects.ts`).
+
+## 04 · Deutsch-Atlas — rebuilt 2026-09-13
+
+| # | Slide | File | Theme |
+|---|---|---|---|
+| 16 | **Deutsch-Atlas** — opener with the learner landing page as hero | `16-deutsch.tsx` | dark |
+| 17 | **From evidence to a production system** — the verified frame: learning research (left edge) and Goethe standards (bottom edge) always visible; three clicks add the corpus counts, the two tools resting on the frame, and the learner app | `17-verified-frame.tsx` | paper |
+| 18 | **Keeping the corpus honest** — Redaktion, the Referenzen capture; three statements; "coverage is a trace, not a quality score" | `18-redaktion.tsx` | paper |
+| 19 | **From script to approved audio** — Tonwerk in four stations (script, render, machine checks, a person approves with the recorded checklist), then the approved market-stall scene with player and transcript | `19-tonwerk.tsx` | paper |
+| 20 | **Implication 04** — start with evidence and standards; let agents create inside the verified frame | `20-implication-04.tsx` | accent |
+
+Decisions: the v0.5 ecosystem diagram and the six-stage progression are folded into slide 17;
+the frame echoes slide 6 (constrain the intent). Redaktion and Tonwerk stay separate slides
+because each carries its own real artifact. No Tonwerk capture exists, so slide 19 is a
+composition plus the existing approved audio; nothing is presented as a studio screenshot.
+The learner screenshot slide was dropped (the opener hero already shows the app in use).
+Coverage figures re-measured 2026-09-13 with `bun scripts/coverage.ts` and `structures.ts`.
 
 ## Remaining sections — v0.5 stand-ins until rebuilt
 
 | Section | Planned slides | Currently |
 |---|---|---|
-| 04 Deutsch-Atlas | opener+app · progression · production system · Redaktion · Tonwerk · implication | `v05-14` … `v05-17` |
 | 05 ScoreQuant | opener+timeline · problem · optimization · verification · counterexample · implication | `v05-18` … `v05-22` |
 | Synthesis | five capabilities · department map · the question · closing | `v05-23`, `v05-24` |
 
-Target: 31 slides. Timing target (rehearsal, not measured): opening 8 · family 4 · atlas 7 ·
-radar 6 · deutsch 10 · scorequant 11 · synthesis 5 = 51 min + 10 discussion.
+Target: 30 slides (20 built + 6 ScoreQuant + 4 synthesis). Timing target (rehearsal, not
+measured): opening 8 · family 4 · atlas 7 · radar 6 · deutsch 10 · scorequant 11 · synthesis 5
+= 51 min + 10 discussion.
 
 ## History
 
-- **v0.6** — synthesis branch. Opening, Family, Atlas and Radar sections rebuilt in dialogue with Vitaly, 2026-09-13. Slide 4 rebuilt twice: the first HTML version was still a box-and-line wireframe; the cycle replaced it.
+- **v0.6** — synthesis branch. Opening, Family, Atlas, Radar and Deutsch-Atlas sections rebuilt in dialogue with Vitaly, 2026-09-13. Slide 4 rebuilt twice: the first HTML version was still a box-and-line wireframe; the cycle replaced it.
 - **v0.5** — Codex artifact-led revision, 24 slides. Kept as reference (PR #3): evidence
   scripts, generated JSON, sourced graph, dated funnel, ScoreQuant experiment, audio,
   department map. Removed all framing slides; not presentable as a talk.

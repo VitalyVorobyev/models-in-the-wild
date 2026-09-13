@@ -35,6 +35,12 @@ export default function ProjectOpener({ project, notes, children }: ProjectOpene
                 {project.link.label} ↗
               </ExternalLink>
             )}
+            {project.origin && (
+              <span className="opener-hero__origin">
+                after the{" "}
+                <ExternalLink href={project.origin.href}>{project.origin.label} ↗</ExternalLink>
+              </span>
+            )}
             {project.note && <span className="chip">{project.note}</span>}
           </div>
         </div>

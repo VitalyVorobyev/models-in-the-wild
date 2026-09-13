@@ -29,6 +29,8 @@ export interface Project {
   link: { href: string; label: string } | null;
   /** Dashed chip on the opener, only where access needs stating. */
   note?: string;
+  /** The idea the project borrows, credited on the opener. */
+  origin?: { href: string; label: string };
   montageSlot: SlotId;
   /** Bottom line of the slide-2 card — a short URL, or a plain note. */
   montageLabel: string;
@@ -70,6 +72,7 @@ export const projects: Project[] = [
       href: "https://vitalyvorobyev.github.io/cv-tech-radar/",
       label: "vitalyvorobyev.github.io/cv-tech-radar",
     },
+    origin: { href: "https://www.thoughtworks.com/radar", label: "ThoughtWorks Technology Radar" },
     montageSlot: "art-radar",
     montageLabel: "github.io/cv-tech-radar",
   },

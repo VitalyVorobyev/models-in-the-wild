@@ -67,6 +67,21 @@ export const evidence = {
     readingTexts: figure("85", "deutsch-textbook: ls content/reading/*/*.yaml | wc -l"),
     listeningScenes: figure("40", "deutsch-textbook: ls content/listening/*/*.yaml | wc -l"),
     cast: figure("12", "deutsch-textbook: data/listening-characters.yaml"),
+    wortliste: figure(
+      "673 · 1,449 · 3,416",
+      "deutsch-textbook: bun scripts/coverage.ts A1|A2|B1 → 673/673, 1449/1449, 3416/3416; tripwired by tests/published-claims.test.ts",
+      "2026-09-13",
+    ),
+    dtzStructures: figure(
+      "93 · 300 · 164",
+      "deutsch-textbook: bun scripts/structures.ts A1|A2|B1 → 93/93, 300/300, 164/164 claimed",
+      "2026-09-13",
+    ),
+    approvedOn: figure(
+      "2026-08-02",
+      "deutsch-textbook: data/audio-provenance/a1/ls-essen-einkaufen-01.json → approval.reviewed_at",
+      "2026-09-13",
+    ),
   },
   scorequant: {
     literatureAudits: figure("19", "scorequant: ls agenticresearch/LITERATURE/audits | wc -l"),
