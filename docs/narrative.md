@@ -50,7 +50,7 @@ evidence.
 
 Each project opens on one dark slide (name, subtitle, link, hero visual — no standalone title
 card), shows its mechanism with real evidence, and closes with a one-sentence company
-implication on an accent slide. Slide 28 gathers the five implications; slide 29 sets one concrete proposal per capability against the departments.
+implication on an accent slide. The synthesis does not recap the five: slide 28 states what they share and what becomes possible (explore, learn, create).
 
 Project mechanisms, as the deck shows them (carried over from the v0.5 editorial pass, which
 checked each against the repository):
@@ -72,17 +72,15 @@ information-flow filtering.
 
 ## Ending
 
-Five capabilities recap → one map of proposed information flows between R&D, Software,
-Application Engineering, Service, Quality, Product and Sales, as the sum of the five
-implications (proposals, not claims about current practice; each flow leaves a reviewed
-artifact with an owner) → the take-home question → closing: this deck followed the same
-workflow.
+The conclusion (what the five projects share; what becomes possible: explore, learn and
+create at the same time) → the take-home question → closing: this deck was built the same
+way.
 
 > Do not ask only: "How can an LLM make my current work faster?"
 > Ask: **"What useful thing do we currently not even attempt because it would take too much
 > time, coordination or specialized implementation?"**
 
-The ScoreQuant implication: a small team can now run a whole research loop; what makes the result usable is the independent check on every claim. ("Freedom to explore. Obligation to verify." was rejected as a motto.)
+The ScoreQuant implication: missing expertise is no longer a reason not to start; agents bring the skill we lack, a formal proof included; the independent checks decide what stands. ("Freedom to explore. Obligation to verify." was rejected as a motto.)
 
 Tone throughout: practical and skeptical, not evangelical. Statements, not captions; the
 "do not claim" hedges live in `docs/projects/*.md`, not on slides. The slides support the

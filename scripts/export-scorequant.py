@@ -112,6 +112,24 @@ test_cells = np.asarray(result.predict_scores(test))
 cell_centroids = [test[test_cells == b].mean(0).tolist() for b in range(6)]  # the cell means the theorems speak about; seeds are the rule's centres
 centers_raw = (final_w @ Minv).tolist()
 
+# The one-move-at-a-time algorithm the theorems are about, on the illustration events:
+# exact positive-gain exchange until no single move gains, then the explicit rule.
+part = sq.optimize_partition(sq.ScoreSample(s_ill), n_bins=6, criterion=sq.DOptimality(), config=sq.DExchangeConfig(seed=42))
+ex_labels = np.asarray(part.labels)
+ex_means = np.asarray(part.cell_score_means)
+ex_info = np.asarray(part.information_partitioned)
+rule = part.compile_quantizer()
+assert np.array_equal(np.asarray(rule.predict_scores(s_ill)), ex_labels), 'the compiled rule must reproduce the training labels'
+new_rng = np.random.default_rng(11)
+x_new, _ = sample(70, new_rng)
+x_new = x_new[(np.abs(x_new) < BOX).all(1)]
+s_new = score(x_new)
+new_labels = np.asarray(rule.predict_scores(s_new))
+# Voronoi in the I^-1 metric: whiten with I^-1/2, take Euclidean cells, map back (edges stay straight).
+vals, vecs = np.linalg.eigh(ex_info)
+Wm = vecs @ np.diag(vals ** -0.5) @ vecs.T
+ex_cells = [(poly @ np.linalg.inv(Wm)).tolist() for poly in voronoi_polygons(ex_means @ Wm)]
+
 # A template-fit histogram of x1: expected counts per component and observed counts, n = 400.
 edges = np.linspace(-BOX, BOX, 8)
 n_hist = 400
@@ -149,10 +167,15 @@ payload = {
         'cells': cells_raw, 'centers': centers_raw, 'centroids': cell_centroids,
         'scoreBox': [float(v) for v in [train[:, 0].min(), train[:, 0].max(), train[:, 1].min(), train[:, 1].max()]],
     },
+    'exchange': {
+        'labels': ex_labels.tolist(), 'means': ex_means.round(4).tolist(), 'information': ex_info.tolist(),
+        'objective': float(part.objective), 'cells': ex_cells,
+        'newEvents': {'s': s_new.round(3).tolist(), 'labels': new_labels.tolist()},
+    },
     'histogram': {'edges': edges.tolist(), 'signal': exp_sig.round(1).tolist(), 'background': exp_bg.round(1).tolist(), 'observed': observed.tolist(), 'n': n_hist},
 }
 assert len(payload['trainHard']) == len(payload['validationHard']) == len(steps)
 assert abs(payload['testRetention'] - payload['fisher']['keptByCells']) < 0.02, (payload['testRetention'], payload['fisher']['keptByCells'])
 (root / 'deck/src/content/generated/scorequant.json').write_text(json.dumps(payload, indent=2) + '\n')
 # Plots: scripts/render-scorequant.py reads the JSON written above.
-print(json.dumps({'frames': len(steps), 'testRetention': payload['testRetention'], 'keptByGrid': payload['fisher']['keptByGrid'], 'keptByCells': payload['fisher']['keptByCells'], 'ellipses': payload['fisher']['ellipses'], 'illustrationPoints': int(keep.sum()), 'revision': payload['source']['revision'][:8]}))
+print(json.dumps({'frames': len(steps), 'testRetention': payload['testRetention'], 'keptByGrid': payload['fisher']['keptByGrid'], 'keptByCells': payload['fisher']['keptByCells'], 'ellipses': payload['fisher']['ellipses'], 'illustrationPoints': int(keep.sum()), 'exchangeObjective': float(part.objective), 'newEvents': int(len(s_new)), 'revision': payload['source']['revision'][:8]}))

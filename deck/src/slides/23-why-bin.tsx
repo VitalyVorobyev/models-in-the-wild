@@ -14,16 +14,21 @@ const ellipses = [
   {
     key: "grid",
     cls: "pfig__ellipse--grid",
+    swatch: "pfig__swatch--dash c-grid-bg",
     label: "a 3×2 grid over x",
-    at: { left: "4%", top: "8%" },
   },
   {
     key: "cells",
     cls: "pfig__ellipse--bins",
+    swatch: "pfig__swatch--dash c-cells-bg",
     label: "6 cells in score space",
-    at: { left: "60%", top: "8%" },
   },
-  { key: "full", cls: "pfig__ellipse--full", label: "no binning", at: { left: "76%", top: "86%" } },
+  {
+    key: "full",
+    cls: "pfig__ellipse--full",
+    swatch: "pfig__swatch--line pfig__swatch--ink",
+    label: "no binning",
+  },
 ] as const;
 
 /**
@@ -35,7 +40,7 @@ export default function WhyBin() {
   return (
     <Slide
       label="Why bin, and what to keep"
-      notes={`Two minutes. One: why bin at all. A template fit predicts a count per bin for each component, here the peak and the background, and compares it with the observed count. Calibration, systematic uncertainties, validation and the limited simulation statistics are all handled per bin. So every event must get one label, out of a handful. Two: what a bin costs. After binning, all the fit sees of an event is its label, so the pulls of the events in a bin are averaged: what is lost is the spread of the scores inside each bin, nothing else. A grid over the measured quantities cuts across the scores, ${Math.round(fisher.keptByGrid * 100)} percent of the information survives it here. Cells drawn in score space follow the scores: six of them keep ${Math.round(fisher.keptByCells * 100)} percent. Same sample, same number of bins. Three: what to maximise. The binned information matrix is smaller than the full one; D-optimality chooses the bins that keep the largest determinant, which is the smallest ellipse for f and m. The three ellipses are computed from this sample: no binning, the six cells, the grid. That determinant is the number the slider on the next slide climbs.`}
+      notes={`Two minutes. One: why bin at all. A template fit predicts a count per bin for each component, here the peak and the background, and compares it with the observed count. Calibration, systematic uncertainties, validation and the limited simulation statistics are all handled per bin. So every event must get one label, out of a handful. Two: what a bin costs. After binning, all the fit sees of an event is its label, so the pulls of the events in a bin are averaged: what is lost is the spread of the scores inside each bin, nothing else. A grid over the measured quantities cuts across the scores, ${Math.round(fisher.keptByGrid * 100)} percent of the information survives it here. Cells drawn in score space follow the scores: six of them keep ${Math.round(fisher.keptByCells * 100)} percent. Same sample, same number of bins. Three: what to maximise. The binned information matrix is smaller than the full one; D-optimality chooses the bins that keep the largest determinant, which is the smallest ellipse for <b className="c-f">f</b> and <b className="c-m">m</b>. The three ellipses are computed from this sample: no binning, the six cells, the grid. That determinant is the number the slider on the next slide climbs.`}
     >
       <SlideHeader kicker="ScoreQuant · the problem" title="Why bin, and what to keep" />
       <div className="problem">
@@ -116,14 +121,16 @@ export default function WhyBin() {
                 />
               );
             })}
-            {ellipses.map((e) => (
-              <span key={`t${e.key}`} className={`pfig__tag pfig__tag--${e.key}`} style={e.at}>
-                {e.label}
-              </span>
-            ))}
+            <span className="pfig__keys pfig__keys--right">
+              {ellipses.map((e) => (
+                <span key={`t${e.key}`}>
+                  <i className={`pfig__swatch ${e.swatch}`} /> {e.label}
+                </span>
+              ))}
+            </span>
             <span className="pfig__seed pfig__seed--accent" style={{ left: "50%", top: "50%" }} />
-            <span className="pfig__axis pfig__axis--x">f</span>
-            <span className="pfig__axis pfig__axis--y">m</span>
+            <span className="pfig__axis pfig__axis--x pfig__axis--right c-f">f</span>
+            <span className="pfig__axis pfig__axis--y c-m">m</span>
           </div>
           <div className="problem__line">
             <Tex>{String.raw`\max_{\text{bins}}\ \det I_{\text{bins}}`}</Tex>
@@ -132,7 +139,8 @@ export default function WhyBin() {
           <strong>The objective</strong>
           <p>
             D-optimality: choose the bins that keep the largest determinant of the Fisher
-            information, the smallest ellipse for f and m.
+            information, the smallest ellipse for <b className="c-f">f</b> and{" "}
+            <b className="c-m">m</b>.
           </p>
         </div>
       </div>

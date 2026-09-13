@@ -26,10 +26,9 @@ import S24 from "./24-synthetic-run";
 import S25 from "./25-what-was-proved";
 import S26 from "./26-research-pipeline";
 import S27 from "./27-implication-05";
-import S28 from "./28-five-capabilities";
-import S29 from "./29-where-it-lands";
-import S30 from "./30-the-question";
-import S31 from "./31-closing";
+import S28 from "./28-conclusion";
+import S29 from "./29-the-question";
+import S30 from "./30-closing";
 
 export interface DeckSection {
   id: string;
@@ -50,7 +49,7 @@ export const sections: DeckSection[] = [
     title: "ScoreQuant",
     slides: [S21, S22, S23, S24, S25, S26, S27],
   },
-  { id: "synthesis", number: null, title: "Synthesis", slides: [S28, S29, S30, S31] },
+  { id: "synthesis", number: null, title: "Synthesis", slides: [S28, S29, S30] },
 ];
 
 export const slides = sections.flatMap((s) => s.slides);

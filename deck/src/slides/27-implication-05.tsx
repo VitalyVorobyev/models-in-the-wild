@@ -6,8 +6,8 @@ export default function Implication05() {
     <Implication
       number="05"
       statement={projects[4]?.implication ?? ""}
-      possibleNow="Method and algorithm questions that used to wait for a specialist: derived, implemented, audited and written up in weeks, each result traceable to its claim, its audit and its test."
-      notes="Thirty seconds. This expands the scope furthest: genuine R&D, not only implementation of known solutions. The point is not that a model can be trusted to do mathematics. The point is that two people and a registry of claims can run the whole loop, and that what makes its output usable is the independent check on every claim, not the strength of the model. The stronger the model, the more the checking matters."
+      possibleNow="A method from another field, derived and implemented. A proof nobody on the team could write. A problem that looked like a year of a specialist's time, attempted in a week, with the evidence to say whether it held."
+      notes="Thirty seconds. For an R&D team the change is which problems get started. Nobody here writes Lean proofs; nobody here had done this kind of optimization theory; the problem looked like a year of a specialist's time. It was attempted anyway, and the checks, not the model, decided what stood. The point is not that a model can be trusted to do mathematics. It is that a lack of expertise in the room is no longer the reason to leave a problem alone, provided the verification is real."
     />
   );
 }

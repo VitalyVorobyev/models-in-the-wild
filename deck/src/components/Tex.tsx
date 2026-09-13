@@ -11,7 +11,12 @@ export default function Tex({
   children: string;
   display?: boolean;
 }) {
-  const html = katex.renderToString(children, { throwOnError: false, displayMode: display });
+  const html = katex.renderToString(children, {
+    throwOnError: false,
+    displayMode: display,
+    // The two parameters of the ScoreQuant example keep one colour each across slides 22–25.
+    macros: { "\\ff": "\\textcolor{#2563eb}{f}", "\\mm": "\\textcolor{#d97706}{m}" },
+  });
   return (
     <span
       className={display ? "tex tex--display" : "tex"}

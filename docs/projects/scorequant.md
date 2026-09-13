@@ -71,8 +71,9 @@ version. The verification stack is where the research actually happens.
 > micromanagement.**
 
 > **Freedom to explore. Obligation to verify.** (Vitaly's line in the handoff; rejected as
-> a slide motto on 2026-09-13. The deck's implication reads: a small team can now run a whole
-> research loop; what makes the result usable is the independent check on every claim.)
+> a slide motto on 2026-09-13. The deck's implication reads: missing expertise is no longer a reason
+> not to start; agents bring the skill we lack, a formal proof included; the independent
+> checks decide what stands.)
 
 ## Company implication
 
@@ -119,4 +120,7 @@ analytically, hands them to the real public API (six cells, D-optimality, seed 4
 exports the recorded optimizer states, the objective trace, the held-out retention, the
 Fisher matrices for no binning, a 3×2 grid over x and the six cells (kept: 22% and 92%,
 measured 2026-09-13), the template-fit histogram and a 69-event illustration sample. The
-counterexample slide was cut in v0.6.
+counterexample slide was cut in v0.6. Slide 25 runs the exact positive-gain exchange
+(`optimize_partition`, `DExchangeConfig`, seed 42) on the 69 illustration events and compiles
+the nearest-mean rule (`compile_quantizer`), which the exporter asserts reproduces the labels;
+68 fresh events placed by that rule are drawn hollow.

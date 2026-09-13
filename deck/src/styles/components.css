@@ -2975,11 +2975,6 @@
   border-left-width: 9px;
 }
 
-.pfig__axis--right {
-  left: auto;
-  right: 14px;
-}
-
 /* The formula or the one measured line under each figure. */
 .problem__line {
   display: flex;
@@ -3041,6 +3036,11 @@
   top: 8px;
 }
 
+.pfig__axis--right {
+  left: auto;
+  right: 14px;
+}
+
 .pfig__formula--top {
   right: auto;
   bottom: auto;
@@ -3069,21 +3069,7 @@
   border: 2.5px solid var(--ink);
 }
 
-.pfig__ellipse--bins {
-  border: 2.5px dashed var(--accent);
-}
 
-.pfig__ellipse--grid {
-  border: 2.5px dashed var(--muted);
-}
-
-.pfig__tag--grid {
-  color: var(--muted);
-}
-
-.pfig__tag--cells {
-  color: var(--accent);
-}
 
 /* Slide 23, panel 1: a template fit, two components and the observed counts. */
 .pfig__bars {
@@ -3204,6 +3190,137 @@
   font-size: 16px;
   letter-spacing: 0.04em;
   color: var(--muted);
+}
+
+/* The two parameters of the example keep one colour each across slides 22–25. */
+.c-f { color: hsl(215 70% 45%); }
+.c-m { color: hsl(28 80% 46%); }
+.c-f-bg { background: hsl(215 70% 45%); }
+.c-m-bg { background: hsl(28 80% 46%); }
+.c-grid-bg { background: hsl(0 65% 50%); }
+.c-cells-bg { background: hsl(150 55% 36%); }
+
+.pfig__contour--f {
+  border-color: hsl(215 70% 45%);
+}
+
+.pfig__line--m {
+  width: 0;
+  border-left: 2px dashed hsl(28 80% 46%);
+  background: none;
+}
+
+.pfig__dot--component[data-c="3"] {
+  background: hsl(215 70% 45%);
+}
+
+.pfig__dot--new {
+  background: transparent !important;
+  border: 2.5px solid var(--cell);
+  opacity: 1;
+}
+
+.pfig__pull--f {
+  height: 3px;
+  background: hsl(215 70% 45%);
+}
+
+.pfig__pull--f::after {
+  border-left-color: hsl(215 70% 45%);
+  right: -4px;
+  top: -5px;
+  border-width: 6px;
+  border-left-width: 9px;
+}
+
+.pfig__pull--fg {
+  height: 3px;
+  background: var(--fg);
+}
+
+.pfig__pull--fg::after {
+  border-left-color: var(--fg);
+  right: -4px;
+  top: -5px;
+  border-width: 6px;
+  border-left-width: 9px;
+}
+
+.pfig__ellipse--bins {
+  border: 2.5px dashed hsl(150 55% 36%);
+}
+
+.pfig__ellipse--grid {
+  border: 2.5px dashed hsl(0 65% 50%);
+}
+
+/* A small key inside a figure: one line per entry, a swatch before each. */
+.pfig__keys {
+  position: absolute;
+  left: 14px;
+  top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 17px;
+  line-height: 1.3;
+  color: var(--muted);
+}
+
+.pfig__keys--right {
+  left: auto;
+  right: 14px;
+  align-items: flex-end;
+}
+
+.pfig__keys--bottom {
+  top: auto;
+  bottom: 10px;
+}
+
+.pfig__keys span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.pfig__keys b {
+  font-weight: 600;
+}
+
+.pfig__swatch--dot {
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+}
+
+.pfig__swatch--fg {
+  background: var(--fg);
+}
+
+.pfig__swatch--ink {
+  background: var(--ink);
+}
+
+.pfig__swatch--line {
+  width: 26px;
+  height: 3px;
+}
+
+.pfig__swatch--dash {
+  width: 26px;
+  height: 0;
+  background: none !important;
+  border-top: 3px dashed currentColor;
+}
+
+.pfig__swatch--dash.c-grid-bg { color: hsl(0 65% 50%); }
+.pfig__swatch--dash.c-cells-bg { color: hsl(150 55% 36%); }
+.pfig__swatch--dash.c-m-bg { color: hsl(28 80% 46%); }
+
+.pfig__keys .pfig__swatch {
+  margin-left: 0;
 }
 
 /* Six hues, one per cell; the pale cell fills use the same hue. */
@@ -3601,136 +3718,104 @@
 
 /* ─── v0.6 Synthesis section ─────────────────────────────────── */
 
-/* Slide 28: five rows, one per project. */
-.five {
-  display: flex;
-  flex-direction: column;
+/* Slide 28: the conclusion, principles left and openings right. */
+.conclude {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  column-gap: 96px;
   margin-top: 40px;
 }
 
-.five__row {
-  display: grid;
-  grid-template-columns: 90px 360px minmax(0, 1fr);
-  column-gap: 40px;
-  align-items: baseline;
-  padding: 26px 0;
-  border-top: 1px solid var(--hairline-strong);
-}
-
-.five__num {
-  font-family: var(--font-mono);
-  font-size: 22px;
-  letter-spacing: 0.1em;
-  color: var(--accent);
-}
-
-.five__cap {
+.conclude__col {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 22px;
 }
 
-.five__cap strong {
-  font-family: var(--font-serif);
-  font-weight: 500;
-  font-size: 40px;
-  line-height: 1.05;
-  color: var(--ink);
-}
-
-.five__cap span {
+.conclude__label {
   font-family: var(--font-mono);
   font-size: 18px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--muted);
 }
 
-.slide .five__statement {
-  font-size: 28px;
-  line-height: 1.35;
-  color: var(--ink);
-  text-wrap: pretty;
-}
-
-/* Slide 29: capabilities against departments. */
-.lands {
+.conclude__principles {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: principle;
   display: flex;
   flex-direction: column;
-  margin-top: 36px;
 }
 
-.lands__head,
-.lands__row {
+.conclude__principles li {
+  counter-increment: principle;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) repeat(7, 118px);
+  grid-template-columns: 44px minmax(0, 1fr);
   column-gap: 12px;
-  align-items: center;
-}
-
-.lands__head {
-  padding-bottom: 14px;
-}
-
-.lands__dept {
-  font-family: var(--font-mono);
-  font-size: 16px;
-  line-height: 1.25;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  text-align: center;
-  color: var(--muted);
-}
-
-.lands__row {
   padding: 18px 0;
   border-top: 1px solid var(--hairline-strong);
 }
 
-.lands__what {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding-right: 40px;
-}
-
-.lands__what strong {
-  font-family: var(--font-serif);
-  font-weight: 500;
-  font-size: 30px;
-  line-height: 1.1;
-  color: var(--ink);
-}
-
-.lands__num {
+.conclude__principles li::before {
+  content: counter(principle, decimal-leading-zero);
   font-family: var(--font-mono);
   font-size: 18px;
   letter-spacing: 0.1em;
+  padding-top: 8px;
   color: var(--accent);
-  margin-right: 8px;
 }
 
-.lands__what span:not(.lands__num) {
+.conclude__principles strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.conclude__principles span {
+  display: block;
+  grid-column: 2;
+  margin-top: 6px;
   font-size: 20px;
-  line-height: 1.35;
+  line-height: 1.4;
   color: var(--muted);
 }
 
-.lands__mark {
-  justify-self: center;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--hairline);
+.conclude__openings {
+  display: flex;
+  flex-direction: column;
 }
 
-.lands__mark--on {
-  width: 26px;
-  height: 26px;
-  background: var(--accent);
+.conclude__opening {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  column-gap: 24px;
+  align-items: start;
+  padding: 26px 0;
+  border-top: 1px solid var(--hairline-strong);
 }
 
-.slide .lands__rule {
-  margin-top: 28px;
+.conclude__opening strong {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 44px;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.conclude__opening span {
+  font-size: 22px;
+  line-height: 1.4;
+  color: var(--ink);
+  padding-top: 8px;
+}
+
+.slide .conclude__rule {
+  margin-top: 40px;
   font-family: var(--font-serif);
   font-weight: 500;
   font-size: var(--type-body);
@@ -3738,7 +3823,7 @@
   color: var(--ink);
 }
 
-/* Slide 30: the question, alone on a dark page. */
+/* Slide 29: the question, alone on a dark page. */
 .question {
   display: flex;
   flex-direction: column;
@@ -3757,7 +3842,7 @@
   color: var(--dark-fg);
 }
 
-/* Slide 31: the closing. */
+/* Slide 30: the closing. */
 .closing {
   display: flex;
   flex-direction: column;

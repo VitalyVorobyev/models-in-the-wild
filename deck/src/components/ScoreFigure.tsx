@@ -97,6 +97,93 @@ export function Centroids() {
   );
 }
 
+const ex = data.exchange;
+
+/** The illustration events labelled by the one-move-at-a-time algorithm, or fresh events labelled by its compiled rule. */
+export function ExchangeDots({ which }: { which: "sample" | "new" }) {
+  const pts = which === "sample" ? ill.s : ex.newEvents.s;
+  const labels = which === "sample" ? ex.labels : ex.newEvents.labels;
+  return (
+    <>
+      {pts.map((p, i) => (
+        <span
+          key={`${p[0]}-${p[1]}`}
+          className={`pfig__dot${which === "new" ? " pfig__dot--new" : ""}`}
+          data-c={labels[i]}
+          style={{ left: px(p[0] ?? 0, sBox), top: py(p[1] ?? 0, sBox) }}
+        />
+      ))}
+    </>
+  );
+}
+
+/** The cells of the stable partition: Voronoi in the I⁻¹ metric around the cell means. */
+export function ExchangeCells() {
+  return (
+    <>
+      {ex.cells.map((poly, i) => (
+        <span
+          key={`e${i.toString()}`}
+          className="pfig__cell"
+          data-c={i}
+          style={{
+            clipPath: `polygon(${poly.map(([x, y]) => `${px(x ?? 0, sBox)} ${py(y ?? 0, sBox)}`).join(", ")})`,
+          }}
+        />
+      ))}
+    </>
+  );
+}
+
+export function ExchangeMeans() {
+  return (
+    <>
+      {ex.means.map((c) => (
+        <span
+          key={`x-${c[0]}-${c[1]}`}
+          className="pfig__seed"
+          style={{ left: px(c[0] ?? 0, sBox), top: py(c[1] ?? 0, sBox) }}
+        />
+      ))}
+    </>
+  );
+}
+
+/** The illustration event nearest, in the I⁻¹ metric, to a cell mean it does not belong to. */
+export function mostContestedExchange() {
+  const [ia, ib, id] = invert2(ex.information);
+  const d2 = (a: number[], b: number[]) => {
+    const u = (a[0] ?? 0) - (b[0] ?? 0);
+    const v = (a[1] ?? 0) - (b[1] ?? 0);
+    return ia * u * u + 2 * ib * u * v + id * v * v;
+  };
+  let best = {
+    p: ill.s[0] ?? [0, 0],
+    mean: ex.means[0] ?? [0, 0],
+    ratio: Number.POSITIVE_INFINITY,
+  };
+  ill.s.forEach((p, i) => {
+    const own = ex.means[ex.labels[i] ?? 0];
+    if (!own) return;
+    const dOwn = Math.max(d2(p, own), 1e-9);
+    ex.means.forEach((c, k) => {
+      if (k === ex.labels[i]) return;
+      const ratio = d2(p, c) / dOwn;
+      if (ratio < best.ratio) best = { p, mean: c, ratio };
+    });
+  });
+  return best;
+}
+
+/** Inverse of a symmetric 2×2 matrix as [a, b, d] for [[a, b], [b, d]]. */
+function invert2(m: number[][]): [number, number, number] {
+  const a = m[0]?.[0] ?? 1;
+  const b = m[0]?.[1] ?? 0;
+  const d = m[1]?.[1] ?? 1;
+  const det = a * d - b * b;
+  return [d / det, -b / det, a / det];
+}
+
 export function Grid() {
   return (
     <div className="pfig__grid" aria-hidden="true">

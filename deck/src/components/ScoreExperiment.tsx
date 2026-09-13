@@ -49,10 +49,6 @@ export default function SyntheticRun() {
             <dt>the objective at this step</dt>
             <dd>{data.soft[index]?.toFixed(3)}</dd>
           </div>
-          <div>
-            <dt>final solution · held-out data</dt>
-            <dd>{data.testRetention.toFixed(3)}</dd>
-          </div>
         </dl>
       </div>
     </div>

@@ -63,7 +63,7 @@ docs/talk-brief.md      audience, 60-min format, core thesis, the five projects 
 docs/narrative.md       the claim, workflow spine, rigid-vs-flexible, five capabilities, ending
 docs/projects/*.md      one file per project — the raw material a slide may use, with evidence
         ↓
-docs/slide-map.md       the deck contract, v0.6, 31 slides
+docs/slide-map.md       the deck contract, v0.6, 30 slides
         ↓
 deck/src/slides/        one file per slide, in that order
 ```
@@ -99,7 +99,7 @@ deck/src/
 │   ├── projects.ts   the five projects — names, URLs, one-liners, capabilities
 │   ├── evidence.ts   every figure a slide shows, with its source command and date
 │   └── images.ts     slot id → imported asset; the only file to touch when adding art
-├── slides/           01-title.tsx … 31-closing.tsx, plus index.ts (sections + the sequence)
+├── slides/           01-title.tsx … 30-closing.tsx, plus index.ts (sections + the sequence)
 └── assets/images/    screenshots and photos
 ```
 
@@ -176,8 +176,8 @@ v0.5 revision is preserved on `deck-v0.5-codex-visual` (PR #3, reference only). 
 came out of the rebuild, in dialogue with Vitaly:
 
 - **Every project section is: one dark `ProjectOpener` (name, subtitle, link, hero) → mechanism
-  slides with real evidence → one accent `Implication`.** Slide 28 gathers the five
-  implications; their sentences live in `content/projects.ts`. No standalone title cards.
+  slides with real evidence → one accent `Implication`.** The implication sentences live in
+  `content/projects.ts`. No standalone title cards.
 - **Diagrams are HTML/CSS compositions, not boxes and lines.** The v0.5 `Diagram` SVG
   primitives and the first HTML rewrite of the workflow slide both read as wireframes and were
   rejected. Slide 4's ring (`.cycle` in `components.css`, built from `conic-gradient` and CSS

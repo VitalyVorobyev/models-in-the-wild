@@ -100,7 +100,7 @@ export const projects: Project[] = [
     capability: "Discover",
     capabilityNote: "Explore new technical and mathematical territory",
     implication:
-      "A small team can now run a whole research loop. What makes the result usable is the independent check on every claim.",
+      "Missing expertise is no longer a reason not to start. Agents bring the skill we lack, a formal proof included; the independent checks decide what stands.",
     subtitle: "A favour for a former colleague that became a research programme.",
     link: {
       href: "https://github.com/VitalyVorobyev/scorequant",
