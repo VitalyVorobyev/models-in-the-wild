@@ -33,11 +33,22 @@ being retired section by section.
 Decisions: the viewer screenshot and the letter are cleared by Vitaly (first names only). "Bespoke"
 is not Vitaly's word; "custom". Register count re-measured: 69 records, 18 categories.
 
+## 02 · CV Atlas — rebuilt 2026-09-13
+
+| # | Slide | File | Theme |
+|---|---|---|---|
+| 10 | **CV Atlas** — opener with the Atlas overview as hero | `10-atlas.tsx` | dark |
+| 11 | **From papers to living knowledge** — three stages on one rail: Read (private research note), Author (page counts), Narrate (the Foundation Models route as a chain); the private-vault / public-site boundary drawn | `11-atlas-workflow.tsx` | paper |
+| 12 | **Foundation Models for Vision** — live demo, trace + capture | `12-atlas-demo.tsx` | paper |
+| 13 | **Implication 02** — from documents we store to knowledge we can navigate | `13-implication-02.tsx` | accent |
+
+Decisions: one workflow slide, not workflow + graph — Vitaly shows the graph live. The kicker
+on every implication slide is "Implication NN", not "Company implication".
+
 ## Remaining sections — v0.5 stand-ins until rebuilt
 
 | Section | Planned slides | Currently |
 |---|---|---|
-| 02 CV Atlas | opener+why · pipeline+graph · demo · implication | `v05-08` … `v05-10` |
 | 03 CV Tech Radar | opener+accumulate/filter · funnel · a decision changes the filter · implication | `v05-11` … `v05-13` |
 | 04 Deutsch-Atlas | opener+app · progression · production system · Redaktion · Tonwerk · implication | `v05-14` … `v05-17` |
 | 05 ScoreQuant | opener+timeline · problem · optimization · verification · counterexample · implication | `v05-18` … `v05-22` |
@@ -48,7 +59,7 @@ radar 6 · deutsch 10 · scorequant 11 · synthesis 5 = 51 min + 10 discussion.
 
 ## History
 
-- **v0.6** — synthesis branch. Opening and Family sections rebuilt in dialogue with Vitaly, 2026-09-13. Slide 4 rebuilt twice: the first HTML version was still a box-and-line wireframe; the cycle replaced it.
+- **v0.6** — synthesis branch. Opening, Family and Atlas sections rebuilt in dialogue with Vitaly, 2026-09-13. Slide 4 rebuilt twice: the first HTML version was still a box-and-line wireframe; the cycle replaced it.
 - **v0.5** — Codex artifact-led revision, 24 slides. Kept as reference (PR #3): evidence
   scripts, generated JSON, sourced graph, dated funnel, ScoreQuant experiment, audio,
   department map. Removed all framing slides; not presentable as a talk.

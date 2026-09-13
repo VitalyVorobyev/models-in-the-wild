@@ -21,7 +21,7 @@ const rows: Row[] = [
     path: "CLAUDE.md",
     depth: 1,
     term: "Agent instructions",
-    rest: "how to work, what to challenge",
+    rest: "how the project is organized, where the docs are, a few rules",
   },
   {
     path: "docs/",
@@ -38,7 +38,7 @@ const rows: Row[] = [
     path: "tests/",
     depth: 1,
     term: "Tests and artifacts",
-    rest: "evidence that outlives the chat",
+    rest: "what was checked and what was measured",
   },
   { path: "src/", depth: 1, quiet: true },
 ];

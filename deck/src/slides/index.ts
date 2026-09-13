@@ -8,10 +8,11 @@ import S6 from "./06-constrain-intent";
 import S7 from "./07-family";
 import S8 from "./08-one-folder";
 import S9 from "./09-implication-01";
+import S10 from "./10-atlas";
+import S11 from "./11-atlas-workflow";
+import S12 from "./12-atlas-demo";
+import S13 from "./13-implication-02";
 // v0.5 slides, kept under their old numbers until each section is redone.
-import V8 from "./v05-08-atlas";
-import V9 from "./v05-09-atlas-graph";
-import V10 from "./v05-10-atlas-demo";
 import V11 from "./v05-11-accumulate-filter";
 import V12 from "./v05-12-radar-funnel";
 import V13 from "./v05-13-radar-feedback";
@@ -37,7 +38,7 @@ export interface DeckSection {
 export const sections: DeckSection[] = [
   { id: "opening", number: null, title: "Opening", slides: [S1, S2, S3, S4, S5, S6] },
   { id: "family-docs", number: "01", title: "Family Documents Organizer", slides: [S7, S8, S9] },
-  { id: "cv-atlas", number: "02", title: "CV Atlas", slides: [V8, V9, V10] },
+  { id: "cv-atlas", number: "02", title: "CV Atlas", slides: [S10, S11, S12, S13] },
   { id: "cv-tech-radar", number: "03", title: "CV Tech Radar", slides: [V11, V12, V13] },
   { id: "deutsch-atlas", number: "04", title: "Deutsch-Atlas", slides: [V14, V15, V16, V17] },
   { id: "scorequant", number: "05", title: "ScoreQuant", slides: [V18, V19, V20, V21, V22] },

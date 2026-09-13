@@ -19,7 +19,7 @@ interface ImplicationProps {
 export default function Implication({ notes, number, statement, possibleNow }: ImplicationProps) {
   return (
     <Slide label={`Implication ${number}`} theme="accent" align="between" notes={notes}>
-      <div className="kicker kicker--accent">Company implication {number}</div>
+      <div className="kicker kicker--accent">Implication {number}</div>
       <h2 className="statement" style={{ color: "var(--accent-fg)", maxWidth: "1600px" }}>
         {statement}
       </h2>
