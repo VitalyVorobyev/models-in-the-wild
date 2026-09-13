@@ -30,7 +30,7 @@ To add or move a slide:
 The section registry also drives the footer label and the `M` section map, so a slide added to a
 section shows up in both with no further edit.
 
-Compose with Slide and SlideHeader. Use Diagram primitives where useful, but give each mechanism its own geometry. Do not restore standalone implication or project title slides.
+Compose with `Slide`, `SlideHeader`, `ProjectOpener` (the dark slide a project starts on, with its hero) and `Implication` (the accent beat that closes it). Mechanism slides are HTML/CSS compositions with their own geometry — see `.cycle` on slide 4 — not boxes joined by lines; the v0.5 `Diagram` SVG primitives are being retired. Never nest a `<section>` inside a slide.
 
 Every slide passes `notes` to `Slide`; that text is the speaker view (`S`). Keep it current when
 the slide changes — including the click count, where the slide is fragmented.

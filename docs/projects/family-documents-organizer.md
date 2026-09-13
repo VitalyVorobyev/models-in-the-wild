@@ -13,7 +13,7 @@ were not expressive enough, and a clean standard PDF workflow was missing.
 
 ## What exists now
 
-A bespoke personal information system for one family's paperwork:
+A small personal information system for one family's paperwork:
 
 - originals land in dated, read-only batch folders (`00_originals/imported_<YYYY-MM-DD>/`),
   native filenames kept;
@@ -50,7 +50,7 @@ authoritative file. Durable context has to be maintained, or it becomes a liabil
 
 ## What this project proves
 
-> Agents make very small, bespoke software economically rational.
+> Agents make very small, custom software economically rational.
 
 > Not every useful AI-assisted information system needs embeddings, RAG infrastructure,
 > enterprise search or a complex backend. Sometimes well-structured files plus an agent are
@@ -74,7 +74,7 @@ of forcing every information problem into a large enterprise system.
 
 ## Do not claim
 
-- Do not name the person-scoped categories or any record on a slide.
+- Person-scoped categories and one record may appear on a slide: Vitaly cleared the viewer screenshot and the tutors' welcome letter on 2026-09-13 (first names only, no secrets). Nothing else from the corpus is opened or shown.
 - Not a git repository; there is no commit history to cite.
 - The viewer has no search backend; do not call it "AI search".
 

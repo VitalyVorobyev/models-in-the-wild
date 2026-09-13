@@ -833,221 +833,261 @@
   margin-top: 6px;
 }
 
-/* Slide 4: the workflow loop. Two entry stages feed a ring of four. Canvas
-   pixels; the region is 1680 wide and the ring sits in its right 1000px. */
-.loop {
+/* Slide 4: the workflow as a cycle. A runway of two entry stages feeds a
+   ring of four. Canvas pixels; the region is 1680 wide. Angles are CSS
+   conic angles (0 at the top, clockwise), so a point on the ring is
+   (cx + r·sin θ, cy − r·cos θ). */
+.cycle {
   position: relative;
   flex: 1;
   min-height: 0;
-  margin-top: 40px;
-  --ring-left: 720px;
-  --ring-top: 20px;
-  --ring-w: 790px;
-  --ring-h: 430px;
-  --stage-w: 340px;
-  --stage-h: 150px;
+  --cx: 1090px;
+  --cy: 372px;
+  --r: 218px;
+  --stroke: 38px;
+  --dot: 54px;
 }
 
-.loop__stage {
-  position: absolute;
-  box-sizing: border-box;
-  width: var(--stage-w);
-  min-height: var(--stage-h);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 8px;
-  padding: 22px 28px;
-  background: var(--surface);
-  border: 2px solid var(--ink);
-  border-radius: 12px;
-}
-
-.loop__stage--entry-1,
-.loop__stage--entry-2 {
-  border-color: var(--hairline-strong);
-  width: 230px;
-  padding-inline: 22px;
-  top: calc(var(--ring-top) + var(--stage-h) / 2 - var(--stage-h) / 2);
-}
-
-.loop__stage--entry-1 {
-  left: 0;
-}
-
-.loop__stage--entry-2 {
-  left: 275px;
-}
-
-.loop__stage--nw {
-  left: calc(var(--ring-left) - var(--stage-w) / 2);
-  top: calc(var(--ring-top) - var(--stage-h) / 2 + var(--stage-h) / 2);
-}
-
-.loop__stage--ne {
-  left: calc(var(--ring-left) + var(--ring-w) - var(--stage-w) / 2);
-  top: var(--ring-top);
-}
-
-.loop__stage--se {
-  left: calc(var(--ring-left) + var(--ring-w) - var(--stage-w) / 2);
-  top: calc(var(--ring-top) + var(--ring-h) - var(--stage-h) / 2);
-}
-
-.loop__stage--sw {
-  left: calc(var(--ring-left) - var(--stage-w) / 2);
-  top: calc(var(--ring-top) + var(--ring-h) - var(--stage-h) / 2);
-}
-
-/* The ring passes through the vertical centre of the top and bottom stages. */
-.loop__ring {
-  position: absolute;
-  left: var(--ring-left);
-  top: calc(var(--ring-top) + var(--stage-h) / 2);
-  width: var(--ring-w);
-  height: calc(var(--ring-h) - var(--stage-h) / 2 + var(--stage-h) / 2);
-  box-sizing: border-box;
-  border: 3px solid var(--hairline-strong);
-  border-radius: 64px;
-  pointer-events: none;
-}
-
-.loop__ring--open {
-  border-bottom-color: transparent;
-  border-left-color: transparent;
-}
-
-.loop__ring--close {
-  border-top-color: transparent;
-  border-right-color: transparent;
-  border-color: var(--accent);
-  border-top-color: transparent;
-  border-right-color: transparent;
-}
-
-.loop__stage {
-  z-index: 1;
-}
-
-.loop__name {
+.cycle__name {
+  display: block;
   font-family: var(--font-serif);
   font-weight: 500;
-  font-size: 34px;
-}
-
-.loop__stage--entry-1 .loop__name,
-.loop__stage--entry-2 .loop__name {
-  font-size: 30px;
+  font-size: 36px;
   line-height: 1.1;
   color: var(--ink);
 }
 
-.loop__sub {
-  font-size: 22px;
+.cycle__sub {
+  display: block;
+  margin-top: 8px;
+  font-size: 23px;
   line-height: 1.3;
   color: var(--muted);
 }
 
-/* Arrowheads and edge labels on the ring's four sides. */
-.loop__edge {
+.cycle__crit {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--link);
+}
+
+/* The runway: a line at the height of the top dot, two entry stages on it. */
+.cycle__runway {
   position: absolute;
-  z-index: 1;
-  font-family: var(--font-mono);
-  font-size: 22px;
-  letter-spacing: 0.04em;
-  color: var(--muted);
-  white-space: nowrap;
-}
-
-.loop__edge::before {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  border: 12px solid transparent;
-}
-
-.loop__edge--top {
-  left: calc(var(--ring-left) + var(--ring-w) / 2);
-  top: calc(var(--ring-top) + var(--stage-h) / 2 - 44px);
-  transform: translateX(-50%);
-}
-
-.loop__edge--top::before {
-  left: 50%;
-  top: 30px;
-  transform: translateX(-50%);
-  border-left: 20px solid var(--hairline-strong);
-  border-right: 0;
-}
-
-.loop__edge--right {
-  left: calc(var(--ring-left) + var(--ring-w) + 26px);
-  top: calc(var(--ring-top) + var(--ring-h) / 2 + 20px);
-}
-
-.loop__edge--right::before {
-  left: -30px;
-  top: -6px;
-  border-top: 20px solid var(--hairline-strong);
-  border-bottom: 0;
-}
-
-.loop__edge--bottom {
-  left: calc(var(--ring-left) + var(--ring-w) / 2);
-  top: calc(var(--ring-top) + var(--ring-h) + 22px);
-  transform: translateX(-50%);
-  color: var(--accent);
-}
-
-.loop__edge--bottom::before {
-  left: 50%;
-  top: -34px;
-  transform: translateX(-50%);
-  border-right: 20px solid var(--accent);
-  border-left: 0;
-}
-
-.loop__edge--left {
-  left: calc(var(--ring-left) - 24px);
-  top: calc(var(--ring-top) + var(--ring-h) / 2 + 20px);
-  transform: translateX(-100%);
-  color: var(--accent);
-}
-
-.loop__edge--left::before {
-  right: -30px;
-  top: -6px;
-  border-bottom: 20px solid var(--accent);
-  border-top: 0;
-}
-
-/* The two entry links: short arrows between the entry stages and the ring. */
-.loop__link {
-  position: absolute;
-  top: calc(var(--ring-top) + var(--stage-h) / 2 - 1px);
-  height: 3px;
+  left: 0;
+  top: calc(var(--cy) - var(--r) - 4px);
+  width: calc(var(--cx) - var(--dot) / 2 - 4px);
+  height: 8px;
+  border-radius: 4px;
   background: var(--hairline-strong);
 }
 
-.loop__link::after {
+.cycle__runway::after {
   content: "";
   position: absolute;
-  right: -2px;
-  top: -10px;
-  border: 11px solid transparent;
-  border-left: 18px solid var(--hairline-strong);
+  right: -6px;
+  top: -13px;
+  border: 17px solid transparent;
+  border-left: 28px solid var(--hairline-strong);
   border-right: 0;
 }
 
-.loop__link--entry-1 {
-  left: 230px;
-  width: 45px;
+.cycle__runway-label {
+  position: absolute;
+  left: 720px;
+  top: calc(var(--cy) - var(--r) + 18px);
+  font-family: var(--font-mono);
+  font-size: 22px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
 }
 
-.loop__link--entry-2 {
-  left: 505px;
-  width: calc(var(--ring-left) - var(--stage-w) / 2 - 505px);
+.cycle__entry {
+  position: absolute;
+  bottom: calc(100% - (var(--cy) - var(--r)) + 30px);
+  width: 320px;
+}
+
+.cycle__entry::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -46px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--hairline-strong);
+  border: 5px solid var(--paper);
+  transform: translateX(-50%);
+}
+
+.cycle__entry--1 {
+  left: 16px;
+}
+
+.cycle__entry--2 {
+  left: 400px;
+}
+
+/* The ring: four arcs with gaps at the compass points, cut into a ring by a
+   radial mask. The return arc (the fragment) is a second ring on top. */
+.cycle__ring {
+  position: absolute;
+  left: calc(var(--cx) - var(--r) - var(--stroke) / 2);
+  top: calc(var(--cy) - var(--r) - var(--stroke) / 2);
+  width: calc(2 * var(--r) + var(--stroke));
+  height: calc(2 * var(--r) + var(--stroke));
+  border-radius: 50%;
+  background: conic-gradient(
+    transparent 0deg 7deg,
+    var(--dark) 7deg 83deg,
+    transparent 83deg 97deg,
+    var(--dark) 97deg 173deg,
+    transparent 173deg 187deg,
+    var(--dark) 187deg 263deg,
+    transparent 263deg 277deg,
+    var(--hairline) 277deg 353deg,
+    transparent 353deg 360deg
+  );
+  mask: radial-gradient(
+    circle,
+    transparent calc(var(--r) - var(--stroke) / 2 - 1px),
+    #000 calc(var(--r) - var(--stroke) / 2)
+  );
+}
+
+.cycle__ring--return {
+  background: conic-gradient(
+    transparent 0deg 277deg,
+    var(--link) 277deg 353deg,
+    transparent 353deg 360deg
+  );
+}
+
+/* Arrowheads at the end of each arc, tangent to the ring. */
+.cycle__head {
+  position: absolute;
+  left: calc(var(--cx) + var(--r) * sin(var(--a)));
+  top: calc(var(--cy) - var(--r) * cos(var(--a)));
+  width: 0;
+  height: 0;
+  border: 27px solid transparent;
+  border-left: 40px solid var(--dark);
+  border-right: 0;
+  transform: translate(-40%, -50%) rotate(var(--a));
+  transform-origin: 40% 50%;
+}
+
+.cycle__head--1 {
+  --a: 84deg;
+}
+
+.cycle__head--2 {
+  --a: 174deg;
+}
+
+.cycle__head--3 {
+  --a: 264deg;
+}
+
+.cycle__head--4 {
+  --a: 354deg;
+  border-left-color: var(--link);
+}
+
+/* Stage markers on the compass points. */
+.cycle__dot {
+  position: absolute;
+  width: var(--dot);
+  height: var(--dot);
+  border-radius: 50%;
+  background: var(--dark);
+  border: 6px solid var(--paper);
+  box-sizing: border-box;
+  transform: translate(-50%, -50%);
+}
+
+.cycle__dot--top {
+  left: var(--cx);
+  top: calc(var(--cy) - var(--r));
+}
+
+.cycle__dot--right {
+  left: calc(var(--cx) + var(--r));
+  top: var(--cy);
+}
+
+.cycle__dot--bottom {
+  left: var(--cx);
+  top: calc(var(--cy) + var(--r));
+}
+
+.cycle__dot--left {
+  left: calc(var(--cx) - var(--r));
+  top: var(--cy);
+}
+
+.cycle__dot--left {
+  background: var(--link);
+}
+
+.cycle__center {
+  position: absolute;
+  left: var(--cx);
+  top: var(--cy);
+  transform: translate(-50%, -50%);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 30px;
+  color: var(--muted);
+}
+
+/* Stage labels outside the ring. */
+.cycle__stage {
+  position: absolute;
+}
+
+.cycle__stage--top {
+  left: var(--cx);
+  top: calc(var(--cy) - var(--r) - var(--dot) / 2 - 18px);
+  width: 560px;
+  transform: translate(-50%, -100%);
+  text-align: center;
+}
+
+.cycle__stage--right {
+  left: calc(var(--cx) + var(--r) + var(--dot) / 2 + 28px);
+  top: var(--cy);
+  width: 330px;
+  transform: translateY(-50%);
+}
+
+.cycle__stage--bottom {
+  left: var(--cx);
+  top: calc(var(--cy) + var(--r) + var(--dot) / 2 + 18px);
+  width: 480px;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.cycle__stage--left {
+  left: calc(var(--cx) - var(--r) - var(--dot) / 2 - 28px);
+  top: var(--cy);
+  width: 380px;
+  transform: translate(-100%, -50%);
+  text-align: right;
+}
+
+.cycle__return-label {
+  position: absolute;
+  left: calc(var(--cx) + var(--r) * sin(300deg) - 40px);
+  top: calc(var(--cy) - var(--r) * cos(300deg));
+  transform: translate(-100%, -50%);
+  font-family: var(--font-mono);
+  font-size: 22px;
+  letter-spacing: 0.06em;
+  color: var(--link);
+  white-space: nowrap;
 }
 
 /* Slide 5: the repository anatomy. A dark tree column and a paper annotation
@@ -1268,4 +1308,172 @@
   line-height: 1.2;
   color: var(--ink);
   margin-top: 20px;
+}
+
+/* ─── v0.6 project sections ────────────────────────────────────── */
+
+/* The dark opener each project starts on: text left, hero right. */
+.opener-hero {
+  display: grid;
+  grid-template-columns: 620px minmax(0, 1fr);
+  gap: 80px;
+  flex: 1;
+  min-height: 0;
+}
+
+.opener-hero__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.opener-hero__title {
+  font-size: 88px;
+}
+
+.opener-hero__foot {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.opener-hero__visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
+
+.opener-hero__visual .slot {
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1px solid var(--dark-border);
+}
+
+/* Slide 8: one document's journey — three stations, one ask each. */
+.journey {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 56px;
+  margin: var(--gap-title) 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: station;
+  align-items: stretch;
+}
+
+.journey__station {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 0;
+  counter-increment: station;
+}
+
+.journey__ask {
+  display: flex;
+  gap: 18px;
+  align-items: baseline;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.2;
+  color: var(--ink);
+  min-height: 76px;
+}
+
+.journey__ask::before {
+  content: counter(station);
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 24px;
+  color: var(--muted);
+}
+
+.journey__scan {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.journey__scan .slot {
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.journey__card {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: var(--surface);
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius);
+  font-size: 24px;
+  line-height: 1.3;
+}
+
+.journey__card dt {
+  font-family: var(--font-mono);
+  font-size: 19px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.journey__card dd {
+  margin: 0;
+  color: var(--ink);
+}
+
+.journey__out {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 24px 28px 24px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+  background: var(--surface);
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius);
+  font-size: 26px;
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+.journey__path {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  color: var(--muted);
+}
+
+/* .slide prefix: base.css zeroes every .reveal p, which outranks a class. */
+.slide .journey__rule {
+  margin-top: 44px;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: var(--type-body);
+  color: var(--ink);
+}
+
+.slide .journey__rule + .evidence-line {
+  margin-top: 18px;
 }

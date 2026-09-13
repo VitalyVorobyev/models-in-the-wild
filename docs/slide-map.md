@@ -22,11 +22,21 @@ workflow trick). "The prompt is temporary" dropped as trivial. "Rigid vs Flexibl
 Vitaly's message. Diagrams are HTML/CSS, not SVG boxes — the v0.5 `Diagram` primitives are
 being retired section by section.
 
+## 01 · Family Documents Organizer — rebuilt 2026-09-13
+
+| # | Slide | File | Theme |
+|---|---|---|---|
+| 7 | **Family Documents Organizer** — opener with the viewer as hero | `07-family.tsx` | dark |
+| 8 | **One folder and an agent** — the three asks as three stations, the tutors' letter as the worked example, real register fields | `08-one-folder.tsx` | paper |
+| 9 | **Implication 01** — very small, custom software becomes economically rational | `09-implication-01.tsx` | accent |
+
+Decisions: the viewer screenshot and the letter are cleared by Vitaly (first names only). "Bespoke"
+is not Vitaly's word; "custom". Register count re-measured: 69 records, 18 categories.
+
 ## Remaining sections — v0.5 stand-ins until rebuilt
 
 | Section | Planned slides | Currently |
 |---|---|---|
-| 01 Family Documents Organizer | opener+hero · one folder and an agent · implication | `v05-06`, `v05-07` |
 | 02 CV Atlas | opener+why · pipeline+graph · demo · implication | `v05-08` … `v05-10` |
 | 03 CV Tech Radar | opener+accumulate/filter · funnel · a decision changes the filter · implication | `v05-11` … `v05-13` |
 | 04 Deutsch-Atlas | opener+app · progression · production system · Redaktion · Tonwerk · implication | `v05-14` … `v05-17` |
@@ -38,7 +48,7 @@ radar 6 · deutsch 10 · scorequant 11 · synthesis 5 = 51 min + 10 discussion.
 
 ## History
 
-- **v0.6** — synthesis branch. Opening rebuilt in dialogue with Vitaly, 2026-09-13.
+- **v0.6** — synthesis branch. Opening and Family sections rebuilt in dialogue with Vitaly, 2026-09-13. Slide 4 rebuilt twice: the first HTML version was still a box-and-line wireframe; the cycle replaced it.
 - **v0.5** — Codex artifact-led revision, 24 slides. Kept as reference (PR #3): evidence
   scripts, generated JSON, sourced graph, dated funnel, ScoreQuant experiment, audio,
   department map. Removed all framing slides; not presentable as a talk.

@@ -23,11 +23,17 @@ const rows: Row[] = [
     term: "Agent instructions",
     rest: "how to work, what to challenge",
   },
-  { path: "docs/", depth: 1, term: "Docs", rest: "problem, design, roadmap, decisions", span: 4 },
+  {
+    path: "docs/",
+    depth: 1,
+    term: "Docs",
+    rest: "the knowledge base: problem, design, roadmap, decisions",
+    span: 4,
+  },
   { path: "design.md", depth: 2 },
   { path: "roadmap.md", depth: 2 },
   { path: "decisions.md", depth: 2 },
-  { path: "skills/", depth: 1, term: "Skills", rest: "reusable procedures, written once" },
+  { path: "skills/", depth: 1, term: "Skills", rest: "procedures written once and reused" },
   {
     path: "tests/",
     depth: 1,
@@ -41,7 +47,7 @@ export default function TheMemory() {
   return (
     <Slide
       label="The repository is the memory"
-      notes="Two minutes. A chat ends; the next session starts from zero. Everything the agent needs to know about intent, decisions and evidence therefore lives in files it reads first. Walk the four layers: instructions say how to work and what to push back on; docs hold the design, roadmap and decisions that must not be silently reversed; skills are procedures written once and reused; tests and artifacts are the evidence. This shape recurs in all five projects — an agent doc and docs in every one, skills in three, tests in four — with no project named on the slide."
+      notes="Two minutes. A chat ends; the next session starts from zero. Everything the agent needs to know about intent, decisions and evidence therefore lives in files it reads first. Walk the four layers: the agent doc is short — how the project is organized, where the docs are, and a few rules such as be critical and ground conclusions in evidence; docs are the knowledge base — problem, design, roadmap, decisions that must not be silently reversed; skills are procedures written once and reused; tests and artifacts record what was checked and measured. This shape recurs in all five projects — an agent doc and docs in every one, skills in three, tests in four — with no project named on the slide."
     >
       <SlideHeader kicker="Persistent context" title="The repository is the memory" />
       <div className="anatomy">

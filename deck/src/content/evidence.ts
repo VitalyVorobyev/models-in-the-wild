@@ -17,14 +17,24 @@ interface Figure {
   value: string;
   /** Command or path, run in the project's own repository. */
   source: string;
+  /** Set when a figure was re-measured after MEASURED. */
+  measured?: string;
 }
 
-const figure = (value: string, source: string): Figure => ({ value, source });
+const figure = (value: string, source: string, measured?: string): Figure => ({
+  value,
+  source,
+  measured,
+});
 
 export const evidence = {
   familyDocs: {
-    records: figure("66", "FFB CLAUDE.md — logical document records in documents.index.json"),
-    categories: figure("18", "FFB: ls 01_ready_pdfs | wc -l"),
+    records: figure(
+      "69",
+      "FFB: python3 -c \"import json; print(len(json.load(open('documents.index.json'))))\"",
+      "2026-09-13",
+    ),
+    categories: figure("18", "FFB: ls 01_ready_pdfs | wc -l", "2026-09-13"),
   },
   atlas: {
     algorithms: figure("52", "vitavision: ls content/algorithms | wc -l"),

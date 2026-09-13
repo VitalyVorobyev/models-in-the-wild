@@ -6,12 +6,11 @@ import artScorequant from "../assets/images/art-scorequant.webp";
 import atlasNarrative from "../assets/images/atlas-narrative-new.png";
 import atlasOverview from "../assets/images/atlas-overview.webp";
 import deutschApp from "../assets/images/deutsch-app.webp";
+import familyLetter from "../assets/images/family-letter.webp";
 import redaktion from "../assets/images/redaktion.png";
 export const images = {
   "art-family-docs": artFamily,
-  "family-viewer": null,
-  "family-input": null,
-  "family-result": null,
+  "family-letter": familyLetter,
   "art-cv-atlas": artAtlas,
   "art-radar": artRadar,
   "art-deutsch": artDeutsch,

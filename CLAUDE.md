@@ -63,7 +63,7 @@ docs/talk-brief.md      audience, 60-min format, core thesis, the five projects 
 docs/narrative.md       the claim, workflow spine, rigid-vs-flexible, five capabilities, ending
 docs/projects/*.md      one file per project — the raw material a slide may use, with evidence
         ↓
-docs/slide-map.md       the deck contract: the 24-slide sequence, currently v0.5
+docs/slide-map.md       the deck contract, currently v0.6 in progress (target 33 slides)
         ↓
 deck/src/slides/        one file per slide, in that order
 ```
@@ -92,14 +92,14 @@ deck/src/
 │   ├── tokens.css    the Vitavision type scale, spacing and palette
 │   ├── base.css      Reveal integration and resets
 │   └── components.css the layout archetypes
-├── components/       Slide, SlideHeader, ImageSlot, Diagram, AtlasGraph,
-│                     DepartmentMap, ScoreExperiment, AudioExample, Notes,
-│                     DeckChrome, SectionMap
+├── components/       Slide, SlideHeader, ProjectOpener, Implication, ImageSlot,
+│                     AtlasGraph, DepartmentMap, ScoreExperiment, AudioExample,
+│                     Diagram (v0.5, being retired), Notes, DeckChrome, SectionMap
 ├── content/
 │   ├── projects.ts   the five projects — names, URLs, one-liners, capabilities
 │   ├── evidence.ts   every figure a slide shows, with its source command and date
 │   └── images.ts     slot id → imported asset; the only file to touch when adding art
-├── slides/           01-title.tsx … 24-question.tsx, plus index.ts (sections + the sequence)
+├── slides/           01-title.tsx … , v05-*.tsx stand-ins, plus index.ts (sections + the sequence)
 └── assets/images/    screenshots and photos
 ```
 
@@ -110,8 +110,8 @@ label and on the `M` map with no further edit.
 
 Navigation the deck provides beyond arrow keys: `M` opens the named section map, `Esc` opens
 Reveal's own thumbnail overview, `S` opens the speaker view, `G` jumps to a slide number,
-alt-click zooms. Slides 3 and 12 are fragmented — the first beat is always visible and
-each click adds the next.
+alt-click zooms. Fragmented slides: 4 (the return arc) and the v0.5 radar funnel — the first
+beat is always visible and each click adds the next.
 
 Load-bearing details, each of which broke the deck during the port:
 
@@ -168,6 +168,29 @@ never had. It stays in history: `git show f4e1d0d --stat` lists it, and
   which is a separate project — copy values from it, never depend on it.
 - `VitavisionLogo.tsx` is ported from that same design system, minus its framer-motion animation.
 
-## v0.5 editorial overrides
+## v0.6 synthesis (in progress)
 
-The accepted artifact-led revision supersedes the reusable implication pattern. There are 24 slides, no standalone project openers, and one final department-flow map. ImageSlot defaults to contain. Numbers and graph relations come through evidence.ts and generated JSON. Reproduce with scripts/export-project-evidence.py, export-scorequant.py and render-scorequant.py. See docs/editorial-audit-2026-09-12.md and docs/assets-needed.md.
+Branch `deck-v0.6-synthesis` combines the v0.3 narrative with the v0.5 evidence layer. The
+v0.5 revision is preserved on `deck-v0.5-codex-visual` (PR #3, reference only). Rules that
+came out of the rebuild, in dialogue with Vitaly:
+
+- **Every project section is: one dark `ProjectOpener` (name, subtitle, link, hero) → mechanism
+  slides with real evidence → one accent `Implication`.** The final `DepartmentMap` shows the
+  five implications together. No standalone title cards.
+- **Diagrams are HTML/CSS compositions, not boxes and lines.** The v0.5 `Diagram` SVG
+  primitives and the first HTML rewrite of the workflow slide both read as wireframes and were
+  rejected. Slide 4's ring (`.cycle` in `components.css`, built from `conic-gradient` and CSS
+  trigonometry) is the reference for what a mechanism slide should look like.
+- **Plain, concise copy.** Statements, not captions; no "agentic" phrasing on slides; the
+  "do not claim" hedges stay in `docs/projects/*.md`. Words Vitaly does not use: "bespoke".
+- **Never nest a `<section>` inside a slide.** Reveal absolutely positions every section under
+  `.slides`, so an inner one collapses to zero height and shifts the slide.
+- `.reveal p { margin: 0 }` in `base.css` outranks a single-class rule; prefix with `.slide` when
+  a paragraph needs a margin.
+- Numbers come through `evidence.ts` (a `measured` date per figure when re-measured after
+  `MEASURED`) and `content/generated/*.json`; reproduce with `scripts/export-project-evidence.py`,
+  `export-scorequant.py`, `render-scorequant.py`.
+- Until a section is rebuilt, its v0.5 slides stand in under `slides/v05-*.tsx`.
+
+Review captures go to `deck/.review/` (gitignored); `deck/.review/shoot.py` screenshots a list
+of slide indices at 1920×1080 with Playwright, including fragment states.

@@ -56,7 +56,7 @@ Project mechanisms, as the deck shows them (carried over from the v0.5 editorial
 checked each against the repository):
 
 - Family Documents: scan → Claude classification → register / normalized PDF → source-linked
-  derived result. Keep the implementation simple. Small bespoke tools become worth attempting.
+  derived result. Keep the implementation simple. Small custom tools become worth attempting.
 - Atlas: papers and metadata → connected knowledge → one narrative path. Show the actual graph.
 - Radar: daily intake → deterministic scoring → capped queue (25) → Claude judgment → ranked
   digest. Daily runs are manual. The public board is cumulative, not one day's digest.
