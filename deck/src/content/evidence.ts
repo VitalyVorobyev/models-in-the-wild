@@ -94,7 +94,7 @@ export const evidence = {
       "82",
       'scorequant: grep -E "^\\| N-" agenticresearch/NUMERICAL_EVIDENCE.md | wc -l',
     ),
-    audits: figure("20", "scorequant: ls agenticresearch/AUDITS | wc -l"),
+    audits: figure("21", "scorequant: ls agenticresearch/AUDITS | wc -l", "2026-09-13"),
     libraryVersion: figure("v0.2.0 (alpha)", "scorequant: pyproject.toml"),
     manuscript: figure(
       "draft v10, owner review pending",

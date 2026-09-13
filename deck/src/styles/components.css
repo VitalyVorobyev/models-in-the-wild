@@ -2788,3 +2788,419 @@
   line-height: 1.25;
   color: var(--ink);
 }
+
+/* ─── v0.6 ScoreQuant section ──────────────────────────────────── */
+
+/* Slide 22: the problem in three pictures of the same sample. */
+.problem {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 56px;
+  margin-top: 48px;
+}
+
+.problem__panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.problem__num {
+  margin-top: 26px;
+  font-family: var(--font-mono);
+  font-size: 20px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+.problem__panel strong {
+  margin-top: 8px;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.slide .problem__panel p {
+  margin-top: 12px;
+  font-size: 22px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.pfig {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--surface);
+  border: 1px solid var(--hairline-strong);
+  overflow: hidden;
+}
+
+.pfig__dot,
+.pfig__seed,
+.pfig__pull {
+  position: absolute;
+}
+
+.pfig__dot {
+  width: 11px;
+  height: 11px;
+  margin: -5.5px 0 0 -5.5px;
+  border-radius: 50%;
+  background: var(--fg);
+  opacity: 0.75;
+}
+
+.pfig__pull {
+  height: 2px;
+  margin-top: -1px;
+  background: var(--hairline-strong);
+  transform-origin: left center;
+}
+
+.pfig__pull::after {
+  content: "";
+  position: absolute;
+  right: -3px;
+  top: -4px;
+  border: 5px solid transparent;
+  border-left: 7px solid var(--hairline-strong);
+  border-right: 0;
+}
+
+.pfig__formula {
+  position: absolute;
+  right: 14px;
+  bottom: 10px;
+  font-family: var(--font-serif);
+  font-size: 22px;
+  color: var(--ink);
+}
+
+.pfig__grid {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.pfig__grid span {
+  border: 1px solid var(--hairline-strong);
+}
+
+.pfig__cell {
+  position: absolute;
+  inset: 0;
+}
+
+.pfig__seed {
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  background: linear-gradient(45deg, transparent 42%, var(--ink) 42%, var(--ink) 58%, transparent 58%),
+    linear-gradient(-45deg, transparent 42%, var(--ink) 42%, var(--ink) 58%, transparent 58%);
+}
+
+/* Six hues, one per cell; the pale cell fills use the same hue. */
+[data-c="0"] { --cell: hsl(215 70% 45%); }
+[data-c="1"] { --cell: hsl(28 80% 46%); }
+[data-c="2"] { --cell: hsl(150 55% 36%); }
+[data-c="3"] { --cell: hsl(0 65% 50%); }
+[data-c="4"] { --cell: hsl(265 55% 52%); }
+[data-c="5"] { --cell: hsl(190 70% 38%); }
+
+.pfig__dot[data-c] {
+  background: var(--cell);
+  opacity: 0.9;
+}
+
+.pfig__cell[data-c] {
+  background: color-mix(in srgb, var(--cell) 14%, transparent);
+  border: 0;
+}
+
+.slide .problem__rule {
+  margin-top: 40px;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: var(--type-body);
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+/* Slide 23: the run — cells and slider left, the measured curves right. */
+.run {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  gap: 64px;
+  align-items: start;
+  flex: 1;
+  min-height: 0;
+  margin-top: 32px;
+}
+
+.run__cells {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.run__cells img {
+  width: 100%;
+  height: 600px;
+  object-fit: contain;
+}
+
+.run__slider {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-family: var(--font-mono);
+  font-size: 20px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.run__slider input {
+  flex: 1;
+  accent-color: var(--accent);
+}
+
+.run__slider output {
+  min-width: 56px;
+  text-align: right;
+  color: var(--ink);
+}
+
+.run__measure {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.run__measure img {
+  width: 100%;
+  height: 400px;
+  object-fit: contain;
+}
+
+.run__numbers {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.run__numbers div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  padding: 12px 0;
+  border-top: 1px solid var(--hairline-strong);
+  font-size: 23px;
+  color: var(--muted);
+}
+
+.run__numbers dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 30px;
+  color: var(--ink);
+}
+
+/* Slide 24: the fork — a trunk of three, a branch of three below it. */
+.fork {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: 250px 250px;
+  column-gap: 40px;
+  row-gap: 110px;
+  margin-top: 72px;
+}
+
+.fork__rail {
+  position: absolute;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--hairline-strong);
+}
+
+.fork__rail--top {
+  top: -32px;
+  left: 0;
+  right: 25%;
+}
+
+.fork__rail--bottom {
+  top: calc(250px + 110px - 32px);
+  left: calc(25% - 30px);
+  right: 0;
+}
+
+/* From the trunk down to the branch, under the second node. */
+.fork__curve {
+  position: absolute;
+  top: -28px;
+  left: calc(25% - 34px);
+  width: 120px;
+  height: calc(250px + 110px - 4px);
+  border-left: 8px solid var(--hairline-strong);
+  border-bottom: 8px solid var(--hairline-strong);
+  border-bottom-left-radius: 70px;
+}
+
+.fork__node {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fork__node::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -46px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--dark);
+  border: 5px solid var(--paper);
+  box-sizing: content-box;
+  transform: translateX(-5px);
+}
+
+.fork__node strong {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.fork__node span {
+  font-size: 22px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+/* Slide 25: six stations on one track, clockwise, a return along the left. */
+.loop {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: 1fr 1fr;
+  column-gap: 48px;
+  height: 520px;
+  margin-top: 48px;
+  padding: 0 40px;
+}
+
+.loop__track {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  border: 8px solid var(--hairline-strong);
+  border-radius: 200px;
+}
+
+.loop__arrow {
+  position: absolute;
+  left: 50%;
+  border: 11px solid transparent;
+  transform: translateX(-50%);
+}
+
+.loop__arrow--top {
+  top: 3px;
+  border-left: 16px solid var(--hairline-strong);
+  border-right: 0;
+}
+
+.loop__arrow--bottom {
+  bottom: 3px;
+  border-right: 16px solid var(--hairline-strong);
+  border-left: 0;
+}
+
+.loop__return {
+  position: absolute;
+  left: -36px;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  white-space: nowrap;
+  padding: 4px 14px;
+  background: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 18px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.loop__station {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 40px;
+}
+
+.loop__station::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--dark);
+  border: 5px solid var(--paper);
+  box-sizing: content-box;
+}
+
+.loop__station--bottom {
+  justify-content: flex-end;
+  padding-top: 0;
+  padding-bottom: 40px;
+}
+
+.loop__station--bottom::before {
+  top: auto;
+  bottom: 2px;
+}
+
+.loop__station strong {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.loop__station span {
+  font-size: 21px;
+  line-height: 1.35;
+  color: var(--muted);
+}
+
+.loop__station em {
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+
+.slide .loop__rule {
+  margin-top: 36px;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: var(--type-body);
+  line-height: 1.25;
+  color: var(--ink);
+}

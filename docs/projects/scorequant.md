@@ -85,12 +85,12 @@ just implementation of known solutions.
 | 34 counterexample fixtures | `agenticresearch/COUNTEREXAMPLES/` |
 | 82 numerical-evidence rows | `grep -E "^\| N-" agenticresearch/NUMERICAL_EVIDENCE.md \| wc -l` |
 | 19 literature audits | `agenticresearch/LITERATURE/audits/` |
-| 20 audit reports (10 theorem audits, 10 formalization audits) | `agenticresearch/AUDITS/` |
+| 21 audit reports (re-measured 2026-09-13; 20 on 2026-09-12) | `agenticresearch/AUDITS/` |
 | Lean 4 v4.33.1 + Mathlib workspace, 20 modules | `agenticresearch/formal/` |
 | Manuscript v10, 10 Sep 2026, owner review pending | `agenticresearch/manuscripts/README.md` |
 | Traceable theorem example: `D-EXCHANGE-IMPLIES-VORONOI`, `project_proved`, audited 26 Aug 2026 | `agenticresearch/claims/D-EXCHANGE-IMPLIES-VORONOI.json`, `AUDITS/AUDIT-D-EXCHANGE-VORONOI-001.md` |
 | Library v0.2.0, alpha | `pyproject.toml` |
-| 304 commits, 2026-08-23 → 2026-09-11 | `git rev-list --count HEAD`, `git log` |
+| 305 commits, 2026-08-23 → 2026-09-12 | `git rev-list --count HEAD`, `git log` (re-measured 2026-09-13) |
 
 ## Do not claim
 

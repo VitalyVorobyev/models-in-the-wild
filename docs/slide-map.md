@@ -86,16 +86,35 @@ words on slide 17; slide 18 rewritten to describe material types and views inste
 
 | Section | Planned slides | Currently |
 |---|---|---|
-| 05 ScoreQuant | opener+timeline · problem · optimization · verification · counterexample · implication | `v05-18` … `v05-22` |
 | Synthesis | five capabilities · department map · the question · closing | `v05-23`, `v05-24` |
 
-Target: 30 slides (20 built + 6 ScoreQuant + 4 synthesis). Timing target (rehearsal, not
+Target: 30 slides (26 built + 4 synthesis). Timing target (rehearsal, not
 measured): opening 8 · family 4 · atlas 7 · radar 6 · deutsch 10 · scorequant 11 · synthesis 5
 = 51 min + 10 discussion.
 
+## 05 · ScoreQuant — rebuilt 2026-09-13
+
+| # | Slide | File | Theme |
+|---|---|---|---|
+| 21 | **ScoreQuant** — opener with the documentation walkthrough as hero | `21-scorequant.tsx` | dark |
+| 22 | **Binning without losing what the data knows** — the problem in three pictures of one sample: scores as pulls, a blind grid of bins, cells placed by seeds; no interaction | `22-the-problem.tsx` | paper |
+| 23 | **Seeds move; information is measured** — the real library on a synthetic sample: slider over 21 recorded optimizer states, the retention plot (hard train/validation and the soft objective on one axis), three measured numbers | `23-synthetic-run.tsx` | paper |
+| 24 | **From a favour to a research programme** — a trunk of three (problem, request, library) and, on one click, the research branch (candidate theorem, second opinion which proves nothing, the ambition changed) | `24-favour-to-research.tsx` | paper |
+| 25 | **The same loop, pointed at mathematics** — six stations on one track: read, state, derive and implement, run the numbers, try to break it, check formally; a claim that fails goes around again | `25-research-loop.tsx` | paper |
+| 26 | **Implication 05** — freedom to explore, obligation to verify | `26-implication-05.tsx` | accent |
+
+Decisions: the problem must be clear before any interaction, so slide 22 is static and slide 23
+is the only interactive one (the v0.5 sample toggle and optimizer slider merged; the toggle
+dropped). The v0.5 counterexample slide is cut: it needed the duplicate-atom construction, and
+the section is about the workflow, not the research. "Agreement is not evidence" was rejected
+as jargon; the verification stack became the loop slide in plain words, counts in mono under
+each station. Plots re-rendered in the deck's style by `scripts/render-scorequant.py` (plotting
+moved out of the exporter). Audits re-measured 2026-09-13: 21. The hero was cropped below the
+browser tab strip.
+
 ## History
 
-- **v0.6** — synthesis branch. Opening, Family, Atlas, Radar and Deutsch-Atlas sections rebuilt in dialogue with Vitaly, 2026-09-13. Slide 4 rebuilt twice: the first HTML version was still a box-and-line wireframe; the cycle replaced it.
+- **v0.6** — synthesis branch. Opening, Family, Atlas, Radar, Deutsch-Atlas and ScoreQuant sections rebuilt in dialogue with Vitaly, 2026-09-13. Slide 4 rebuilt twice: the first HTML version was still a box-and-line wireframe; the cycle replaced it.
 - **v0.5** — Codex artifact-led revision, 24 slides. Kept as reference (PR #3): evidence
   scripts, generated JSON, sourced graph, dated funnel, ScoreQuant experiment, audio,
   department map. Removed all framing slides; not presentable as a talk.

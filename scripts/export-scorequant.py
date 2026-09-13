@@ -22,14 +22,5 @@ assert centers.shape[2]==2 and len(steps)==len(centers)
 assert np.isfinite(centers).all()
 assert len(payload['trainHard'])==len(payload['validationHard'])==len(steps)
 (root/'deck/src/content/generated/scorequant.json').write_text(json.dumps(payload,indent=2)+'\n')
-# Scientific plot, not an illustration: separate actual hard and soft metrics.
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-plt.rcParams.update({'font.size':16,'axes.spines.top':False,'axes.spines.right':False})
-fig, axes=plt.subplots(1,2,figsize=(13,3.7),layout='constrained')
-for vals,label,color in [(payload['trainHard'],'Train hard','#334155'),(payload['validationHard'],'Validation hard','#0891b2')]: axes[0].plot(steps,vals,label=label,color=color,lw=2.5)
-axes[0].set(xlabel='Optimizer step',ylabel='D-efficiency',title='Measured hard partitions');axes[0].legend(frameon=False)
-axes[1].plot(steps,payload['soft'],color='#64748b',lw=2.5); axes[1].set(xlabel='Optimizer step',ylabel='Soft D-efficiency',title='Optimization surrogate')
-fig.savefig(root/'deck/src/assets/images/score-retention.svg')
+# Plots: scripts/render-scorequant.py reads the JSON written above.
 print(json.dumps({'frames':len(steps),'testRetention':payload['testRetention'],'revision':payload['source']['revision']}))

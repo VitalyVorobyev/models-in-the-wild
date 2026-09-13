@@ -110,8 +110,9 @@ label and on the `M` map with no further edit.
 
 Navigation the deck provides beyond arrow keys: `M` opens the named section map, `Esc` opens
 Reveal's own thumbnail overview, `S` opens the speaker view, `G` jumps to a slide number,
-alt-click zooms. Fragmented slides: 4 (the return arc), 14 (digest, then the person) and 17 (corpus, tools,
-product) — the first beat is always visible and each click adds the next.
+alt-click zooms. Fragmented slides: 4 (the return arc), 14 (digest, then the person), 17 (corpus, tools,
+product) and 24 (the research branch) — the first beat is always visible and each click adds
+the next.
 
 Load-bearing details, each of which broke the deck during the port:
 
@@ -189,7 +190,8 @@ came out of the rebuild, in dialogue with Vitaly:
   a paragraph needs a margin.
 - Numbers come through `evidence.ts` (a `measured` date per figure when re-measured after
   `MEASURED`) and `content/generated/*.json`; reproduce with `scripts/export-project-evidence.py`,
-  `export-scorequant.py`, `render-scorequant.py`.
+  `export-scorequant.py` (data) and `render-scorequant.py` (the deck-styled plots, run with
+  the ScoreQuant venv python).
 - Until a section is rebuilt, its v0.5 slides stand in under `slides/v05-*.tsx`.
 
 Review captures go to `deck/.review/` (gitignored); `deck/.review/shoot.py` screenshots a list
