@@ -24,12 +24,12 @@ import S22 from "./22-the-model";
 import S23 from "./23-why-bin";
 import S24 from "./24-synthetic-run";
 import S25 from "./25-what-was-proved";
-import S26 from "./26-favour-to-research";
-import S27 from "./27-research-pipeline";
-import S28 from "./28-implication-05";
-// v0.5 slides, kept under their old numbers until each section is redone.
-import V23 from "./v05-23-departments";
-import V24 from "./v05-24-question";
+import S26 from "./26-research-pipeline";
+import S27 from "./27-implication-05";
+import S28 from "./28-five-capabilities";
+import S29 from "./29-where-it-lands";
+import S30 from "./30-the-question";
+import S31 from "./31-closing";
 
 export interface DeckSection {
   id: string;
@@ -48,9 +48,9 @@ export const sections: DeckSection[] = [
     id: "scorequant",
     number: "05",
     title: "ScoreQuant",
-    slides: [S21, S22, S23, S24, S25, S26, S27, S28],
+    slides: [S21, S22, S23, S24, S25, S26, S27],
   },
-  { id: "synthesis", number: null, title: "Synthesis", slides: [V23, V24] },
+  { id: "synthesis", number: null, title: "Synthesis", slides: [S28, S29, S30, S31] },
 ];
 
 export const slides = sections.flatMap((s) => s.slides);

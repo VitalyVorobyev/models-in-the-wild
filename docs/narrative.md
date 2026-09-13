@@ -50,7 +50,7 @@ evidence.
 
 Each project opens on one dark slide (name, subtitle, link, hero visual — no standalone title
 card), shows its mechanism with real evidence, and closes with a one-sentence company
-implication on an accent slide. The final department map shows the five implications as flows.
+implication on an accent slide. Slide 28 gathers the five implications; slide 29 sets one concrete proposal per capability against the departments.
 
 Project mechanisms, as the deck shows them (carried over from the v0.5 editorial pass, which
 checked each against the repository):
@@ -82,7 +82,7 @@ workflow.
 > Ask: **"What useful thing do we currently not even attempt because it would take too much
 > time, coordination or specialized implementation?"**
 
-"Freedom to explore. Obligation to verify." is said once, at the end of ScoreQuant.
+The ScoreQuant implication: a small team can now run a whole research loop; what makes the result usable is the independent check on every claim. ("Freedom to explore. Obligation to verify." was rejected as a motto.)
 
 Tone throughout: practical and skeptical, not evangelical. Statements, not captions; the
 "do not claim" hedges live in `docs/projects/*.md`, not on slides. The slides support the

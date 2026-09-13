@@ -70,7 +70,9 @@ version. The verification stack is where the research actually happens.
 > **The stronger the agent becomes, the more important verification becomes — not
 > micromanagement.**
 
-> **Freedom to explore. Obligation to verify.**
+> **Freedom to explore. Obligation to verify.** (Vitaly's line in the handoff; rejected as
+> a slide motto on 2026-09-13. The deck's implication reads: a small team can now run a whole
+> research loop; what makes the result usable is the independent check on every claim.)
 
 ## Company implication
 
@@ -110,4 +112,11 @@ just implementation of known solutions.
 
 ## Editorial evidence update
 
-v0.5 adds a synthetic 2D Gaussian location demonstration through the real public API. This is not physics data. Actual optimizer states, train/validation hard retention and final held-out retention are exported with revision and seed. The duplicate-score counterexample is copied from its exact fixture.
+v0.6 runs one example through the section: two measured quantities per event, a Gaussian
+peak (σ = 0.4, fraction f = 0.3, at m = 1) on a Gaussian background (σ = 1.5); the parameters
+are (f, m). This is not physics data. `scripts/export-scorequant.py` computes the scores
+analytically, hands them to the real public API (six cells, D-optimality, seed 42), and
+exports the recorded optimizer states, the objective trace, the held-out retention, the
+Fisher matrices for no binning, a 3×2 grid over x and the six cells (kept: 22% and 92%,
+measured 2026-09-13), the template-fit histogram and a 69-event illustration sample. The
+counterexample slide was cut in v0.6.

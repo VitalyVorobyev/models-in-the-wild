@@ -2950,6 +2950,62 @@
   border-radius: 50%;
 }
 
+.pfig__contour--accent {
+  border-color: var(--accent);
+}
+
+.pfig__dot--component {
+  background: var(--fg);
+}
+
+.pfig__dot--component[data-c="3"] {
+  background: var(--accent);
+}
+
+.pfig__pull--ink {
+  height: 3px;
+  background: var(--ink);
+}
+
+.pfig__pull--ink::after {
+  border-left-color: var(--ink);
+  right: -4px;
+  top: -5px;
+  border-width: 6px;
+  border-left-width: 9px;
+}
+
+.pfig__axis--right {
+  left: auto;
+  right: 14px;
+}
+
+/* The formula or the one measured line under each figure. */
+.problem__line {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 14px;
+  color: var(--ink);
+}
+
+.problem__line--words {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+
+.tex {
+  font-size: 23px;
+  color: var(--ink);
+}
+
+.tex .katex {
+  font-size: 1em;
+}
+
 .pfig__line {
   position: absolute;
   background: var(--hairline-strong);
@@ -3006,26 +3062,33 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%) rotate(-24deg);
   border-radius: 50%;
 }
 
 .pfig__ellipse--full {
-  width: 40%;
-  height: 32%;
   border: 2.5px solid var(--ink);
 }
 
 .pfig__ellipse--bins {
-  width: 64%;
-  height: 52%;
   border: 2.5px dashed var(--accent);
+}
+
+.pfig__ellipse--grid {
+  border: 2.5px dashed var(--muted);
+}
+
+.pfig__tag--grid {
+  color: var(--muted);
+}
+
+.pfig__tag--cells {
+  color: var(--accent);
 }
 
 /* Slide 23, panel 1: a template fit, two components and the observed counts. */
 .pfig__bars {
   position: absolute;
-  inset: 44px 40px 46px;
+  inset: 34px 40px 46px;
   display: flex;
   align-items: flex-end;
   gap: 10px;
@@ -3069,6 +3132,11 @@
   font-size: 16px;
   letter-spacing: 0.04em;
   color: var(--muted);
+}
+
+.pfig__legend--top {
+  top: 10px;
+  bottom: auto;
 }
 
 .pfig__swatch {
@@ -3340,7 +3408,7 @@
 }
 
 .proved__col strong {
-  margin-top: 26px;
+  margin-top: 18px;
   font-family: var(--font-serif);
   font-weight: 500;
   font-size: 34px;
@@ -3529,4 +3597,190 @@
   font-size: var(--type-body);
   line-height: 1.25;
   color: var(--ink);
+}
+
+/* ─── v0.6 Synthesis section ─────────────────────────────────── */
+
+/* Slide 28: five rows, one per project. */
+.five {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+.five__row {
+  display: grid;
+  grid-template-columns: 90px 360px minmax(0, 1fr);
+  column-gap: 40px;
+  align-items: baseline;
+  padding: 26px 0;
+  border-top: 1px solid var(--hairline-strong);
+}
+
+.five__num {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+
+.five__cap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.five__cap strong {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1.05;
+  color: var(--ink);
+}
+
+.five__cap span {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.slide .five__statement {
+  font-size: 28px;
+  line-height: 1.35;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+/* Slide 29: capabilities against departments. */
+.lands {
+  display: flex;
+  flex-direction: column;
+  margin-top: 36px;
+}
+
+.lands__head,
+.lands__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) repeat(7, 118px);
+  column-gap: 12px;
+  align-items: center;
+}
+
+.lands__head {
+  padding-bottom: 14px;
+}
+
+.lands__dept {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--muted);
+}
+
+.lands__row {
+  padding: 18px 0;
+  border-top: 1px solid var(--hairline-strong);
+}
+
+.lands__what {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-right: 40px;
+}
+
+.lands__what strong {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.lands__num {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-right: 8px;
+}
+
+.lands__what span:not(.lands__num) {
+  font-size: 20px;
+  line-height: 1.35;
+  color: var(--muted);
+}
+
+.lands__mark {
+  justify-self: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--hairline);
+}
+
+.lands__mark--on {
+  width: 26px;
+  height: 26px;
+  background: var(--accent);
+}
+
+.slide .lands__rule {
+  margin-top: 28px;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: var(--type-body);
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+/* Slide 30: the question, alone on a dark page. */
+.question {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1600px;
+}
+
+.question__lead {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  letter-spacing: 0.06em;
+  color: var(--dark-muted);
+}
+
+.question__ask {
+  color: var(--dark-fg);
+}
+
+/* Slide 31: the closing. */
+.closing {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1500px;
+}
+
+.closing .statement--closing {
+  color: var(--dark-fg);
+}
+
+.closing__steps {
+  margin: 0;
+  padding-left: 1.4em;
+  font-size: 27px;
+  line-height: 1.5;
+  color: var(--dark-muted);
+}
+
+.closing__links {
+  display: flex;
+  gap: 48px;
+  font-family: var(--font-mono);
+  font-size: 22px;
+  letter-spacing: 0.02em;
 }

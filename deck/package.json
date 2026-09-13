@@ -16,12 +16,14 @@
     "@fontsource-variable/source-serif-4": "^5.3.0",
     "@fontsource/geist-mono": "^5.3.0",
     "@fontsource/inter": "^5.3.0",
+    "katex": "^0.18.7",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "reveal.js": "^6.0.2"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.13",
+    "@types/katex": "^0.16.8",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.1",

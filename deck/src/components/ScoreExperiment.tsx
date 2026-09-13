@@ -12,8 +12,8 @@ const frames = Object.keys(files)
   .map((key) => files[key]);
 
 /**
- * The synthetic run on slide 23: a slider over the recorded optimizer states
- * (nothing interpolated), the retention plot beside it, and the three measured
+ * The run on slide 24: a slider over the recorded optimizer states
+ * (nothing interpolated), the retention plot beside it, and the two measured
  * numbers for the selected state.
  */
 export default function SyntheticRun() {
@@ -42,16 +42,12 @@ export default function SyntheticRun() {
       <div className="run__measure">
         <img
           src={retention}
-          alt="Information kept by the hard cells on training and validation data, and the soft objective, over the optimizer steps"
+          alt="The objective, the information kept by the six cells as a fraction of the full Fisher information, over the optimizer steps"
         />
         <dl className="run__numbers">
           <div>
-            <dt>kept at this step · training</dt>
-            <dd>{data.trainHard[index]?.toFixed(3)}</dd>
-          </div>
-          <div>
-            <dt>kept at this step · validation</dt>
-            <dd>{data.validationHard[index]?.toFixed(3)}</dd>
+            <dt>the objective at this step</dt>
+            <dd>{data.soft[index]?.toFixed(3)}</dd>
           </div>
           <div>
             <dt>final solution · held-out data</dt>

@@ -4,7 +4,7 @@ The deck contract. `deck/src/slides/index.ts` must match this list in order and 
 
 v0.6 synthesizes the v0.3 narrative (branch `main`) with the v0.5 visuals and evidence layer
 (branch `deck-v0.5-codex-visual`, PR #3, reference only). Sections are rebuilt one at a time
-with Vitaly; until a section is rebuilt, its v0.5 slides stand in under `v05-*` file names.
+with Vitaly. All seven sections are rebuilt; no v0.5 slide remains.
 
 ## Opening — rebuilt 2026-09-13
 
@@ -82,45 +82,57 @@ Second round with Vitaly: evidence-verdict labels and the DTZ abbreviation repla
 words on slide 17; slide 18 rewritten to describe material types and views instead of slogans
 ("honest", "trace not score" dropped); slide 19 plays the whole scene and names the models.
 
-## Remaining sections — v0.5 stand-ins until rebuilt
+Total: 31 slides. Timing target (rehearsal, not measured): opening 8 · family 4 · atlas 7 ·
+radar 6 · deutsch 10 · scorequant 12 · synthesis 6 = 53 min + 7 discussion.
 
-| Section | Planned slides | Currently |
-|---|---|---|
-| Synthesis | five capabilities · department map · the question · closing | `v05-23`, `v05-24` |
+## 05 · ScoreQuant — rebuilt 2026-09-13, round three
 
-Target: 32 slides (28 built + 4 synthesis). Timing target (rehearsal, not
-measured): opening 8 · family 4 · atlas 7 · radar 6 · deutsch 10 · scorequant 13 · synthesis 5
-= 53 min + 7 discussion.
-
-## 05 · ScoreQuant — rebuilt 2026-09-13
+One example runs through the section: two measured quantities per event, a narrow Gaussian
+peak on a broad Gaussian background, the parameters to measure being the signal fraction f
+and the peak position m. `scripts/export-scorequant.py` computes the scores analytically,
+hands them to the real library, and exports the run, the Fisher matrices (none, a 3×2 grid
+over x, the six cells), the template-fit histogram and a 69-event illustration sample.
 
 | # | Slide | File | Theme |
 |---|---|---|---|
 | 21 | **ScoreQuant** — opener with the documentation walkthrough as hero | `21-scorequant.tsx` | dark |
-| 22 | **A model, its observations, its scores** — three pictures of one sample: the model p(x \| θ) with its contours, the score of each observation in score space, the Fisher information and the covariance ellipse of the estimate; no interaction | `22-the-model.tsx` | paper |
-| 23 | **Why bin, and what to keep** — a template fit compares counts per bin; the same sample binned by a grid in observation space and by cells in score space, with the loss identity; the objective, D-optimality, as the smaller ellipse | `23-why-bin.tsx` | paper |
-| 24 | **Seeds move; information is measured** — the real library on a synthetic sample: slider over 21 recorded optimizer states, the retention plot (hard train/validation and the soft objective on one axis), three measured numbers | `24-synthetic-run.tsx` | paper |
-| 25 | **What was proved** — the exchange step and where it stops; a stable partition is a Voronoi partition of score space in the I⁻¹ metric, so sample labels become a rule for new observations; the converse fails; claim ids under each | `25-what-was-proved.tsx` | paper |
-| 26 | **From a favour to a research programme** — a trunk of three (problem, request, library) and, on one click, the research branch (candidate theorem, second opinion, the ambition changed) | `26-favour-to-research.tsx` | paper |
-| 27 | **How a result gets made** — the registry of proven results and open questions; one packet: written, executed by one agent, audited by an independent one, the verdict back into the registry; Lean 4 for the load-bearing claims; the library and the manuscript | `27-research-pipeline.tsx` | paper |
-| 28 | **Implication 05** — freedom to explore, obligation to verify | `28-implication-05.tsx` | accent |
+| 22 | **A peak on a background** — the model with its two components and the sample; each event's score as a pull on f and m; the Fisher information and the covariance of the best measurement, with the formulas in KaTeX under each figure | `22-the-model.tsx` | paper |
+| 23 | **Why bin, and what to keep** — the template fit as counts per bin; the same sample under a grid over x (keeps 22%) and under six cells in score space (keeps 92%); D-optimality as the three measured ellipses and max det I_bins | `23-why-bin.tsx` | paper |
+| 24 | **Seeds move; the information kept is measured** — the real library on the example: slider over 21 recorded states in raw score coordinates, one curve (the objective), the held-out number | `24-synthetic-run.tsx` | paper |
+| 25 | **What was proved** — the exchange step and where it stops; a stable partition is a Voronoi partition of score space in the I⁻¹ metric, so sample labels become a rule; claim ids under each; both Lean-checked and audited | `25-what-was-proved.tsx` | paper |
+| 26 | **How a result gets made** — the registry of proven results and open questions; one packet: written, executed by one agent, audited by an independent one, the verdict back into the registry; Lean 4 for the load-bearing claims; the library and the manuscript | `26-research-pipeline.tsx` | paper |
+| 27 | **Implication 05** — a small team can now run a whole research loop; what makes the result usable is the independent check on every claim | `27-implication-05.tsx` | accent |
 
 Decisions: the problem must be clear before any interaction, so slides 22 and 23 are static
-and slide 24 is the only interactive one (the v0.5 sample toggle and optimizer slider merged;
-the toggle dropped). Vitaly's order for the exposition: p(x | θ), the observations, the scores,
-measuring the parameters, why people bin, observation space versus score space, then the
-objective (Fisher information, its inverse as the covariance, D-optimality as the determinant);
-only then the slider. The results slide states the exchange theorem and the Voronoi result in
-words; conditions stay in the notes. The v0.5 counterexample slide is cut. "Agreement is not
-evidence" and "which proves nothing" were rejected: agents are not the last judge and the slide
-need not say so. The loop-of-stations slide was replaced by the pipeline Vitaly described:
-registry → packet → execute → independent audit → Lean 4 → library and manuscript. Plots
-re-rendered in the deck's style by `scripts/render-scorequant.py`. Re-measured 2026-09-13:
-21 audits, 21 Lean modules. The hero was cropped below the browser tab strip.
+and slide 24 is the only interactive one. Vitaly's order for the exposition: the concrete
+model written out, what θ means in it, the observations, the scores, measuring the
+parameters, why people bin, observation space versus score space, then the objective (Fisher
+information, its inverse as the covariance, D-optimality as the determinant); only then the
+slider. Formulas are typeset with KaTeX (`components/Tex.tsx`, bundled, no network); the
+loss identity was cut as too much. The run plots a single curve, the objective; the earlier
+three-curve plot was a mystery to the audience. The results slide omits the converse (obvious
+and not relevant). The "favour to research" fork slide was cut: the section was too long.
+"Freedom to explore. Obligation to verify." was rejected as a motto and replaced. The
+loop-of-stations slide was replaced by the pipeline Vitaly described. Re-measured
+2026-09-13: 21 audits, 21 Lean modules.
+
+## Synthesis — rebuilt 2026-09-13
+
+| # | Slide | File | Theme |
+|---|---|---|---|
+| 28 | **Five capabilities, five implications** — one row per project: number, capability, project, the implication sentence, all read from `content/projects.ts` | `28-five-capabilities.tsx` | paper |
+| 29 | **Where this lands** — one concrete proposal per capability against the seven departments, as filled dots; proposals, not a description of today | `29-where-it-lands.tsx` | paper |
+| 30 | **The question** — "Not only: how can a model make my current work faster?" then the take-home question, alone on a dark page | `30-the-question.tsx` | dark |
+| 31 | **Closing** — "This deck was built the same way.", the four-step method, the repository and the deployed deck | `31-closing.tsx` | dark |
+
+Decisions: the v0.5 department map (SVG boxes and arrows with tabs) was replaced by a
+capability-by-department matrix in HTML; the implication sentences moved into `projects.ts`
+so the five accent slides and slide 28 cannot drift apart. `DepartmentMap`, `Diagram` and the
+`v05-*` stand-ins are deleted.
 
 ## History
 
-- **v0.6** — synthesis branch. Opening, Family, Atlas, Radar, Deutsch-Atlas and ScoreQuant sections rebuilt in dialogue with Vitaly, 2026-09-13. Slide 4 rebuilt twice: the first HTML version was still a box-and-line wireframe; the cycle replaced it.
+- **v0.6** — synthesis branch. All sections rebuilt in dialogue with Vitaly, 2026-09-13; 31 slides. Slide 4 rebuilt twice: the first HTML version was still a box-and-line wireframe; the cycle replaced it.
 - **v0.5** — Codex artifact-led revision, 24 slides. Kept as reference (PR #3): evidence
   scripts, generated JSON, sourced graph, dated funnel, ScoreQuant experiment, audio,
   department map. Removed all framing slides; not presentable as a talk.

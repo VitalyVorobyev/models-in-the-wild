@@ -11,6 +11,7 @@ import "reveal.js/reveal.css";
 import "./styles/tokens.css";
 import "./styles/base.css";
 import "./styles/components.css";
+import "katex/dist/katex.min.css";
 
 const root = document.getElementById("root");
 if (!root) throw new Error("#root is missing from index.html");
