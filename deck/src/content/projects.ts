@@ -100,8 +100,8 @@ export const projects: Project[] = [
     capability: "Discover",
     capabilityNote: "Explore new technical and mathematical territory",
     implication:
-      "Missing expertise is no longer a reason not to start. Agents bring the skill we lack, a formal proof included; the independent checks decide what stands.",
-    subtitle: "A favour for a former colleague that became a research programme.",
+      "Some problems are no longer too expensive to investigate.",
+    subtitle: "Agents let us explore unfamiliar technical territory far enough to see whether an idea actually works — before committing months of specialist effort.",
     link: {
       href: "https://github.com/VitalyVorobyev/scorequant",
       label: "github.com/VitalyVorobyev/scorequant",
