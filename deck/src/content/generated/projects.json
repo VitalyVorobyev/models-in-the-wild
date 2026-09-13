@@ -1,0 +1,439 @@
+{
+  "measured": "2026-09-13",
+  "atlas": {
+    "revision": "1c1000e614e8e8d516107ca63f73d79cc1efb395",
+    "source": "content/narratives/foundation-models-for-vision.md + docs/papers/index.yaml + page sources.primary",
+    "nodes": [
+      {
+        "id": "attention",
+        "page": "attention-mechanism",
+        "area": "substrate",
+        "role": "origin",
+        "takeaway": "Differentiable soft lookup over a set of values. Born as a translation alignment fix, it became the universal communication fabric of modern networks."
+      },
+      {
+        "id": "transformer",
+        "page": "transformer",
+        "area": "substrate",
+        "role": "origin",
+        "takeaway": "Remove recurrence, keep attention: every position talks to every other position in parallel. The block diagram nearly every model in this story reuses."
+      },
+      {
+        "id": "kd",
+        "page": "knowledge-distillation",
+        "area": "substrate",
+        "role": "recurring device",
+        "takeaway": "Train a student on a teacher's softened outputs instead of hard labels. The idea resurfaces in this story four separate times, each time in a new costume.",
+        "remark": "Watch this node: it bridges into DeiT (distillation token), DINO (self-distillation), DINOv2/v3 (model families), and student–teacher anomaly detection."
+      },
+      {
+        "id": "vit",
+        "page": "vit",
+        "area": "backbone",
+        "role": "milestone",
+        "takeaway": "Cut the image into 16×16 patches, embed them as tokens, and run the standard transformer encoder. CNN inductive bias traded for data scale."
+      },
+      {
+        "id": "deit",
+        "page": "deit",
+        "area": "backbone",
+        "role": "correction",
+        "takeaway": "Same architecture as ViT, made competitive on ImageNet-1k alone by a heavy training recipe and a distillation token supervised by a convnet teacher."
+      },
+      {
+        "id": "dino",
+        "page": "dino",
+        "area": "representation",
+        "role": "milestone",
+        "takeaway": "Self-distillation with no labels: an EMA teacher, multi-crop views, centering + sharpening. Segmentation structure emerges in attention maps nobody supervised."
+      },
+      {
+        "id": "dinov2",
+        "page": "dinov2",
+        "area": "representation",
+        "role": "milestone",
+        "takeaway": "DINO plus iBOT at 142M curated images: the first self-supervised features that beat text-supervised rivals on dense tasks while staying frozen."
+      }
+    ],
+    "edges": [
+      {
+        "from": "attention",
+        "to": "transformer",
+        "type": "prerequisite"
+      },
+      {
+        "from": "transformer",
+        "to": "vit",
+        "type": "evolution",
+        "label": "images as tokens"
+      },
+      {
+        "from": "vit",
+        "to": "deit",
+        "type": "evolution",
+        "label": "data efficiency"
+      },
+      {
+        "from": "kd",
+        "to": "deit",
+        "type": "bridge",
+        "label": "distillation token"
+      },
+      {
+        "from": "kd",
+        "to": "dino",
+        "type": "bridge",
+        "label": "self-distillation"
+      },
+      {
+        "from": "vit",
+        "to": "dino",
+        "type": "prerequisite"
+      },
+      {
+        "from": "dino",
+        "to": "dinov2",
+        "type": "evolution",
+        "label": "scale + curation"
+      }
+    ],
+    "papers": [
+      {
+        "node": "attention",
+        "paper": {
+          "id": "vaswani2017-attention",
+          "title": "Attention Is All You Need",
+          "authors": [
+            "A. Vaswani",
+            "N. Shazeer",
+            "N. Parmar",
+            "J. Uszkoreit",
+            "L. Jones",
+            "A. N. Gomez",
+            "Ł. Kaiser",
+            "I. Polosukhin"
+          ],
+          "year": 2017,
+          "venue": "NeurIPS 2017",
+          "url": "https://arxiv.org/pdf/1706.03762",
+          "arxiv": "1706.03762",
+          "pdf": "vaswani2017-attention.pdf",
+          "cites": [
+            "bahdanau2014-align"
+          ]
+        }
+      },
+      {
+        "node": "transformer",
+        "paper": {
+          "id": "vaswani2017-attention",
+          "title": "Attention Is All You Need",
+          "authors": [
+            "A. Vaswani",
+            "N. Shazeer",
+            "N. Parmar",
+            "J. Uszkoreit",
+            "L. Jones",
+            "A. N. Gomez",
+            "Ł. Kaiser",
+            "I. Polosukhin"
+          ],
+          "year": 2017,
+          "venue": "NeurIPS 2017",
+          "url": "https://arxiv.org/pdf/1706.03762",
+          "arxiv": "1706.03762",
+          "pdf": "vaswani2017-attention.pdf",
+          "cites": [
+            "bahdanau2014-align"
+          ]
+        }
+      },
+      {
+        "node": "kd",
+        "paper": {
+          "id": "hinton2015-distillation",
+          "title": "Distilling the Knowledge in a Neural Network",
+          "authors": [
+            "G. E. Hinton",
+            "O. Vinyals",
+            "J. Dean"
+          ],
+          "authorIds": [
+            "A5108093963",
+            "A5003562101"
+          ],
+          "year": 2015,
+          "venue": "NeurIPS 2014 Deep Learning Workshop (arXiv 2015)",
+          "url": "https://arxiv.org/pdf/1503.02531",
+          "arxiv": "1503.02531",
+          "doi": "10.48550/arxiv.1503.02531",
+          "pdf": "hinton2015-distillation.pdf",
+          "cites": [
+            "krizhevsky2012-alexnet"
+          ]
+        }
+      },
+      {
+        "node": "vit",
+        "paper": {
+          "id": "dosovitskiy2020-vit",
+          "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+          "authors": [
+            "A. Dosovitskiy",
+            "L. Beyer",
+            "A. Kolesnikov",
+            "D. Weissenborn",
+            "X. Zhai",
+            "T. Unterthiner",
+            "M. Dehghani",
+            "M. Minderer",
+            "G. Heigold",
+            "S. Gelly",
+            "J. Uszkoreit",
+            "N. Houlsby"
+          ],
+          "authorIds": [
+            "A5090113830",
+            "A5055629014",
+            "A5000026575",
+            "A5038019602",
+            "A5071668416",
+            "A5083016682",
+            "A5102906366",
+            "A5088239541",
+            "A5071956319",
+            "A5041958651",
+            "A5022416424",
+            "A5068878643"
+          ],
+          "year": 2020,
+          "venue": "ICLR 2021 (arXiv 2020)",
+          "url": "https://arxiv.org/pdf/2010.11929",
+          "arxiv": "2010.11929",
+          "doi": "10.48550/arxiv.2010.11929",
+          "pdf": "dosovitskiy2020-vit.pdf",
+          "cites": []
+        }
+      },
+      {
+        "node": "deit",
+        "paper": {
+          "id": "touvron2020-deit",
+          "title": "Training data-efficient image transformers & distillation through attention",
+          "authors": [
+            "H. Touvron",
+            "M. Cord",
+            "M. Douze",
+            "F. Massa",
+            "A. Sablayrolles",
+            "H. Jégou"
+          ],
+          "authorIds": [
+            "A5032644449",
+            "A5108118084",
+            "A5053822883",
+            "A5032569443",
+            "A5067991583",
+            "A5111802678"
+          ],
+          "year": 2020,
+          "venue": "ICML 2021 (arXiv 2020)",
+          "url": "https://arxiv.org/pdf/2012.12877",
+          "arxiv": "2012.12877",
+          "doi": "10.48550/arxiv.2012.12877",
+          "pdf": "touvron2020-deit.pdf",
+          "cites": [
+            "dosovitskiy2020-vit",
+            "hinton2015-distillation",
+            "he2016-resnet"
+          ]
+        }
+      },
+      {
+        "node": "dino",
+        "paper": {
+          "id": "caron2021-dino",
+          "title": "Emerging Properties in Self-Supervised Vision Transformers",
+          "authors": [
+            "M. Caron",
+            "H. Touvron",
+            "I. Misra",
+            "H. Jégou",
+            "J. Mairal",
+            "P. Bojanowski",
+            "A. Joulin"
+          ],
+          "authorIds": [
+            "A5071626315",
+            "A5032644449",
+            "A5000623592",
+            "A5111802678",
+            "A5062817741",
+            "A5035420035",
+            "A5107859338"
+          ],
+          "year": 2021,
+          "venue": "ICCV 2021",
+          "url": "https://arxiv.org/pdf/2104.14294",
+          "arxiv": "2104.14294",
+          "doi": "10.48550/arxiv.2104.14294",
+          "pdf": "caron2021-dino.pdf",
+          "cites": [
+            "dosovitskiy2020-vit",
+            "touvron2020-deit",
+            "chen2020-simclr",
+            "he2019-moco",
+            "grill2020-byol",
+            "he2016-resnet"
+          ]
+        }
+      },
+      {
+        "node": "dinov2",
+        "paper": {
+          "id": "oquab2023-dinov2",
+          "title": "DINOv2: Learning Robust Visual Features without Supervision",
+          "authors": [
+            "M. Oquab",
+            "T. Darcet",
+            "T. Moutakanni",
+            "H. Vo",
+            "M. Szafraniec",
+            "V. Khalidov",
+            "P. Fernandez",
+            "D. Haziza",
+            "F. Massa",
+            "A. El-Nouby",
+            "M. Assran",
+            "N. Ballas",
+            "W. Galuba",
+            "R. Howes",
+            "P. Huang",
+            "S. Li",
+            "I. Misra",
+            "M. Rabbat",
+            "V. Sharma",
+            "G. Synnaeve",
+            "H. Xu",
+            "H. Jegou",
+            "J. Mairal",
+            "P. Labatut",
+            "A. Joulin",
+            "P. Bojanowski"
+          ],
+          "authorIds": [
+            "A5033265682",
+            "A5076163068",
+            "A5015776030",
+            "A5060502801",
+            "A5072207220",
+            "A5015609539",
+            "A5088495817",
+            "A5063864170",
+            "A5032569443",
+            "A5083505661",
+            "A5006611401",
+            "A5057065873",
+            "A5022540761",
+            "A5017248470",
+            "A5063149046",
+            "A5029566548",
+            "A5000623592",
+            "A5089819604",
+            "A5102320649",
+            "A5041907084",
+            "A5101882561",
+            "A5111802678",
+            "A5062817741",
+            "A5067188801",
+            "A5107859338",
+            "A5035420035"
+          ],
+          "year": 2023,
+          "venue": "TMLR 2024 (arXiv 2023)",
+          "url": "https://arxiv.org/pdf/2304.07193",
+          "arxiv": "2304.07193",
+          "doi": "10.48550/arxiv.2304.07193",
+          "pdf": "oquab2023-dinov2.pdf",
+          "cites": []
+        }
+      }
+    ]
+  },
+  "radar": {
+    "revision": "66b4ecab7667bd7aac7572edcd3a4b134a03242d",
+    "date": "2026-08-27",
+    "intake": 102,
+    "queue": 25,
+    "cap": 25,
+    "digestCounts": {
+      "Use": 0,
+      "Prototype": 1,
+      "Evaluate": 5,
+      "Watch": 4,
+      "Ecosystem": 1,
+      "Uncertainty / Open Questions": 1,
+      "Ignore": 15
+    },
+    "digest": "# Daily Digest — 2026-08-27 (window: 1 day)\n\n## Use\n\n_No items._\n\n## Prototype\n\n- **Real-time Unsupervised Object Discovery from Asynchronous Event Streams** ([link](http://arxiv.org/abs/2608.26644v1))\n  Tracks: Datasets & Benchmarks\n  Reason: Training-free, real-time moving-object discovery straight from the event stream: a linear-time probabilistic event filter for denoising plus Morton-code clustering that avoids a distance matrix, with code published and results on the public E-MLB benchmark. No training and no labels means we can measure it on our own data in an afternoon, which is exactly what we want from an event-camera evaluation.\n  Action: Clone github.com/PrathamShenwai/SPEF_EMCC, run SPEF+EMCC on E-MLB and on any event capture we have, and record throughput and false-positive rate on static clutter.\n\n## Evaluate\n\n- **A Geometry-Driven, Framework-Agnostic Optimization for Object Pose Estimation** ([link](http://arxiv.org/abs/2608.26859v1))\n  Tracks: 3D Geometry & Reconstruction, Datasets & Benchmarks\n  Reason: Data-level fix for the ambiguity that quietly wrecks pose training on machined parts: canonicalise object rotation to the principal axes derived from inertial properties, which resolves symmetric-object label confusion before the network sees it. Framework-agnostic by construction, so it is cheap to test on an existing pipeline. Claims are on standard pose benchmarks, not industrial parts.\n  Action: Read the PDF; if the canonicalisation is as framework-agnostic as claimed, re-label one symmetric-part pose set with principal axes and measure the change on our current model.\n- **Data-efficient crack quantification in lithium-ion cathodes using foundation model transfer** ([link](http://arxiv.org/abs/2608.27162v1))\n  Tracks: Industrial Vision Inspection, Vision Foundation Models\n  Reason: Defect quantification done the way we would have to do it: a frozen self-supervised ViT encoder with a small trainable decoder plus iterative model-assisted annotation, applied to 120-megapixel electron-microscopy cross-sections where expert pixel labelling costs hours per image. It separates intragranular from intergranular cracking at population scale. Materials science rather than production inspection, and no code, but the annotation-budget recipe is the transferable part.\n  Action: Read the annotation loop and the tiling strategy; consider replicating frozen-encoder + light-decoder on one of our own sparse-label defect sets.\n- **Camera Calibration Using Inaccurate and Asynchronous Discrete GPS Trajectory from Drones** ([link](http://arxiv.org/abs/2608.26548v1))\n  Tracks: Calibration & Camera Models, Synthetic Data & Simulation, Datasets & Benchmarks\n  Reason: Target-free extrinsic calibration of a fixed camera from a moving object's noisy trajectory, solving the practical mess honestly: unknown GPS altitude bias and unknown camera-to-GPS time offset are estimated jointly with yaw/pitch/roll, and the discrete trajectory is interpolated with velocity. That is the same estimator shape as our camera-robot temporal calibration, with a cooperative target we can already fly or move.\n  Action: Read the parameter-estimation formulation and the interpolation scheme; check the reported angular accuracy against a checkerboard-calibrated reference.\n- **SSMB: Self-Supervised Local Feature Detection under Motion Blur** ([link](http://arxiv.org/abs/2608.27181v1))\n  Tracks: 3D Geometry & Reconstruction, Robotics Vision\n  Reason: Keypoint repeatability under motion blur, learned self-supervised without a deblur pass and without regressing a handcrafted detector's opinions. Moving parts and moving cameras are our normal condition, and blur is where our matching front-ends degrade quietly. No code announced.\n  Action: Read the PDF; check whether the detector is drop-in for our matching front-end and whether repeatability is reported against SIFT/SuperPoint on real blur.\n- **GeoMAD: Geometry-Aware Multi-View Anomaly Detection via Deformable Fusion and Distributional Alignment** ([link](http://arxiv.org/abs/2608.26724v1))\n  Tracks: Calibration & Camera Models, 3D Geometry & Reconstruction, Industrial Vision Inspection\n  Reason: Multi-view, multi-class industrial anomaly detection - directly our domain. The claim worth checking is that continuous cross-view deformable fusion beats both voxel reconstruction and discrete patch matching, i.e. you can get geometric awareness without building 3D. No code link.\n  Action: Read the PDF; compare the reported multi-class numbers against our current single-view inspection baseline and see what the fusion module costs at inference.\n\n## Watch\n\n- **Parameter Efficient Continual Learning for Sparse Event-Based Transformers** ([link](http://arxiv.org/abs/2608.26720v1))\n  Tracks: 3D Sensors, Edge AI & Deployment\n  Reason: Continual learning on sparse spiking event transformers with a frozen backbone and low-rank adapters - the right target (adapt at the edge under memory and energy limits) but early: no measured energy or latency on real neuromorphic hardware in the abstract.\n  Action: No action; track whether event-based edge models start reporting on-device numbers.\n- **NeuDonatello: Uncertainty-Aware Framework for Accurate Neural SDF Learning** ([link](http://arxiv.org/abs/2608.26504v1))\n  Tracks: 3D Geometry & Reconstruction\n  Reason: Uncertainty-aware neural SDF reconstruction - models spatially varying SDF uncertainty by Monte Carlo sampling and strengthens regularisation exactly where RGB supervision is unreliable (textureless, occluded). Confidence per surface point is what a measurement pipeline needs; the evaluation is reconstruction-quality, not error budget, and no code is mentioned.\n  Action: Watch for code; the reusable idea is the uncertainty-weighted regulariser, not the SDF framework.\n- **Comparative Evaluation of 3D Reconstruction Methods for Immersive Visualization of Laboratory Objects** ([link](http://arxiv.org/abs/2608.27301v1))\n  Tracks: 3D Geometry & Reconstruction, 3D Sensors, Industrial Vision Inspection\n  Reason: Compares photogrammetry, NeRF, 3DGS and LiDAR on the objects that actually break scanners - transparent, reflective, low-texture - and reports NeRF most consistent. But fidelity is rated subjectively by graduate students for holographic teaching material, with no geometric error anywhere, so it is not evidence for a scanning decision.\n  Action: No action; treat the transparent/reflective ranking as a hypothesis to test with real metrology, not a result.\n- **DPA-I2P: Depth-Guided Projective Alignment for Image-to-Point-Cloud Registration in Autonomous Driving** ([link](http://arxiv.org/abs/2608.26589v1))\n  Tracks: 3D Geometry & Reconstruction, 3D Sensors, Edge AI & Deployment\n  Reason: Image-to-point-cloud registration is the camera-LiDAR extrinsic problem wearing a driving hat: estimate camera pose inside a sparse LiDAR map via learned cross-modal correspondence, with ray-conditioned metric depth as the bridge. The idea transfers, the model does not - it is trained end-to-end on driving data and there is no code.\n  Action: No action now; if we take on camera-LiDAR alignment, read the ray-conditioned depth encoding first.\n\n## Ignore (15)\n\nRepresentative titles:\n- 4DSynth: Controllable Procedural World Synthesis for Dynamic Embodied Simulation\n- FAN-LoRA: A Fourier-Adaptive Nonlinear Low-Rank Adaptor for Medical Foundation Model Domain Adaptation\n- KnockGS:interaction-Grounded Calibrationof Physical Gaussian Representations\n\n## Ecosystem\n\n- **Ultralytics** 8.4.131 — release (pypi) ([link](https://pypi.org/project/ultralytics/8.4.131/))\n  Ultralytics YOLO 🚀 for SOTA object detection, multi-object tracking, instance segmentation, pose estimation, classification, and oriented object detection.\n\n## Uncertainty / Open Questions\n\n- **[Watch] Comparative Evaluation of 3D Reconstruction Methods for Immersive Visualization of Laboratory Objects** ([link](http://arxiv.org/abs/2608.27301v1))\n  Tracks: 3D Geometry & Reconstruction, 3D Sensors, Industrial Vision Inspection\n  Reason: Compares photogrammetry, NeRF, 3DGS and LiDAR on the objects that actually break scanners - transparent, reflective, low-texture - and reports NeRF most consistent. But fidelity is rated subjectively by graduate students for holographic teaching material, with no geometric error anywhere, so it is not evidence for a scanning decision.\n  Action: No action; treat the transparent/reflective ranking as a hypothesis to test with real metrology, not a result.\n",
+    "decisions": [],
+    "source": "reports/candidates/2026-08-27.md; reports/digests/2026-08-27.md; read-only items published_at query",
+    "feedback": {
+      "source": "config/negative_topics.yaml, image coding tuning entry (2026-07-28)",
+      "before": "Image coding — 7559 and 7509 carried no penalty.",
+      "change": "image compression",
+      "after": "Promoted from a per-track negative to a global penalty.",
+      "caution": "Recorded configuration change; no causal improvement percentage claimed."
+    }
+  },
+  "counterexample": {
+    "id": "CE-D-UNMERGED-DUPLICATES-001",
+    "criterion": "D",
+    "level": "finite_assignment",
+    "claim_falsified": "One-point exchange stability implies strict self-consistent nearest-centroid assignment even when coincident positive-weight score atoms may be assigned to different cells.",
+    "scores": [
+      [
+        1
+      ],
+      [
+        1
+      ],
+      [
+        -1
+      ]
+    ],
+    "weights": [
+      "1/4",
+      "1/4",
+      "1/2"
+    ],
+    "K": 3,
+    "labels_before": [
+      0,
+      1,
+      2
+    ],
+    "labels_after_or_optimum": null,
+    "poi_indices": [],
+    "nuisance_indices": [],
+    "objective_before": "log(1)=0",
+    "objective_after": null,
+    "exact_quantities": {
+      "weighted_score_mean": "0",
+      "retained_information": "1",
+      "cell_centroids": [
+        "1",
+        "1",
+        "-1"
+      ],
+      "admissible_nonempty_preserving_moves": 0,
+      "strict_distance_failure": "Rows 0 and 1 have zero distance to both centroids 0 and 1."
+    },
+    "verification": {
+      "method": "exact_formula",
+      "notes": "All three cells are singletons, so the labeling is vacuously one-point exchange stable under the nonempty-cell rule. Information is positive definite in d=1, but split duplicate atoms prevent strict assignment and deterministic score-only reproduction. Merging the two score-1 rows removes the degeneracy."
+    },
+    "source": "AUDIT-D-EXCHANGE-VORONOI",
+    "date": "2026-08-26"
+  }
+}

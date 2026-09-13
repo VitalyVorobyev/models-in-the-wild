@@ -85,3 +85,7 @@ faster.
 - RSS and vendor feeds are planned, not implemented.
 - A local Ollama model exists as an optional cheap relevance pre-filter; the semantic curation
   is Claude's.
+
+## Editorial evidence update
+
+v0.5 shows one dated run (2026-08-27): intake, queue and digest are re-derived by scripts/export-project-evidence.py. The public board is cumulative. Filter feedback uses the recorded image-compression global-penalty change, with no improvement percentage.

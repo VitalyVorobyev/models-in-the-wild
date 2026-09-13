@@ -103,3 +103,7 @@ just implementation of known solutions.
   protocol (prompts, worktree discipline, fresh-context sessions) with 20 reports.
 - "Novel result": the repository's own rule is that a search gap is not novelty.
 - The project started on 2026-08-23 under the name FisherBin.
+
+## Editorial evidence update
+
+v0.5 adds a synthetic 2D Gaussian location demonstration through the real public API. This is not physics data. Actual optimizer states, train/validation hard retention and final held-out retention are exported with revision and seed. The duplicate-score counterexample is copied from its exact fixture.

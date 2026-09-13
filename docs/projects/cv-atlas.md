@@ -77,3 +77,7 @@ One or several living internal atlases could continuously organize evidence, con
 Key phrase to explore on slides:
 
 > From documents we store to knowledge we can navigate.
+
+## Editorial evidence update
+
+v0.5 uses actual narrative relationships and source-paper author metadata; the deck graph is a curated subset, not a new Atlas product.

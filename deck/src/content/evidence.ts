@@ -73,3 +73,15 @@ export const evidence = {
     ),
   },
 } as const;
+
+// Structured measurements and source excerpts used by the visual revision.
+// Reproduce with scripts/export-project-evidence.py and scripts/export-scorequant.py.
+export { default as projectEvidence } from "./generated/projects.json";
+export { default as scoreEvidence } from "./generated/scorequant.json";
+export const audioEvidence = {
+  duration: 12,
+  source: "deutsch-textbook/content/listening/a1/ls-essen-einkaufen-01.mp3",
+  provenance: "data/audio-provenance/a1/ls-essen-einkaufen-01.json",
+  command: "ffmpeg -i SOURCE -t 12 -c:a libmp3lame -q:a 3 market-stall.mp3; ffprobe duration",
+  measured: "2026-09-12",
+};

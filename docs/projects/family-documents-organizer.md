@@ -77,3 +77,7 @@ of forcing every information problem into a large enterprise system.
 - Do not name the person-scoped categories or any record on a slide.
 - Not a git repository; there is no commit history to cite.
 - The viewer has no search backend; do not call it "AI search".
+
+## Editorial evidence update
+
+The previous montage image was found inadequately redacted and removed in v0.5. The viewer and source/result pair are explicit capture gaps, not fabricated examples.

@@ -34,7 +34,7 @@ export default function App() {
       hash: true,
       controls: true,
       progress: false,
-      transition: "slide",
+      transition: "none",
       plugins: [RevealNotes, RevealZoom],
     });
 

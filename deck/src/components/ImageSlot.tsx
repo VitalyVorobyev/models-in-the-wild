@@ -3,29 +3,31 @@ import { images, type SlotId } from "../content/images";
 
 interface ImageSlotProps {
   id: SlotId;
-  /** Doubles as alt text once a real image is in place. */
-  placeholder: string;
+  alt: string;
+  specification?: string;
+  fit?: "contain" | "cover";
   rounded?: boolean;
   style?: CSSProperties;
 }
-
-/**
- * Renders the screenshot registered for this slot in content/images.ts, or a
- * dashed placeholder while there isn't one. Replaces the handoff's
- * <image-slot> custom element, which only worked inside the Claude Design
- * runtime.
- */
-export default function ImageSlot({ id, placeholder, rounded = false, style }: ImageSlotProps) {
+export default function ImageSlot({
+  id,
+  alt,
+  specification,
+  fit = "contain",
+  rounded = false,
+  style,
+}: ImageSlotProps) {
   const src = images[id];
   const classes = `slot${rounded ? " slot--rounded" : ""}`;
-
-  if (!src) {
-    return (
-      <div className={`${classes} slot--empty`} style={style}>
-        {placeholder}
-      </div>
-    );
-  }
-
-  return <img src={src} alt={placeholder} className={classes} style={style} />;
+  return src ? (
+    <img src={src} alt={alt} className={classes} style={{ objectFit: fit, ...style }} />
+  ) : (
+    <figure className={`${classes} slot--empty`} style={style}>
+      <span className="asset-label">Capture needed · {id}</span>
+      <strong>{alt}</strong>
+      <figcaption>
+        {specification ?? "See docs/assets-needed.md for the exact capture specification."}
+      </figcaption>
+    </figure>
+  );
 }

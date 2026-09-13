@@ -103,3 +103,7 @@ engineering, product education, sales training and internal documentation.
 - The local-model review is desktop/localhost only; it is hidden on the public site.
 - Listening coverage is 40 scenes, not one per unit.
 - Reading-text narration audio is not committed to the repository.
+
+## Editorial evidence update
+
+v0.5 has an actual Redaktion reference capture, committed approved market-stall audio, and an explicit Tonwerk screenshot gap. No missing finding or QA verdict is invented.

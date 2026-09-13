@@ -221,20 +221,6 @@
   color: var(--muted);
 }
 
-/* ─── Hairline tables (7, 18, 25, 28) ─────────────────────────── */
-
-.table {
-  display: grid;
-  margin-top: var(--gap-title);
-  border-top: 1px solid var(--hairline-strong);
-  font-size: var(--type-body);
-  line-height: 1.3;
-}
-
-.table__cell {
-  border-bottom: 1px solid var(--hairline);
-}
-
 /* ─── Split layouts (6, 9, 12, 14, 17, 22, 31) ────────────────── */
 
 .split {
@@ -369,34 +355,6 @@
   font-weight: 600;
 }
 
-/* Table cell padding differs between the tables; slides 7 and 18 also carry
-   a single vertical divider. */
-.table__cell--left {
-  padding: 28px 32px 28px 0;
-}
-
-.table__cell--right {
-  padding: 28px 0 28px 32px;
-  border-left: 1px solid var(--hairline);
-}
-
-.table__cell--num {
-  padding: 30px 0;
-  font-family: var(--font-mono);
-  font-size: var(--type-mono);
-  color: var(--muted);
-}
-
-.table__cell--name {
-  padding: 30px 32px 30px 0;
-  font-family: var(--font-serif);
-  color: var(--ink);
-}
-
-.table__cell--desc {
-  padding: 30px 0;
-}
-
 /* ─── One-off slides ──────────────────────────────────────────── */
 
 /* Slides 3, 4, 30 and the implication beats set an oversized serif line;
@@ -412,74 +370,6 @@
 
 .statement--closing {
   font-size: var(--type-closing);
-}
-
-/* Slide 13: five pipeline cards separated by arrows. */
-.pipeline {
-  display: flex;
-  align-items: stretch;
-  gap: 20px;
-  margin-top: 80px;
-}
-
-.pipeline__card {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  gap: 12px;
-  background: var(--surface);
-  border: 1px solid var(--hairline);
-  border-radius: var(--radius);
-  padding: 32px;
-}
-
-.pipeline__card--out {
-  background: var(--dark);
-  border-color: var(--dark);
-}
-
-.pipeline__tag {
-  font-family: var(--font-mono);
-  font-size: var(--type-mono);
-  color: var(--muted);
-}
-
-.pipeline__card--out .pipeline__tag {
-  color: var(--dark-muted);
-}
-
-.pipeline__label {
-  font-family: var(--font-serif);
-  font-weight: 500;
-  font-size: var(--type-body);
-  line-height: 1.2;
-  color: var(--ink);
-}
-
-.pipeline__card--out .pipeline__label {
-  color: var(--dark-fg);
-}
-
-.pipeline__arrow {
-  align-self: center;
-  font-size: var(--type-body);
-  color: var(--muted);
-}
-
-/* Slides 14 and 22: the trace the live demo follows. */
-.trace {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-top: var(--gap-title);
-  font-family: var(--font-mono);
-  font-size: var(--type-small);
-  line-height: 1.4;
-  color: var(--muted);
-}
-
-.trace__step--strong {
-  color: var(--ink);
 }
 
 /* Slide 30: the muted line above the take-home question. */
@@ -529,22 +419,6 @@
   font-size: var(--type-mono);
   line-height: 1.35;
   color: var(--muted);
-}
-
-/* ─── Added in v0.3 ───────────────────────────────────────────── */
-
-/* The implication beats (10, 15, 19, 23, 27): the Today / Possible now band. */
-.implication__band {
-  margin-top: 0;
-  font-size: var(--type-small);
-  line-height: 1.4;
-  color: var(--accent-muted);
-}
-
-.implication__label {
-  display: block;
-  margin-bottom: 12px;
-  color: inherit;
 }
 
 /* Slide 17: the daily funnel, read top-down; the digest is the payoff. */
@@ -601,46 +475,6 @@
   letter-spacing: 0.04em;
   color: var(--muted);
   margin-top: 32px;
-}
-
-/* Slide 18: the header row of the Atlas-vs-Radar table. */
-.table__cell--head {
-  padding: 0 0 20px;
-}
-
-.table__cell--head + .table__cell--head {
-  padding-left: 32px;
-  border-left: 1px solid var(--hairline);
-}
-
-/* Slide 29: the ladder — six rows stepping right, the last one in ink. */
-.ladder {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-  margin-top: var(--gap-title);
-}
-
-.ladder__row {
-  display: flex;
-  align-items: baseline;
-  gap: 28px;
-  padding-left: calc(var(--step, 0) * 120px);
-  font-family: var(--font-serif);
-  font-weight: 500;
-  font-size: var(--type-subtitle);
-  line-height: 1.2;
-  color: var(--muted);
-}
-
-.ladder__num {
-  font-family: var(--font-mono);
-  font-size: var(--type-mono);
-  letter-spacing: 0.06em;
-}
-
-.ladder__row--last {
-  color: var(--ink);
 }
 
 /* ─── Deck chrome (persistent, outside the 1920x1080 canvas) ───────────────── */

@@ -63,7 +63,7 @@ docs/talk-brief.md      audience, 60-min format, core thesis, the five projects 
 docs/narrative.md       the claim, workflow spine, rigid-vs-flexible, five capabilities, ending
 docs/projects/*.md      one file per project — the raw material a slide may use, with evidence
         ↓
-docs/slide-map.md       the deck contract: the 31-slide sequence, currently v0.3
+docs/slide-map.md       the deck contract: the 24-slide sequence, currently v0.5
         ↓
 deck/src/slides/        one file per slide, in that order
 ```
@@ -77,9 +77,8 @@ deck/src/slides/        one file per slide, in that order
   because it was checked against the repository.
 - Every number shown on a slide lives in `deck/src/content/evidence.ts` with the command or
   path it was measured by and the date. Re-measure; never edit a value by hand.
-- `docs/assets-needed.md` specifies the nine image slots — file names, aspect ratios, what each
-  shot must show, and the redaction rule for the Family Documents card. All nine are filled as of
-  2026-09-12; the doc records the measured crop each one takes from `object-fit: cover`.
+- `docs/assets-needed.md` specifies the image and audio slots — file names, aspect ratios, what each
+  shot must show, and the redaction rule for the Family Documents card. The current register distinguishes actual captures, generated scientific plots and explicit missing-asset specifications. The unsafe Family montage image has been removed.
 - Changing slide order or count means editing `docs/slide-map.md` and `deck/src/slides/index.ts`
   in the same change. They must agree.
 
@@ -93,14 +92,14 @@ deck/src/
 │   ├── tokens.css    the Vitavision type scale, spacing and palette
 │   ├── base.css      Reveal integration and resets
 │   └── components.css the layout archetypes
-├── components/       Slide, SectionOpener, Implication, SlideHeader, Split, Grid,
-│                     HairlineTable, ImageSlot, Tree, ExternalLink, VitavisionLogo, Notes,
+├── components/       Slide, SlideHeader, ImageSlot, Diagram, AtlasGraph,
+│                     DepartmentMap, ScoreExperiment, AudioExample, Notes,
 │                     DeckChrome, SectionMap
 ├── content/
 │   ├── projects.ts   the five projects — names, URLs, one-liners, capabilities
 │   ├── evidence.ts   every figure a slide shows, with its source command and date
 │   └── images.ts     slot id → imported asset; the only file to touch when adding art
-├── slides/           01-title.tsx … 31-closing.tsx, plus index.ts (sections + the sequence)
+├── slides/           01-title.tsx … 24-question.tsx, plus index.ts (sections + the sequence)
 └── assets/images/    screenshots and photos
 ```
 
@@ -111,7 +110,7 @@ label and on the `M` map with no further edit.
 
 Navigation the deck provides beyond arrow keys: `M` opens the named section map, `Esc` opens
 Reveal's own thumbnail overview, `S` opens the speaker view, `G` jumps to a slide number,
-alt-click zooms. Slides 5, 17, 26 and 29 are fragmented — the first beat is always visible and
+alt-click zooms. Slides 3 and 12 are fragmented — the first beat is always visible and
 each click adds the next.
 
 Load-bearing details, each of which broke the deck during the port:
@@ -168,3 +167,7 @@ never had. It stays in history: `git show f4e1d0d --stat` lists it, and
 - The authoritative font and colour values live in `/Users/vitalyvorobyev/vitavision/src/index.css`,
   which is a separate project — copy values from it, never depend on it.
 - `VitavisionLogo.tsx` is ported from that same design system, minus its framer-motion animation.
+
+## v0.5 editorial overrides
+
+The accepted artifact-led revision supersedes the reusable implication pattern. There are 24 slides, no standalone project openers, and one final department-flow map. ImageSlot defaults to contain. Numbers and graph relations come through evidence.ts and generated JSON. Reproduce with scripts/export-project-evidence.py, export-scorequant.py and render-scorequant.py. See docs/editorial-audit-2026-09-12.md and docs/assets-needed.md.
