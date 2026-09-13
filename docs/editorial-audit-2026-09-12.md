@@ -53,4 +53,6 @@ Radar queue cap is 25, not a fixed 10–15. The current Family image was not ade
 
 ## Revised sequence
 
-See [slide-map.md](slide-map.md). See [assets-needed.md](assets-needed.md) for missing captures and [validation-2026-09-12.md](validation-2026-09-12.md) for actual checks.
+See [slide-map.md](slide-map.md) for the current contract and [assets-needed.md](assets-needed.md)
+for the capture register. (An earlier draft of this audit pointed at a `validation-2026-09-12.md`;
+no such file was ever written.)

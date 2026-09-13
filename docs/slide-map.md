@@ -1,10 +1,10 @@
-# Slide map — v0.6 (in progress)
+# Slide map — v0.6
 
 The deck contract. `deck/src/slides/index.ts` must match this list in order and length.
 
-v0.6 synthesizes the v0.3 narrative (branch `main`) with the v0.5 visuals and evidence layer
-(branch `deck-v0.5-codex-visual`, PR #3, reference only). Sections are rebuilt one at a time
-with Vitaly. All seven sections are rebuilt; no v0.5 slide remains.
+v0.6 synthesizes the v0.3 narrative with the v0.5 visuals and evidence layer (commit
+`7ec8ea2`, PR #3, reference only — in `main`'s history since PR #4). Sections were rebuilt
+one at a time with Vitaly. All seven are rebuilt; no v0.5 slide remains.
 
 ## Opening — rebuilt 2026-09-13
 
@@ -133,8 +133,8 @@ stand-ins are deleted.
 
 ## History
 
-- **v0.6** — synthesis branch. All sections rebuilt in dialogue with Vitaly, 2026-09-13; 30 slides. Slide 4 rebuilt twice: the first HTML version was still a box-and-line wireframe; the cycle replaced it.
-- **v0.5** — Codex artifact-led revision, 24 slides. Kept as reference (PR #3): evidence
+- **v0.6** — merged to `main` in PR #4. All sections rebuilt in dialogue with Vitaly, 2026-09-13; 30 slides. Slide 4 rebuilt twice: the first HTML version was still a box-and-line wireframe; the cycle replaced it.
+- **v0.5** — Codex artifact-led revision, 24 slides. Kept as reference at `7ec8ea2` (PR #3): evidence
   scripts, generated JSON, sourced graph, dated funnel, ScoreQuant experiment, audio,
   department map. Removed all framing slides; not presentable as a talk.
 - **v0.4** — no change to the sequence; section registry, chrome, section map, fragments.

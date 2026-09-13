@@ -56,7 +56,7 @@ authoritative file. Durable context has to be maintained, or it becomes a liabil
 > enterprise search or a complex backend. Sometimes well-structured files plus an agent are
 > enough.
 
-## Company implication
+## Implication
 
 Small team or departmental document registers can be built around the actual workflow instead
 of forcing every information problem into a large enterprise system.

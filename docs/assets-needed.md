@@ -1,4 +1,4 @@
-# Asset register — v0.5
+# Asset register — v0.6
 
 Evidence screenshots use containment by default. Native diagrams are editable React/SVG;
 ScoreQuant scientific plots are generated from actual recorded states. Fonts and media are local.
