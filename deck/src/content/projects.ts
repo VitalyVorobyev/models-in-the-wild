@@ -64,7 +64,8 @@ export const projects: Project[] = [
     oneLiner: "A daily filter on the computer-vision firehose",
     capability: "Filter",
     capabilityNote: "Handle a continuous high-volume information stream",
-    subtitle: "A daily filter on the computer-vision firehose.",
+    subtitle:
+      "A daily filter on the computer-vision firehose. The Atlas accumulates; the Radar filters.",
     link: {
       href: "https://vitalyvorobyev.github.io/cv-tech-radar/",
       label: "vitalyvorobyev.github.io/cv-tech-radar",

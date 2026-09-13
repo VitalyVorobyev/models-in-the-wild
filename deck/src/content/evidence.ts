@@ -49,9 +49,13 @@ export const evidence = {
     ),
     tracks: figure("14", "cv-tech-radar: config/topics.yaml"),
     candidateCap: figure("25", "cv-tech-radar: config/scoring.yaml candidate limit"),
-    decisions: figure("2,342", "cv-tech-radar: count of radar_decisions in data/radar.sqlite"),
-    use: figure("8", "cv-tech-radar: radar_decisions where ring = Use"),
-    ignore: figure("1,800", "cv-tech-radar: radar_decisions where ring = Ignore"),
+    decisions: figure(
+      "2,346",
+      "cv-tech-radar: sqlite3 -readonly data/radar.sqlite 'select count(*) from radar_decisions'",
+      "2026-09-13",
+    ),
+    use: figure("8", "cv-tech-radar: radar_decisions where ring = Use", "2026-09-13"),
+    ignore: figure("1,800", "cv-tech-radar: radar_decisions where ring = Ignore", "2026-09-13"),
     since: figure("May 2026", "cv-tech-radar: git log --reverse, first commit 2026-05-10"),
   },
   deutsch: {
@@ -95,3 +99,55 @@ export const audioEvidence = {
   command: "ffmpeg -i SOURCE -t 12 -c:a libmp3lame -q:a 3 market-stall.mp3; ffprobe duration",
   measured: "2026-09-12",
 };
+
+/*
+ * One tuning round of the radar's negative-phrase list, transcribed from the
+ * dated comment block in cv-tech-radar config/negative_topics.yaml (the
+ * "2026-07-28 batch"). Counts are hits over the decided corpus at the time,
+ * Ignore / kept. Nothing here is a measured improvement claim.
+ */
+export const radarTuning = {
+  round: "2026-07-28",
+  source: "cv-tech-radar: config/negative_topics.yaml, the 2026-07-28 batch comment",
+  transcribed: "2026-09-13",
+  corpus: { ignore: 1200, kept: 269 },
+  trigger: "items that reached the top 25 of the 25–27 July queues with zero penalty",
+  phrases: [
+    { phrase: "v2x", ignore: 7, kept: 0, verdict: "accepted" },
+    { phrase: "cooperative perception", ignore: 5, kept: 0, verdict: "accepted" },
+    { phrase: "head avatar", ignore: 4, kept: 0, verdict: "accepted" },
+    { phrase: "3d content", ignore: 5, kept: 0, verdict: "accepted" },
+    { phrase: "try-on", ignore: 4, kept: 0, verdict: "accepted" },
+    { phrase: "vessel segmentation", ignore: 4, kept: 0, verdict: "accepted" },
+    {
+      phrase: "image compression",
+      ignore: 4,
+      kept: 0,
+      verdict: "accepted",
+      note: "promoted from a per-track negative to a global penalty",
+    },
+    { phrase: "rate-distortion", ignore: 6, kept: 0, verdict: "accepted" },
+    {
+      phrase: "fashion",
+      ignore: 15,
+      kept: 0,
+      verdict: "rejected",
+      note: "fires on “in an autoregressive fashion” and Fashion-MNIST",
+    },
+    {
+      phrase: "garment",
+      ignore: 7,
+      kept: 0,
+      verdict: "rejected",
+      note: "apparel and textile inspection is a kept class",
+    },
+    { phrase: "avatar", ignore: 8, kept: 1, verdict: "rejected", note: "hits a kept paper" },
+    {
+      phrase: "retinal",
+      ignore: 5,
+      kept: 1,
+      verdict: "rejected",
+      note: "hits a real sensor paper",
+    },
+  ],
+} as const;

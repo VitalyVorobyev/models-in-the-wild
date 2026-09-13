@@ -1315,7 +1315,7 @@
 /* The dark opener each project starts on: text left, hero right. */
 .opener-hero {
   display: grid;
-  grid-template-columns: 620px minmax(0, 1fr);
+  grid-template-columns: 660px minmax(0, 1fr);
   gap: 80px;
   flex: 1;
   min-height: 0;
@@ -1336,6 +1336,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
+  white-space: nowrap;
 }
 
 .opener-hero__visual {
@@ -1706,6 +1707,16 @@
   color: var(--muted);
 }
 
+.reveal .stage__link {
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: var(--link);
+  border-bottom: 2px solid var(--link);
+  padding-bottom: 2px;
+}
+
 .stage__where {
   margin-top: 22px;
   padding-top: 14px;
@@ -1775,4 +1786,311 @@
 
 .trace__step--strong {
   color: var(--ink);
+}
+
+/* Slide 14: the funnel, one dated run. Bands narrow toward the digest. */
+.funnel-slide {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 640px;
+  gap: 80px;
+  flex: 1;
+  min-height: 0;
+  margin-top: 40px;
+  align-items: start;
+}
+
+.funnel6 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.funnel6__band {
+  width: var(--w);
+  box-sizing: border-box;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 20px;
+  padding: 18px 28px;
+  background: var(--surface);
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.funnel6__band strong {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 46px;
+  line-height: 1;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.funnel6__band span {
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--muted);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.funnel6__band--judge {
+  border-color: var(--link);
+  border-width: 2px;
+}
+
+.funnel6__band--judge strong {
+  color: var(--link);
+}
+
+.funnel6__band--out {
+  background: var(--dark);
+  border-color: var(--dark);
+}
+
+.funnel6__band--out strong {
+  color: var(--dark-fg);
+}
+
+.funnel6__band--out span {
+  color: var(--dark-muted);
+}
+
+.digest {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 28px 32px;
+  background: var(--surface);
+  border: 1px solid var(--hairline-strong);
+  border-top: 6px solid var(--dark);
+}
+
+.digest__file {
+  font-family: var(--font-mono);
+  font-size: 19px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.digest__ring {
+  align-self: flex-start;
+  margin-top: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--dark);
+  color: var(--dark-fg);
+  font-family: var(--font-mono);
+  font-size: 18px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.digest__title {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.digest__reason,
+.digest__action {
+  font-size: 22px;
+  line-height: 1.4;
+  color: var(--fg);
+}
+
+.digest__action {
+  color: var(--ink);
+  border-top: 1px solid var(--hairline);
+  padding-top: 14px;
+}
+
+.digest__tally {
+  font-family: var(--font-mono);
+  font-size: 19px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.funnel-slide__foot {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  margin-top: 8px;
+  padding-right: 200px;
+}
+
+.funnel-slide__foot .evidence-line {
+  margin-top: 0;
+}
+
+/* Slide 15: one tuning round — three steps and the phrase table. */
+.tuning {
+  display: grid;
+  grid-template-columns: 440px minmax(0, 1fr);
+  gap: 72px;
+  margin-top: 40px;
+  align-items: start;
+}
+
+.tuning__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.tuning__steps li {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 56px;
+  position: relative;
+  counter-increment: step;
+}
+
+.tuning__steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--dark);
+  color: var(--dark-fg);
+  font-family: var(--font-mono);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tuning__steps strong {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.tuning__steps span {
+  font-size: 23px;
+  line-height: 1.35;
+  color: var(--muted);
+}
+
+.phrases {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 22px;
+}
+
+.phrases th {
+  text-align: left;
+  padding: 0 12px 10px 0;
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--hairline-strong);
+}
+
+.phrases td {
+  padding: 7px 12px 7px 0;
+  border-bottom: 1px solid var(--hairline);
+  vertical-align: middle;
+}
+
+.phrases__phrase {
+  width: 250px;
+  font-family: var(--font-mono);
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.phrases__bar {
+  width: 360px;
+  height: 40px;
+  box-sizing: border-box;
+}
+
+.phrases__bar {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.phrases__ignore,
+.phrases__kept {
+  display: block;
+  height: 22px;
+}
+
+.phrases__ignore {
+  background: var(--dark);
+}
+
+.phrases__kept {
+  background: var(--link);
+}
+
+.phrases__count {
+  width: 90px;
+  font-family: var(--font-mono);
+  font-size: 20px;
+  color: var(--muted);
+  white-space: nowrap;
+  text-align: right;
+  padding-right: 28px !important;
+}
+
+.phrases__verdict-inner {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.phrases__mark {
+  flex: none;
+  min-width: 84px;
+  font-family: var(--font-mono);
+  font-size: 19px;
+  letter-spacing: 0.06em;
+}
+
+.phrases__row--accepted .phrases__mark {
+  color: var(--ink);
+}
+
+.phrases__row--rejected .phrases__mark {
+  color: var(--link);
+}
+
+.phrases__row--rejected .phrases__ignore {
+  background: var(--hairline-strong);
+}
+
+.phrases__note {
+  font-size: 20px;
+  line-height: 1.25;
+  color: var(--muted);
+}
+
+.tuning + .evidence-line {
+  margin-top: 28px;
 }

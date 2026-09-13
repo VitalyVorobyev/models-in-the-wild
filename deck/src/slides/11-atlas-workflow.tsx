@@ -1,3 +1,4 @@
+import ExternalLink from "../components/ExternalLink";
 import Slide from "../components/Slide";
 import SlideHeader from "../components/SlideHeader";
 import { evidence } from "../content/evidence";
@@ -14,7 +15,7 @@ export default function AtlasWorkflow() {
   return (
     <Slide
       label="From papers to living knowledge"
-      notes="Two minutes. The point is not website generation. Stage one: a skill reads a primary PDF and writes a private research note — index entry, summary, relations to existing items, related concepts, and a plan for what the public pages should change. It never touches the site. Stage two: page skills author the algorithm, concept and model pages from those notes. Stage three: a narrative is a route through pages that already exist; the deck shows the Foundation Models route, the demo opens it. This is continuous maintenance of a knowledge system, not isolated paper summaries."
+      notes="Two minutes, then the live demo from the link: open the narrative, follow ViT to DINO to DINOv2, open one page and its primary source; do not attempt all chapters. The point is not website generation. Stage one: a skill reads a primary PDF and writes a private research note — index entry, summary, relations to existing items, related concepts, and a plan for what the public pages should change. It never touches the site. Stage two: page skills author the algorithm, concept and model pages from those notes. Stage three: a narrative is a route through pages that already exist; the deck shows the Foundation Models route, the demo opens it. This is continuous maintenance of a knowledge system, not isolated paper summaries."
     >
       <SlideHeader kicker="CV Atlas · workflow" title="From papers to living knowledge" />
       <div className="stages">
@@ -70,6 +71,12 @@ export default function AtlasWorkflow() {
             <span className="stage__route-note">
               one route through pages that already exist; distillation joins it twice
             </span>
+            <ExternalLink
+              href="https://vitavision.dev/atlas/narratives/foundation-models-for-vision/"
+              className="stage__link"
+            >
+              Open the narrative ↗
+            </ExternalLink>
           </div>
           <span className="stage__where">a story over the connected pages</span>
         </div>
