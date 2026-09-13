@@ -99,9 +99,9 @@ export const projects: Project[] = [
     oneLiner: "From a library request to research",
     capability: "Discover",
     capabilityNote: "Explore new technical and mathematical territory",
-    implication:
-      "Some problems are no longer too expensive to investigate.",
-    subtitle: "Agents let us explore unfamiliar technical territory far enough to see whether an idea actually works — before committing months of specialist effort.",
+    implication: "Some problems are no longer too expensive to investigate.",
+    subtitle:
+      "Agents let us explore unfamiliar technical territory far enough to see whether an idea actually works — before committing months of specialist effort.",
     link: {
       href: "https://github.com/VitalyVorobyev/scorequant",
       label: "github.com/VitalyVorobyev/scorequant",
