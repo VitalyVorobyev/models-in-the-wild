@@ -12,7 +12,7 @@ export default function VerifiedFrame() {
   return (
     <Slide
       label="From evidence to a production system"
-      notes={`Two minutes, three clicks. Before any content: what does the research say about how adults learn a language? The distilled principles carry a calibrated verdict each — retrieval practice and spacing strong, comprehensible input conditional — with named sources. Then the Goethe-Institut standards: word lists per level, grammar, the DTZ structure lists. That is the frame; it is verifiable, not model intuition about what belongs at B1. Click: inside it, agents wrote the corpus — ${d.units.value} units, ${d.vocabulary.value} vocabulary entries, ${d.readingTexts.value} reading texts, ${d.listeningScenes.value} listening scenes. Coverage against the lists is 100% at every level and a test fails if it drops. Click: once generation is cheap, the hard part is keeping the corpus coherent and complete, so two tools grew on top: Redaktion for editorial control and Tonwerk for audio. Click: the learner app consumes all of it. Not one application any more; a small publishing and production system.`}
+      notes={`Two minutes, three clicks. Before any content: what does the research say about how adults learn a language? The distilled principles carry a calibrated verdict each, with named sources: retrieval practice, spacing and explanatory feedback are settled; comprehensible input only under conditions. Then the Goethe-Institut standards: the official word list per level and the grammar structures the Deutsch-Test für Zuwanderer expects. That is the frame; it is verifiable, not model intuition about what belongs at B1. Click: inside it, agents wrote the corpus — ${d.units.value} units, ${d.vocabulary.value} vocabulary entries, ${d.readingTexts.value} reading texts, ${d.listeningScenes.value} listening scenes. Coverage against the lists is 100% at every level and a test fails if it drops. Click: once generation is cheap, the hard part is keeping the corpus coherent and complete, so two tools grew on top: Redaktion for editorial control and Tonwerk for audio. Click: the learner app consumes all of it. Not one application any more; a small publishing and production system.`}
     >
       <SlideHeader
         kicker="Deutsch-Atlas · how it was built"
@@ -21,8 +21,10 @@ export default function VerifiedFrame() {
       <div className="frame-slide">
         <div className="verified">
           <div className="verified__side">
-            <strong>Learning research</strong>
-            <span>a verdict per principle: strong · moderate · conditional</span>
+            <div className="verified__side-text">
+              <strong>Learning research</strong>
+              <span>proven for adults: retrieval practice, spacing, feedback</span>
+            </div>
           </div>
           <div className="verified__inner">
             <span className="verified__ghost" aria-hidden="true">
@@ -64,8 +66,9 @@ export default function VerifiedFrame() {
           <div className="verified__bottom">
             <strong>Goethe-Institut standards</strong>
             <span>
-              word lists {d.wortliste.value} · DTZ structures {d.dtzStructures.value} · all covered,
-              a test fails if it drops
+              the word list per level ({d.wortliste.value} words) and the grammar structures of the
+              Deutsch-Test für Zuwanderer ({d.dtzStructures.value}), all covered; a test fails if it
+              drops
             </span>
           </div>
         </div>

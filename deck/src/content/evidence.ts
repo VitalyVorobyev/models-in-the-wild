@@ -108,9 +108,12 @@ export const evidence = {
 export { default as projectEvidence } from "./generated/projects.json";
 export { default as scoreEvidence } from "./generated/scorequant.json";
 export const audioEvidence = {
-  duration: 12,
+  /** The whole scene; an earlier 12-second cut stopped mid-dialogue. */
+  duration: 32,
   source: "deutsch-textbook/content/listening/a1/ls-essen-einkaufen-01.mp3",
   provenance: "data/audio-provenance/a1/ls-essen-einkaufen-01.json",
-  command: "ffmpeg -i SOURCE -t 12 -c:a libmp3lame -q:a 3 market-stall.mp3; ffprobe duration",
-  measured: "2026-09-12",
+  command: "ffmpeg -i SOURCE -c:a libmp3lame -q:a 3 market-stall.mp3; ffprobe duration → 32.39 s",
+  models:
+    "deutsch-textbook/tools/listening-studio/models.lock.json: qwen_tts, stable_audio_sfx, asr (whisper-large-v3-turbo), speaker_qa (wavlm-base-plus-sv)",
+  measured: "2026-09-13",
 };

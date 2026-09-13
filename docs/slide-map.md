@@ -68,8 +68,8 @@ opener credits the ThoughtWorks Technology Radar as the borrowed idea (`origin` 
 |---|---|---|---|
 | 16 | **Deutsch-Atlas** — opener with the learner landing page as hero | `16-deutsch.tsx` | dark |
 | 17 | **From evidence to a production system** — the verified frame: learning research (left edge) and Goethe standards (bottom edge) always visible; three clicks add the corpus counts, the two tools resting on the frame, and the learner app | `17-verified-frame.tsx` | paper |
-| 18 | **Keeping the corpus honest** — Redaktion, the Referenzen capture; three statements; "coverage is a trace, not a quality score" | `18-redaktion.tsx` | paper |
-| 19 | **From script to approved audio** — Tonwerk in four stations (script, render, machine checks, a person approves with the recorded checklist), then the approved market-stall scene with player and transcript | `19-tonwerk.tsx` | paper |
+| 18 | **The editor's workbench** — Redaktion: what the corpus holds (six material types) and the five views it offers; the References capture | `18-redaktion.tsx` | paper |
+| 19 | **From script to approved audio** — Tonwerk in four stations (script, render, machine checks, a person approves with the recorded checklist), then the whole approved market-stall scene (32 s) with player and transcript; the local models named (Qwen3-TTS, Stable Audio, Whisper, WavLM) | `19-tonwerk.tsx` | paper |
 | 20 | **Implication 04** — start with evidence and standards; let agents create inside the verified frame | `20-implication-04.tsx` | accent |
 
 Decisions: the v0.5 ecosystem diagram and the six-stage progression are folded into slide 17;
@@ -78,6 +78,9 @@ because each carries its own real artifact. No Tonwerk capture exists, so slide 
 composition plus the existing approved audio; nothing is presented as a studio screenshot.
 The learner screenshot slide was dropped (the opener hero already shows the app in use).
 Coverage figures re-measured 2026-09-13 with `bun scripts/coverage.ts` and `structures.ts`.
+Second round with Vitaly: evidence-verdict labels and the DTZ abbreviation replaced by plain
+words on slide 17; slide 18 rewritten to describe material types and views instead of slogans
+("honest", "trace not score" dropped); slide 19 plays the whole scene and names the models.
 
 ## Remaining sections — v0.5 stand-ins until rebuilt
 
