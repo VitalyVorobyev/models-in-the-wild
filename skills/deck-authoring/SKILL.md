@@ -10,7 +10,7 @@ When editing the presentation:
    that measured it. Re-measure in the project repository; never remember a figure from chat.
    Every project story stays within its `docs/projects/*.md` "Do not claim" list.
 6. For every strong claim, ask what concrete artifact, test, source, screenshot or result can support it.
-7. After each project section, connect the lesson to company-scale R&D or cross-department work.
+7. Keep project lessons in speaker notes or alongside evidence. Use one concrete cross-department synthesis near the end.
 8. Avoid generic “AI transformation” language. Use concrete workflows.
 
 ## Where the deck lives
@@ -30,11 +30,7 @@ To add or move a slide:
 The section registry also drives the footer label and the `M` section map, so a slide added to a
 section shows up in both with no further edit.
 
-Compose from `deck/src/components/` before writing new layout: `SectionOpener` for a dark
-project opener, `Implication` for the accent beat that closes a project section, `SlideHeader`
-for the kicker + title pair, `Split`, `Grid`, `HairlineTable`. A genuinely one-off layout
-belongs inline in its own slide file — slides 13, 17 and 29 already work that way. Do not bend a shared component into a shape it was not meant for
-just to avoid writing markup once.
+Compose with `Slide`, `SlideHeader`, `ProjectOpener` (the dark slide a project starts on, with its hero) and `Implication` (the accent beat that closes it). Mechanism slides are HTML/CSS compositions with their own geometry — see `.cycle` on slide 4 — not boxes joined by lines; the v0.5 `Diagram` SVG primitives are being retired. Never nest a `<section>` inside a slide.
 
 Every slide passes `notes` to `Slide`; that text is the speaker view (`S`). Keep it current when
 the slide changes — including the click count, where the slide is fragmented.

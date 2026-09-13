@@ -63,7 +63,7 @@ docs/talk-brief.md      audience, 60-min format, core thesis, the five projects 
 docs/narrative.md       the claim, workflow spine, rigid-vs-flexible, five capabilities, ending
 docs/projects/*.md      one file per project — the raw material a slide may use, with evidence
         ↓
-docs/slide-map.md       the deck contract: the 31-slide sequence, currently v0.3
+docs/slide-map.md       the deck contract, v0.6, 30 slides
         ↓
 deck/src/slides/        one file per slide, in that order
 ```
@@ -77,9 +77,8 @@ deck/src/slides/        one file per slide, in that order
   because it was checked against the repository.
 - Every number shown on a slide lives in `deck/src/content/evidence.ts` with the command or
   path it was measured by and the date. Re-measure; never edit a value by hand.
-- `docs/assets-needed.md` specifies the nine image slots — file names, aspect ratios, what each
-  shot must show, and the redaction rule for the Family Documents card. All nine are filled as of
-  2026-09-12; the doc records the measured crop each one takes from `object-fit: cover`.
+- `docs/assets-needed.md` specifies the image and audio slots — file names, aspect ratios, what each
+  shot must show, and the redaction rule for the Family Documents card. The current register distinguishes actual captures, generated scientific plots and explicit missing-asset specifications. The unsafe Family montage image has been removed.
 - Changing slide order or count means editing `docs/slide-map.md` and `deck/src/slides/index.ts`
   in the same change. They must agree.
 
@@ -93,14 +92,14 @@ deck/src/
 │   ├── tokens.css    the Vitavision type scale, spacing and palette
 │   ├── base.css      Reveal integration and resets
 │   └── components.css the layout archetypes
-├── components/       Slide, SectionOpener, Implication, SlideHeader, Split, Grid,
-│                     HairlineTable, ImageSlot, Tree, ExternalLink, VitavisionLogo, Notes,
-│                     DeckChrome, SectionMap
+├── components/       Slide, SlideHeader, ProjectOpener, Implication, ImageSlot,
+│                     AtlasGraph, ScoreExperiment, ScoreFigure, Tex (KaTeX), AudioExample,
+│                     Notes, DeckChrome, SectionMap
 ├── content/
 │   ├── projects.ts   the five projects — names, URLs, one-liners, capabilities
 │   ├── evidence.ts   every figure a slide shows, with its source command and date
 │   └── images.ts     slot id → imported asset; the only file to touch when adding art
-├── slides/           01-title.tsx … 31-closing.tsx, plus index.ts (sections + the sequence)
+├── slides/           01-title.tsx … 30-closing.tsx, plus index.ts (sections + the sequence)
 └── assets/images/    screenshots and photos
 ```
 
@@ -111,8 +110,9 @@ label and on the `M` map with no further edit.
 
 Navigation the deck provides beyond arrow keys: `M` opens the named section map, `Esc` opens
 Reveal's own thumbnail overview, `S` opens the speaker view, `G` jumps to a slide number,
-alt-click zooms. Slides 5, 17, 26 and 29 are fragmented — the first beat is always visible and
-each click adds the next.
+alt-click zooms. Fragmented slides: 4 (the return arc), 14 (digest, then the person) and 17 (corpus, tools,
+product) — the first beat is always visible and each click adds
+the next.
 
 Load-bearing details, each of which broke the deck during the port:
 
@@ -168,3 +168,33 @@ never had. It stays in history: `git show f4e1d0d --stat` lists it, and
 - The authoritative font and colour values live in `/Users/vitalyvorobyev/vitavision/src/index.css`,
   which is a separate project — copy values from it, never depend on it.
 - `VitavisionLogo.tsx` is ported from that same design system, minus its framer-motion animation.
+
+## v0.6 synthesis (in progress)
+
+Branch `deck-v0.6-synthesis` combines the v0.3 narrative with the v0.5 evidence layer. The
+v0.5 revision is preserved on `deck-v0.5-codex-visual` (PR #3, reference only). Rules that
+came out of the rebuild, in dialogue with Vitaly:
+
+- **Every project section is: one dark `ProjectOpener` (name, subtitle, link, hero) → mechanism
+  slides with real evidence → one accent `Implication`.** The implication sentences live in
+  `content/projects.ts`. No standalone title cards.
+- **Diagrams are HTML/CSS compositions, not boxes and lines.** The v0.5 `Diagram` SVG
+  primitives and the first HTML rewrite of the workflow slide both read as wireframes and were
+  rejected. Slide 4's ring (`.cycle` in `components.css`, built from `conic-gradient` and CSS
+  trigonometry) is the reference for what a mechanism slide should look like.
+- **Plain, concise copy.** Statements, not captions; no "agentic" phrasing on slides; the
+  "do not claim" hedges stay in `docs/projects/*.md`. Words Vitaly does not use: "bespoke".
+- **Never nest a `<section>` inside a slide.** Reveal absolutely positions every section under
+  `.slides`, so an inner one collapses to zero height and shifts the slide.
+- `.reveal p { margin: 0 }` in `base.css` outranks a single-class rule; prefix with `.slide` when
+  a paragraph needs a margin.
+- Numbers come through `evidence.ts` (a `measured` date per figure when re-measured after
+  `MEASURED`) and `content/generated/*.json`; reproduce with `scripts/export-project-evidence.py`,
+  `export-scorequant.py` (data) and `render-scorequant.py` (the deck-styled plots, run with
+  the ScoreQuant venv python).
+- Formulas are typeset by `components/Tex.tsx` (KaTeX, bundled; its stylesheet is imported in
+  `main.tsx`). The ScoreQuant section is one worked example, a Gaussian peak on a Gaussian
+  background with parameters (f, m); `scripts/export-scorequant.py` is its single source.
+
+Review captures go to `deck/.review/` (gitignored); `deck/.review/shoot.py` screenshots a list
+of slide indices at 1920×1080 with Playwright, including fragment states.

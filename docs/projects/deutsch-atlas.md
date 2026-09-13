@@ -81,6 +81,7 @@ engineering, product education, sales training and internal documentation.
 | --- | --- |
 | Units A1 / A2 / B1: 12 / 25 / 20 (57) | `ls content/topics/{a1,a2,b1} \| wc -l` (2 files per unit) |
 | 3,572 vocabulary entries in 129 files | `grep -hcE "^\s*-\s*(\{\s*)?de:" content/vocab/*.yaml` summed |
+| 2,311 exercise items in 438 sets (109 / 207 / 122 sets), measured 2026-09-13 | `grep -hcE "^  - id:" content/exercises/*/*.yaml`, summed; `ls content/exercises/*/*.yaml \| wc -l` |
 | 85 reading texts (17 / 43 / 25) | `ls content/reading/<level>/*.yaml \| wc -l` |
 | 40 listening scenes with audio (10 / 21 / 9) | `ls content/listening/<level>/*.yaml \| wc -l` |
 | Goethe Wortliste coverage 673/673 · 1449/1449 · 3416/3416; DTZ structures 93/93 · 300/300 · 164/164 | project `CLAUDE.md`, `docs/roadmap.md`; tripwired by `tests/published-claims.test.ts` |
@@ -92,6 +93,10 @@ engineering, product education, sales training and internal documentation.
 | Cloudflare Worker + D1 + R2 sync | `wrangler.toml`, `worker/`, `docs/architecture/cloud-sync.md` |
 | Independently authored explanation halves | `docs/adrs/0001-bilingual-explanation-halves.md` |
 | 284 commits, 2026-07-09 → 2026-09-03 | `git rev-list --count HEAD`, `git log` |
+| Market-stall scene approved 2026-08-02 against a seven-item checklist (accent, context, intelligibility, naturalness, pace, questions, speakers); no voice cloning, no reference audio | `data/audio-provenance/a1/ls-essen-einkaufen-01.json` |
+
+Re-measured 2026-09-13 for v0.6 (`bun scripts/coverage.ts A1|A2|B1`, `bun scripts/structures.ts
+A1|A2|B1`, the `ls`/`grep` counts above): unchanged.
 
 ## Do not claim
 
@@ -103,3 +108,7 @@ engineering, product education, sales training and internal documentation.
 - The local-model review is desktop/localhost only; it is hidden on the public site.
 - Listening coverage is 40 scenes, not one per unit.
 - Reading-text narration audio is not committed to the repository.
+
+## Editorial evidence update
+
+v0.5 has an actual Redaktion reference capture, committed approved market-stall audio, and an explicit Tonwerk screenshot gap. No missing finding or QA verdict is invented.

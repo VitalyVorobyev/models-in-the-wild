@@ -23,12 +23,16 @@ export interface Project {
   capability: string;
   /** What the agent actually does for that capability — slide 28. */
   capabilityNote: string;
+  /** The one sentence the section's accent slide leaves behind; slide 28 gathers the five. */
+  implication: string;
   /** Subtitle on the project's dark opener. */
   subtitle: string;
   /** Opener link; null where there is nothing public to show. */
   link: { href: string; label: string } | null;
   /** Dashed chip on the opener, only where access needs stating. */
   note?: string;
+  /** The idea the project borrows, credited on the opener. */
+  origin?: { href: string; label: string };
   montageSlot: SlotId;
   /** Bottom line of the slide-2 card — a short URL, or a plain note. */
   montageLabel: string;
@@ -41,9 +45,10 @@ export const projects: Project[] = [
     oneLiner: "One family's paperwork, organized",
     capability: "Organize",
     capabilityNote: "Turn a small messy corpus into a useful structure",
-    subtitle: "A bespoke register for one family's paperwork. Structured files plus an agent.",
+    implication: "Agents make very small, custom software economically rational.",
+    subtitle: "A register for one family's paperwork. Structured files plus an agent.",
     link: null,
-    note: "local only · sensitive data · not public",
+    note: "local only · not public",
     montageSlot: "art-family-docs",
     montageLabel: "local only",
   },
@@ -53,6 +58,7 @@ export const projects: Project[] = [
     oneLiner: "Living knowledge from primary papers",
     capability: "Understand",
     capabilityNote: "Accumulate knowledge, relationships and narratives",
+    implication: "From documents we store to knowledge we can navigate.",
     subtitle: "A personal knowledge system, maintained from primary papers.",
     link: { href: "https://vitavision.dev/atlas", label: "vitavision.dev/atlas" },
     montageSlot: "art-cv-atlas",
@@ -64,11 +70,14 @@ export const projects: Project[] = [
     oneLiner: "A daily filter on the computer-vision firehose",
     capability: "Filter",
     capabilityNote: "Handle a continuous high-volume information stream",
-    subtitle: "A daily filter on the computer-vision firehose.",
+    implication: "Filtering is a routine. Routines can run on their own. People keep the decision.",
+    subtitle:
+      "A daily filter on the computer-vision firehose. The Atlas accumulates; the Radar filters.",
     link: {
       href: "https://vitalyvorobyev.github.io/cv-tech-radar/",
       label: "vitalyvorobyev.github.io/cv-tech-radar",
     },
+    origin: { href: "https://www.thoughtworks.com/radar", label: "ThoughtWorks Technology Radar" },
     montageSlot: "art-radar",
     montageLabel: "github.io/cv-tech-radar",
   },
@@ -78,6 +87,7 @@ export const projects: Project[] = [
     oneLiner: "A German course and its production system",
     capability: "Create & operate",
     capabilityNote: "Build and maintain a large evidence-grounded content system",
+    implication: "Start with evidence and standards. Let agents create inside the verified frame.",
     subtitle: "A German course I actually use — and the production system behind it.",
     link: { href: "https://deutsch.vitavision.dev", label: "deutsch.vitavision.dev" },
     montageSlot: "art-deutsch",
@@ -89,7 +99,9 @@ export const projects: Project[] = [
     oneLiner: "From a library request to research",
     capability: "Discover",
     capabilityNote: "Explore new technical and mathematical territory",
-    subtitle: "A favour for a former colleague that became a research programme.",
+    implication: "Some problems are no longer too expensive to investigate.",
+    subtitle:
+      "Agents let us explore unfamiliar technical territory far enough to see whether an idea actually works — before committing months of specialist effort.",
     link: {
       href: "https://github.com/VitalyVorobyev/scorequant",
       label: "github.com/VitalyVorobyev/scorequant",

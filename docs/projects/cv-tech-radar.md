@@ -85,3 +85,15 @@ faster.
 - RSS and vendor feeds are planned, not implemented.
 - A local Ollama model exists as an optional cheap relevance pre-filter; the semantic curation
   is Claude's.
+
+## Tuning-round evidence (v0.6)
+
+The 2026-07-28 batch comment in `config/negative_topics.yaml` records one full tuning round:
+misses mined from the 25–27 July queues, twelve candidate phrases counted over the decided
+corpus (1,200 Ignore / 269 kept), eight accepted as penalties, four rejected with the reason.
+Recorded here for reference on 2026-09-13; the deck does not show it (implementation
+detail). Decisions re-measured the same day: 2,346 total, 8 Use, 1,800 Ignore.
+
+## Editorial evidence update
+
+v0.5 shows one dated run (2026-08-27): intake, queue and digest are re-derived by scripts/export-project-evidence.py. The public board is cumulative. Filter feedback uses the recorded image-compression global-penalty change, with no improvement percentage.

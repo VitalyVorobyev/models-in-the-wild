@@ -3,7 +3,7 @@ import Slide from "../components/Slide";
 export default function TheClaim() {
   return (
     <Slide
-      label="The Claim"
+      label="The claim"
       theme="accent"
       align="between"
       notes="State the thesis before the evidence. This is not a talk about writing software faster. The claim is that frontier models change the class and scale of problems one engineer or a small team can attack — and the five projects are the evidence, not the subject."

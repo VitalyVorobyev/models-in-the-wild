@@ -11,6 +11,7 @@ import "reveal.js/reveal.css";
 import "./styles/tokens.css";
 import "./styles/base.css";
 import "./styles/components.css";
+import "katex/dist/katex.min.css";
 
 const root = document.getElementById("root");
 if (!root) throw new Error("#root is missing from index.html");
@@ -18,3 +19,5 @@ if (!root) throw new Error("#root is missing from index.html");
 // No StrictMode: its double-mount in development initializes and tears down
 // Reveal twice, which leaves the deck's keyboard handling in a bad state.
 createRoot(root).render(<App />);
+
+import "./styles/editorial.css";
