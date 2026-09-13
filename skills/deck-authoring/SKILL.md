@@ -38,9 +38,10 @@ To add or move a slide:
 
 - Build on `Slide` and `SlideHeader`. A project section is one dark `ProjectOpener` (name,
   subtitle, link, hero) → mechanism slides carrying real evidence → one accent `Implication`.
-- Mechanism slides are HTML/CSS compositions with their own geometry — `.cycle` on slide 4 is the
+- Mechanism slides are compositions with their own geometry — `.cycle` on slide 4 is the
   reference — never boxes joined by lines. The `Diagram` SVG primitives are gone; do not bring them
-  back in CSS either.
+  back in CSS either. SVG is fine for a curve or an arrowhead CSS cannot draw cleanly (slide 4's
+  ring is SVG arcs with `orient="auto"` markers), not for boxes.
 - **Never nest a `<section>` inside a slide.** Reveal absolutely positions every section under
   `.slides`, so an inner one collapses to zero height.
 - Every slide passes `notes` to `Slide`; that text is the speaker view (`S`). Keep it current,

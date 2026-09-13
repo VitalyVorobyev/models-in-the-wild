@@ -24,7 +24,7 @@ scale. State the claim. Then explain the enabler and the method:
   many times, and every pass revises the files. **Measurable success criteria are written into
   the durable context before the agent starts and are what the evidence stage checks.**
 - **The repository is the memory.** Agent instructions (how to work, what to challenge), docs
-  (problem, design, roadmap, decisions), skills (reusable procedures), tests and artifacts
+  (problem, design, roadmap, decisions), skills (reusable procedures), tests
   (evidence that outlives the chat). Shown project-agnostically: every one of the five projects
   has an agent doc and `docs/`; three have skills; four have tests.
 - **Constrain the intent, not the implementation.** Fix only the decisions that matter — intent,

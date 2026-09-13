@@ -186,8 +186,9 @@ Rules that came out of the rebuild, in dialogue with Vitaly:
   `content/projects.ts`. No standalone title cards.
 - **Diagrams are HTML/CSS compositions, not boxes and lines.** The v0.5 `Diagram` SVG
   primitives and the first HTML rewrite of the workflow slide both read as wireframes and were
-  rejected. Slide 4's ring (`.cycle` in `components.css`, built from `conic-gradient` and CSS
-  trigonometry) is the reference for what a mechanism slide should look like.
+  rejected. Slide 4's ring (`.cycle` in `components.css`: one SVG of arcs with tangent marker
+  arrowheads, HTML labels placed from the same coordinates) is the reference for what a
+  mechanism slide should look like.
 - **Plain, concise copy.** Statements, not captions; the "do not claim" hedges stay in
   `docs/projects/*.md`. The full ledger of rejected words and phrasings is
   `~/.claude/skills/talk-authoring/references/voice.md`.

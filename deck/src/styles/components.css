@@ -833,19 +833,75 @@
   margin-top: 6px;
 }
 
-/* Slide 4: the workflow as a cycle. A runway of two entry stages feeds a
-   ring of four. Canvas pixels; the region is 1680 wide. Angles are CSS
-   conic angles (0 at the top, clockwise), so a point on the ring is
-   (cx + r·sin θ, cy − r·cos θ). */
+/* Slide 4: the workflow. Two entry steps on a straight path feed a ring of
+   three. The path, the ring, the arrowheads and the node markers are one
+   SVG in canvas pixels (the region is 1680 wide); the labels are HTML placed
+   from the same coordinates in the slide file. Arrowheads are SVG markers,
+   so they follow the tangent of the arc and their base covers the stroke
+   end; nothing is drawn with CSS borders. */
 .cycle {
   position: relative;
   flex: 1;
   min-height: 0;
-  --cx: 1090px;
-  --cy: 372px;
-  --r: 218px;
-  --stroke: 38px;
-  --dot: 54px;
+}
+
+.cycle__svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: visible;
+}
+
+.cycle__path {
+  stroke: var(--hairline-strong);
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+
+.cycle__step {
+  fill: var(--hairline-strong);
+  stroke: var(--paper);
+  stroke-width: 5;
+}
+
+.cycle__arc {
+  fill: none;
+  stroke: var(--dark);
+  stroke-width: 30;
+}
+
+.cycle__arc--quiet {
+  stroke: var(--hairline);
+}
+
+.cycle__arc--return {
+  stroke: var(--link);
+}
+
+.cycle__head {
+  fill: var(--dark);
+}
+
+.cycle__head--quiet {
+  fill: var(--hairline);
+}
+
+.cycle__head--return {
+  fill: var(--link);
+}
+
+.cycle__head--path {
+  fill: var(--hairline-strong);
+}
+
+.cycle__node {
+  fill: var(--dark);
+  stroke: var(--paper);
+  stroke-width: 6;
+}
+
+.cycle__node--return {
+  fill: var(--link);
 }
 
 .cycle__name {
@@ -865,229 +921,35 @@
   color: var(--muted);
 }
 
-.cycle__crit {
-  font-style: normal;
-  font-weight: 600;
-  color: var(--link);
-}
-
-/* The runway: a line at the height of the top dot, two entry stages on it. */
-.cycle__runway {
-  position: absolute;
-  left: 0;
-  top: calc(var(--cy) - var(--r) - 4px);
-  width: calc(var(--cx) - var(--dot) / 2 - 4px);
-  height: 8px;
-  border-radius: 4px;
-  background: var(--hairline-strong);
-}
-
-.cycle__runway::after {
-  content: "";
-  position: absolute;
-  right: -6px;
-  top: -13px;
-  border: 17px solid transparent;
-  border-left: 28px solid var(--hairline-strong);
-  border-right: 0;
-}
-
-.cycle__runway-label {
-  position: absolute;
-  left: 720px;
-  top: calc(var(--cy) - var(--r) + 18px);
-  font-family: var(--font-mono);
-  font-size: 22px;
-  letter-spacing: 0.06em;
-  color: var(--muted);
-}
-
+/* The two entry steps sit above the path, lighter than the loop stages. */
 .cycle__entry {
   position: absolute;
-  bottom: calc(100% - (var(--cy) - var(--r)) + 30px);
-  width: 320px;
+  width: 300px;
+  transform: translateY(-100%);
 }
 
-.cycle__entry::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -46px;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: var(--hairline-strong);
-  border: 5px solid var(--paper);
-  transform: translateX(-50%);
-}
-
-.cycle__entry--1 {
-  left: 16px;
-}
-
-.cycle__entry--2 {
-  left: 400px;
-}
-
-/* The ring: four arcs with gaps at the compass points, cut into a ring by a
-   radial mask. The return arc (the fragment) is a second ring on top. */
-.cycle__ring {
-  position: absolute;
-  left: calc(var(--cx) - var(--r) - var(--stroke) / 2);
-  top: calc(var(--cy) - var(--r) - var(--stroke) / 2);
-  width: calc(2 * var(--r) + var(--stroke));
-  height: calc(2 * var(--r) + var(--stroke));
-  border-radius: 50%;
-  background: conic-gradient(
-    transparent 0deg 7deg,
-    var(--dark) 7deg 83deg,
-    transparent 83deg 97deg,
-    var(--dark) 97deg 173deg,
-    transparent 173deg 187deg,
-    var(--dark) 187deg 263deg,
-    transparent 263deg 277deg,
-    var(--hairline) 277deg 353deg,
-    transparent 353deg 360deg
-  );
-  mask: radial-gradient(
-    circle,
-    transparent calc(var(--r) - var(--stroke) / 2 - 1px),
-    #000 calc(var(--r) - var(--stroke) / 2)
-  );
-}
-
-.cycle__ring--return {
-  background: conic-gradient(
-    transparent 0deg 277deg,
-    var(--link) 277deg 353deg,
-    transparent 353deg 360deg
-  );
-}
-
-/* Arrowheads at the end of each arc, tangent to the ring. */
-.cycle__head {
-  position: absolute;
-  left: calc(var(--cx) + var(--r) * sin(var(--a)));
-  top: calc(var(--cy) - var(--r) * cos(var(--a)));
-  width: 0;
-  height: 0;
-  border: 27px solid transparent;
-  border-left: 40px solid var(--dark);
-  border-right: 0;
-  transform: translate(-40%, -50%) rotate(var(--a));
-  transform-origin: 40% 50%;
-}
-
-.cycle__head--1 {
-  --a: 84deg;
-}
-
-.cycle__head--2 {
-  --a: 174deg;
-}
-
-.cycle__head--3 {
-  --a: 264deg;
-}
-
-.cycle__head--4 {
-  --a: 354deg;
-  border-left-color: var(--link);
-}
-
-/* Stage markers on the compass points. */
-.cycle__dot {
-  position: absolute;
-  width: var(--dot);
-  height: var(--dot);
-  border-radius: 50%;
-  background: var(--dark);
-  border: 6px solid var(--paper);
-  box-sizing: border-box;
-  transform: translate(-50%, -50%);
-}
-
-.cycle__dot--top {
-  left: var(--cx);
-  top: calc(var(--cy) - var(--r));
-}
-
-.cycle__dot--right {
-  left: calc(var(--cx) + var(--r));
-  top: var(--cy);
-}
-
-.cycle__dot--bottom {
-  left: var(--cx);
-  top: calc(var(--cy) + var(--r));
-}
-
-.cycle__dot--left {
-  left: calc(var(--cx) - var(--r));
-  top: var(--cy);
-}
-
-.cycle__dot--left {
-  background: var(--link);
-}
-
-.cycle__center {
-  position: absolute;
-  left: var(--cx);
-  top: var(--cy);
-  transform: translate(-50%, -50%);
-  font-family: var(--font-serif);
-  font-style: italic;
+.cycle__entry .cycle__name {
   font-size: 30px;
-  color: var(--muted);
+  color: var(--fg);
 }
 
-/* Stage labels outside the ring. */
+.cycle__entry .cycle__sub {
+  font-size: 22px;
+}
+
+/* The three loop stages, each placed clear of the arcs and arrowheads. */
 .cycle__stage {
   position: absolute;
+  width: 360px;
 }
 
-.cycle__stage--top {
-  left: var(--cx);
-  top: calc(var(--cy) - var(--r) - var(--dot) / 2 - 18px);
-  width: 560px;
-  transform: translate(-50%, -100%);
-  text-align: center;
-}
-
-.cycle__stage--right {
-  left: calc(var(--cx) + var(--r) + var(--dot) / 2 + 28px);
-  top: var(--cy);
-  width: 330px;
-  transform: translateY(-50%);
-}
-
-.cycle__stage--bottom {
-  left: var(--cx);
-  top: calc(var(--cy) + var(--r) + var(--dot) / 2 + 18px);
-  width: 480px;
-  transform: translateX(-50%);
-  text-align: center;
-}
-
-.cycle__stage--left {
-  left: calc(var(--cx) - var(--r) - var(--dot) / 2 - 28px);
-  top: var(--cy);
-  width: 380px;
-  transform: translate(-100%, -50%);
+.cycle__stage--work {
+  transform: translate(-100%, -100%);
   text-align: right;
 }
 
-.cycle__return-label {
-  position: absolute;
-  left: calc(var(--cx) + var(--r) * sin(300deg) - 40px);
-  top: calc(var(--cy) - var(--r) * cos(300deg));
-  transform: translate(-100%, -50%);
-  font-family: var(--font-mono);
-  font-size: 22px;
-  letter-spacing: 0.06em;
-  color: var(--link);
-  white-space: nowrap;
+.cycle__stage--update {
+  width: 420px;
 }
 
 /* Slide 5: the repository anatomy. A dark tree column and a paper annotation

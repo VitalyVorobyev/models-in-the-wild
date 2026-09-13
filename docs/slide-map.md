@@ -13,7 +13,7 @@ one at a time with Vitaly. All seven are rebuilt; no v0.5 slide remains.
 | 1 | **Frontier Models in the Wild** — title | `01-title.tsx` | dark |
 | 2 | **Five artifacts** — montage, cards rise with scale | `02-artifacts.tsx` | paper |
 | 3 | **The claim** — not faster coding; a larger class of problems | `03-the-claim.tsx` | accent |
-| 4 | **The workflow** — models in a harness, run in a loop against context and success criteria; one click closes the ring | `04-the-workflow.tsx` | paper |
+| 4 | **From idea to working result — then iterate** — two entry steps on a straight path (talk, write it down), then a ring of three (agent works, run & check, update the files); one click lights the return arc | `04-the-workflow.tsx` | paper |
 | 5 | **The repository is the memory** — instructions, docs, skills, tests; project-agnostic | `05-the-memory.tsx` | paper |
 | 6 | **Constrain the intent, not the implementation** — bounded by you vs. extends past you | `06-constrain-intent.tsx` | paper |
 
