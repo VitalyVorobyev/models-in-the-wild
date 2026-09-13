@@ -55,7 +55,7 @@ deterministic layer is tuned from measured misses, not vibes.
 > Frontier models can become a continuously running intelligence layer between an information
 > firehose and the humans who need to make decisions.
 
-## Company implication
+## Implication
 
 The pattern generalizes to technology updates, competitors, patents, supplier changes, customer
 feedback, support and service reports, quality events and internal experiment reports.

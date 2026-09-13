@@ -68,7 +68,7 @@ contrast on its own slide, right after the Atlas section.
 | Narrative `foundation-models-for-vision`, dated 2026-08-23 | `content/narratives/foundation-models-for-vision.md` |
 | Skills: `paper-ingest`, `algo-page`, `deep-model-page`, `concept-page`, `tech-writer`, `authorial-technical-editor` | `.claude/skills/` |
 
-## Company implication
+## Implication
 
 A company does not need to leave technical knowledge scattered across people, PDFs, slide decks, chats and project folders.
 
@@ -77,6 +77,20 @@ One or several living internal atlases could continuously organize evidence, con
 Key phrase to explore on slides:
 
 > From documents we store to knowledge we can navigate.
+
+## Do not claim
+
+Derived from the statements in this file on 2026-09-13; check each against the `vitavision`
+repository before a slide relies on it.
+
+- Author exploration is "an active WIP direction", not a finished feature. The roughly 500 author
+  pages are built pages, not curated author profiles.
+- The Atlas does not ingest automatically. The input is "papers Vitaly chooses to read" — the
+  opposite of the Radar's daily sweep. Never describe it as crawling or monitoring a source.
+- The 115 paper notes are in the private vault. Only the pages under `/atlas` are public; do not
+  present vault content as published.
+- The deck's graph is a curated subset assembled for the talk, not an Atlas product or feature.
+- The evidence table records one narrative story. Do not imply a catalogue of them.
 
 ## Editorial evidence update
 

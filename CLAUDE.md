@@ -34,7 +34,12 @@ This is an R&D-first internal workshop. The five projects are concrete demonstra
 - Never fabricate metrics, project history, or lessons. Use placeholders when evidence is missing.
 - Treat this repository as the durable source of truth, not chat history.
 
-Read `skills/deck-authoring/SKILL.md` before changing the deck structure.
+Two skills carry the rest, and the deck rules above are only their index:
+
+- `skills/deck-authoring/SKILL.md` — the mechanics of this deck: the registry, the evidence
+  pipeline, the components, the commands. Read it before touching files.
+- the global `talk-authoring` skill — the voice, the words Vitaly does not use, what earns a
+  slide, the order an explanation must follow, and the review loop. Read it before writing copy.
 
 ## Commands
 
@@ -93,8 +98,8 @@ deck/src/
 │   ├── base.css      Reveal integration and resets
 │   └── components.css the layout archetypes
 ├── components/       Slide, SlideHeader, ProjectOpener, Implication, ImageSlot,
-│                     AtlasGraph, ScoreExperiment, ScoreFigure, Tex (KaTeX), AudioExample,
-│                     Notes, DeckChrome, SectionMap
+│                     ScoreExperiment, ScoreFigure, Tex (KaTeX), AudioExample,
+│                     ExternalLink, Notes, DeckChrome, SectionMap, VitavisionLogo
 ├── content/
 │   ├── projects.ts   the five projects — names, URLs, one-liners, capabilities
 │   ├── evidence.ts   every figure a slide shows, with its source command and date
@@ -169,11 +174,12 @@ never had. It stays in history: `git show f4e1d0d --stat` lists it, and
   which is a separate project — copy values from it, never depend on it.
 - `VitavisionLogo.tsx` is ported from that same design system, minus its framer-motion animation.
 
-## v0.6 synthesis (in progress)
+## v0.6 — landed on `main` 2026-09-13
 
-Branch `deck-v0.6-synthesis` combines the v0.3 narrative with the v0.5 evidence layer. The
-v0.5 revision is preserved on `deck-v0.5-codex-visual` (PR #3, reference only). Rules that
-came out of the rebuild, in dialogue with Vitaly:
+v0.6 combines the v0.3 narrative with the v0.5 evidence layer; it merged in PR #4. Both
+working branches are deleted. The v0.5 revision survives as commit `7ec8ea2` in `main`'s
+history (`git show 7ec8ea2 --stat`, PR #3) — reference only, never a base to branch from.
+Rules that came out of the rebuild, in dialogue with Vitaly:
 
 - **Every project section is: one dark `ProjectOpener` (name, subtitle, link, hero) → mechanism
   slides with real evidence → one accent `Implication`.** The implication sentences live in
@@ -182,8 +188,9 @@ came out of the rebuild, in dialogue with Vitaly:
   primitives and the first HTML rewrite of the workflow slide both read as wireframes and were
   rejected. Slide 4's ring (`.cycle` in `components.css`, built from `conic-gradient` and CSS
   trigonometry) is the reference for what a mechanism slide should look like.
-- **Plain, concise copy.** Statements, not captions; no "agentic" phrasing on slides; the
-  "do not claim" hedges stay in `docs/projects/*.md`. Words Vitaly does not use: "bespoke".
+- **Plain, concise copy.** Statements, not captions; the "do not claim" hedges stay in
+  `docs/projects/*.md`. The full ledger of rejected words and phrasings is
+  `~/.claude/skills/talk-authoring/references/voice.md`.
 - **Never nest a `<section>` inside a slide.** Reveal absolutely positions every section under
   `.slides`, so an inner one collapses to zero height and shifts the slide.
 - `.reveal p { margin: 0 }` in `base.css` outranks a single-class rule; prefix with `.slide` when

@@ -18,5 +18,20 @@ Do not fill this from guesswork.
 ## What this project proves
 - One distinct lesson about agentic work.
 
-## Company implication
+## Implication
 - What capability could this unlock across teams/departments?
+
+## Evidence (measured YYYY-MM-DD)
+
+Every figure the deck may show, with the command or path that produced it. Re-run these in the
+project's own repository; never carry a number over from a conversation.
+
+| Fact | Source |
+| --- | --- |
+| | |
+
+## Do not claim
+
+Each bullet is an over-claim that would be tempting, and the correction.
+
+-

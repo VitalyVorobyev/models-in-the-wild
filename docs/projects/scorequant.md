@@ -75,7 +75,7 @@ version. The verification stack is where the research actually happens.
 > not to start; agents bring the skill we lack, a formal proof included; the independent
 > checks decide what stands.)
 
-## Company implication
+## Implication
 
 This expands the scope furthest: agentic workflows can support genuine R&D and discovery, not
 just implementation of known solutions.

@@ -70,7 +70,7 @@ Most importantly: Vitaly uses the system to learn German.
 Deutsch-Atlas is no longer one application; it resembles a small educational publishing and
 production ecosystem.
 
-## Company implication
+## Implication
 
 The same pattern applies to technical training, onboarding, service knowledge, application
 engineering, product education, sales training and internal documentation.
